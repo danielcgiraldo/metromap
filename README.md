@@ -4,7 +4,7 @@
 
 Nuestra plataforma proporciona en tiempo real el estado actual de las líneas del Metro de Medellín a través de un mapa interactivo en línea y otras herramientas cómo APIs para que el público en general pueda planificar sus viajes de manera efectiva, evitando sorpresas y contratiempos. Además, ofrecemos un espacio para que los usuarios puedan presentar reportes del estado de los servicios, lo que nos ayuda a mantener la información actualizada y mejorar continuamente nuestra plataforma.
 
-| Universidad Nacional | 2023-1S |
+| Universidad Nacional de Colombia | 2023-1S |
 | --- | --- |
 | **Asignatura:** | Programación para Ingeniería |
 | **Profesor:** | Gabriel Awad Aubad |
