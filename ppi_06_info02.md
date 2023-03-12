@@ -10,7 +10,11 @@
 - [Nextra](https://github.com/shuding/nextra-docs-template)
 - [Django](https://www.djangoproject.com/)
 - [Next.js](https://nextjs.org/)
+- [React](https://es.reactjs.org/)
+- [Django REST Framework](https://www.django-rest-framework.org/)
+- [MySQL](https://www.mysql.com/)
 
 ## Librerías disponibles
 - [snscrape](https://github.com/JustAnotherArchivist/snscrape)
 - [re](https://docs.python.org/3/library/re.html)
+- [pandas](https://pandas.pydata.org/)
