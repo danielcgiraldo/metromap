@@ -1,4 +1,5 @@
 # MetroMap
+
 Mapa interactivo del Metro de Medellín
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/metromap)
@@ -7,14 +8,17 @@ Nuestra plataforma proporciona en tiempo real el estado actual de las líneas de
 
 ## Guía de Instalación
 
-1. Clonar el repositorio de GitHub.
-```bash
-git clone https://github.com/danielcgiraldo/ppi_06.git
-```
-2. Instala las dependencias del repositorio usando el archivo "requirements.txt"
-```bash
-pip install -r requirements.txt
-```
+- Clonar el repositorio de GitHub.
+
+    ```bash
+    git clone https://github.com/danielcgiraldo/ppi_06.git
+    ```
+
+- Instala las dependencias del repositorio usando el archivo "requirements.txt".
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Autores
 

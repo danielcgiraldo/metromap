@@ -7,14 +7,34 @@
 - [Metro de Lima](https://www.lineauno.pe/estaciones/)
 
 ## Software open source
-- [Nextra](https://github.com/shuding/nextra-docs-template)
-- [Django](https://www.djangoproject.com/)
-- [Next.js](https://nextjs.org/)
-- [React](https://es.reactjs.org/)
-- [Django REST Framework](https://www.django-rest-framework.org/)
-- [MySQL](https://www.mysql.com/)
+
+- [Nextra](https://nextra.site/): Es de mucha utilidad ya que nos permite documentar nuestro proyecto a través de una página web atractiva que en el futuro pensamos será de utilidad para enseñar a otros desarroladores cómo implementar nuestra API. Entre sus principales ventajas encontramos:
+  - Facilidad y rápida implementación.
+  - Visuales atractivos.
+  - Documentación accesible en múltiples dispositivos.
+  - Alta capacidad para personalizar la apariencia de la documentación.
+- [Django](https://www.djangoproject.com/): Consideramos que será el núcleo para el funcionamiento del backend de nuestra aplicación web. Sus principales ventajas, además de permitirnos desarrollar un backend robusto en python, son:
+  - Múltiples opciones predesarrolladas que pueden ser usadas en nuestro proyecto.
+  - Seguridad implementada por defecto.
+  - Su documentación esta muy completa.
+  - Es altamente escalable, y puede ser beneficioso a futuro cuando querramos implementar nuevas características a nuestro mapa interactivo.
+- [Next.js](https://nextjs.org/) en conjunto con [React](https://es.reactjs.org/): Dos de los frameworks más prometedores para el desarrollo de frontend funcionando unidos, creemos que será de gran utilidad para la interactividad del mapa. Las principales ventajas son:
+  - Renderizado en servidor o cliente.
+  - Mejora la experiencia de usuario considerablemente con respecto a usar solo HTML, CSS y JS.
+  - React nos permite un desarrollo más rápido y eficiente.
+  - Existe mucha documentación al respecto.
+- [Django REST Framework](https://www.django-rest-framework.org/): Basado en Django, mantiene una línea de aprendizaje similar, y nos permite implementar la API de mejor forma, entre sus principales ventajas encontramos:
+  - Proporciona herramientas y utilidades para simplificar la creación de APIs web.
+  - Genera documentación para las APIs creadas.
+  - Es muy flexible y permite personalizar el comportamiento de las APIs de acuerdo a nuestras necesidades.
+- [MySQL](https://www.mysql.com/): Un sistema de gestión de bases de datos muy conocido, que nos servirá para almacenar todos los datos recolectados por nuestra plataforma. Entre sus principales ventajas están:
+  - Cuenta con una gran comunidad de desarrolladores y se encuentra en el top de sistemas de gestión de bases de datos.
+  - Es muy fiable y estable.
+  - Se puede conectar con múltiples lenguajes y sistemas operativos.
+  - Es conocido por su alto rendimiento y velocidad en la gestión de bases de datos.
 
 ## Librerías disponibles
+
 - [snscrape](https://github.com/JustAnotherArchivist/snscrape)
 - [re](https://docs.python.org/3/library/re.html)
 - [pandas](https://pandas.pydata.org/)
