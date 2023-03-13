@@ -1,6 +1,7 @@
 # MetroMap
 
 ## Herramientas/aplicativos
+
 - [Metro de Seúl](https://www.seoulmetro.co.kr/en/cyberStation.do): El sistema de metro de Seúl consta de 23 líneas y ofrece varias características útiles para los usuarios:
   - Permite buscar estaciones específicas para facilitar su ubicación en el mapa
   - Las estaciones cuentan con información sobre la primera y última salida del metro para los días de la semana y los fines de semana.
@@ -47,13 +48,13 @@
 
 ## Librerías disponibles
 
-- [snscrape](https://github.com/JustAnotherArchivist/snscrape): es una librería que permite hacer web scraping de redes sociales. Sus características son: 
-    - Su compatibilidad con varias redes sociales, entre las que se encuentran Twitter, Reddit,  Instagram y YouTube.
-    - El hecho de que permite realizar búsquedas avanzadas en las redes sociales.
-    - Su gran flexibilidad, ya que permite extraer los datos en diversos formatos como JSON o CSV.
-    - La rapidez con la que puede llevar a cabo la extracción de grandes cantidades de datos
-    - El poder llevar a cabo seguimiento en tiempo real de la red social que se quiera a través de su herramienta de streaming.
-    - Por último, está su gran facilidad de uso gracias a la interfaz que tiene que lo vuelve fácil de usar para gente con diferentes conocimientos de programación.
+- [snscrape](https://github.com/JustAnotherArchivist/snscrape): es una librería que permite hacer web scraping de redes sociales. Sus características son:
+  - Su compatibilidad con varias redes sociales, entre las que se encuentran Twitter, Reddit,  Instagram y YouTube.
+  - El hecho de que permite realizar búsquedas avanzadas en las redes sociales.
+  - Su gran flexibilidad, ya que permite extraer los datos en diversos formatos como JSON o CSV.
+  - La rapidez con la que puede llevar a cabo la extracción de grandes cantidades de datos
+  - El poder llevar a cabo seguimiento en tiempo real de la red social que se quiera a través de su herramienta de streaming.
+  - Por último, está su gran facilidad de uso gracias a la interfaz que tiene que lo vuelve fácil de usar para gente con diferentes conocimientos de programación.
 
 - [re](https://docs.python.org/3/library/re.html): es una librería que se usa para trabajar con patrones de cadenas de texto. Entre sus características más relevantes encontramos: 
   - Permite buscar y reemplazar patrones
