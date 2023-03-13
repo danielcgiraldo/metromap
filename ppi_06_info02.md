@@ -2,9 +2,19 @@
 
 ## Herramientas/aplicativos
 
-- [Metro de Seúl](https://www.seoulmetro.co.kr/en/cyberStation.do)
-- [Metro de Madrid](https://www.metromadrid.es/es)
-- [Metro de Lima](https://www.lineauno.pe/estaciones/)
+- [Metro de Seúl](https://www.seoulmetro.co.kr/en/cyberStation.do):  
+- [Metro de Madrid](https://www.metromadrid.es/es): A diferencia de Seul, este cuenta con cada linea detallada individualemte, carece de la cantidad de detalles e informacion de Seul pero cumple con el objetivo de indicar el estado de las lineas y sus estaciones. 
+  - Es posible calcular las rutas entre estaciones y filtrarlas segun el criterio de "menos transbordos" "mas rapido" o "menos distancia". 
+  - Una vez seleccionada una ruta, se despliega un mapa de madrid con todas las estaciones, y destacando el tramo solicitado. 
+  - El mapa de las lineas y estaciones se encuentra ubicado sobre un mapa de madrid detallado con direcciones y ubicaciones. 
+  - Madrid tambien cuenta con un mapa estatico detallado como el sistema metro de Medellin, pero este esta disponible en multiples variaciones (cartpgrafico, red, esquematico, etc)
+  - Los horaios estan fijados para cada tramo.
+
+- [Metro de Lima](https://www.lineauno.pe/estaciones/): Lima: El mas reciente de los proyectos de metro, cuenta con una sola linea por el momento, el estado de esta se denota en terminos  de congestion representada como una gradiante de colores desde verde (de 0 a 10m) hasta roja (de mas de 60m)
+
+  - Cuenta con unos horarios de llegada y salida estimados que suponemos estan basados estadisticamente.
+  - El mapa dinamico se ubica encima de un mapa estatico de la ciudad el cual esta divido en sectores.
+  - Visualmente es el que mas se asemeja a la idea de nuestro proyecto.
 
 ## Software open source
 
