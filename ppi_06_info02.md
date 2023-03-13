@@ -35,8 +35,7 @@
 
 ## Librerías disponibles
 
-- [snscrape](https://github.com/JustAnotherArchivist/snscrape)
-    es una librería que permite hacer web scraping de redes sociales. Sus características son: 
+- [snscrape](https://github.com/JustAnotherArchivist/snscrape): es una librería que permite hacer web scraping de redes sociales. Sus características son: 
     - Su compatibilidad con varias redes sociales, entre las que se encuentran Twitter, Reddit,  Instagram y YouTube.
     - El hecho de que permite realizar búsquedas avanzadas en las redes sociales.
     - Su gran flexibilidad, ya que permite extraer los datos en diversos formatos como JSON o CSV.
@@ -44,16 +43,14 @@
     - El poder llevar a cabo seguimiento en tiempo real de la red social que se quiera a través de su herramienta de streaming.
     - Por último, está su gran facilidad de uso gracias a la interfaz que tiene que lo vuelve fácil de usar para gente con diferentes conocimientos de programación.
 
-- [re](https://docs.python.org/3/library/re.html)
-  es una librería que se usa para trabajar con patrones de cadenas de texto. Entre sus características más relevantes encontramos: 
+- [re](https://docs.python.org/3/library/re.html): es una librería que se usa para trabajar con patrones de cadenas de texto. Entre sus características más relevantes encontramos: 
   - Permite buscar y reemplazar patrones
   - Permite encontrar patrones que coinciden con una expresión regular
   - Nos permite definir patrones complejos utilizando una sintaxis de expresiones regulares
   - Permite utilizar comodines y caracteres especiales
   - También nos permite agrupar y capturar patrones para su posterior uso en el código
 
-- [pandas](https://pandas.pydata.org/)
-  es una librería popular de Python utilizada para manipular y analizar datos. Sus principales características incluyen:
+- [pandas](https://pandas.pydata.org/): es una librería popular de Python utilizada para manipular y analizar datos. Sus principales características incluyen:
   - Estructuras de datos flexibles para manejar datos unidimensionales y bidimensionales. Posee numerosas funciones para la manipulación y transformación de datos.
   - Está integrada con otras bibliotecas de Python
   - Tiene la capacidad de leer y escribir datos en una amplia variedad de formatos
