@@ -34,9 +34,9 @@ By following this tutorial, you will be able to successfully deploy the metromap
     - [_Configuring NGINX_](#configuring-nginx)
   - [Setting up your Domain](#setting-up-your-domain)
     - [_Creating Domain records_](#creating-domain-records)
-    - [_Configuring our Web Server_](#configuring-our-web-server)
   - [HTTPS](#https)
     - [_Installing Certbot_](#installing-certbot)
+  - [Run Nginx](#run-nginx)
   - [Closing Thoughts](#closing-thoughts)
 
 ---
@@ -399,35 +399,23 @@ Paste in the following configurations and replace any of the ALL CAPS sections w
 
 ```bash
 server {
-listen 80;
-server_name YOUR_INSTANCE_IP_ADDRESS;
+    listen 80;
+    listen 443 ssl;
+    server_name api.metromap.online embed.metromap.online;
 
-location / {
-include proxy_params;
-proxy_pass http://unix:/run/gunicorn.sock;
+    ssl_certificate /etc/letsencrypt/live/api.metromap.online/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/api.metromap.online/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/api.metromap.online/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/api.metromap.online/privkey.pem;
+
+    root /home/ubuntu/ppi_06/core;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
 }
-}
 ```
-
-Once your NGINX config is set up, make sure there are no syntax errors with:
-
-```bash
-  sudo nginx -t
-```
-
-Next, create a soft link of your config file from sites-available to the sites-enabled directory. This step is important because NGINX will use the configuration settings located at /etc/nginx/sites-available/default by default if there is nothing in sites-enabled.
-
-```bash
-  sudo ln -s /etc/nginx/sites-available/metromap /etc/nginx/sites-enabled
-```
-
-Restart the NGINX Web Server with:
-
-```bash
-  sudo systemctl restart nginx
-```
-
-Now if you go to your Elastic IP on your browser it should show the app!
 
 > It may be necessary to modify the allowed hosts setting in the Django settings file.
 
@@ -461,30 +449,6 @@ Set the records like so:
 | ---- | :---: | :-: | ----------------------: |
 | api    | A     | AUTO  | YOUR-ELASTIC-IP-ADDRESS |
 | embed    | A     | AUTO  | YOUR-ELASTIC-IP-ADDRESS |
-
-### _Configuring our Web Server_
-
-Edit the NGINX config file inside your EC2 instance:
-
-```bash
-  sudo vim /etc/nginx/sites-available/default
-```
-
-Update the `server:server_name` section of the config file:
-
-```bash
-server {
-server_name <YOUR-ELASTIC-IP> api.metromap.online embed.metromap.online;
-...
-```
-
-Save and restart NGINX:
-
-```bash
-sudo sudo systemctl restart nginx
-```
-
-_DNS changes can take up to 48 hours to update so your results may vary. Once it is complete, going to your custom domain should redirect you to your app._
 
 ---
 
@@ -537,6 +501,28 @@ Next, go to your custom domain. Check to see if there is a lock icon next to you
 ![secure_site](https://user-images.githubusercontent.com/41876764/86527267-2674b580-be52-11ea-9405-874f4f4ba7f0.png)
 
 Congratulations! You have successfully deployed a web app with HTTPS!
+
+---
+
+## Run Nginx
+
+Once your NGINX config is set up and your SSL are installed, make sure there are no syntax errors with:
+
+```bash
+  sudo nginx -t
+```
+
+Next, create a soft link of your config file from sites-available to the sites-enabled directory. This step is important because NGINX will use the configuration settings located at /etc/nginx/sites-available/default by default if there is nothing in sites-enabled.
+
+```bash
+  sudo ln -s /etc/nginx/sites-available/metromap /etc/nginx/sites-enabled
+```
+
+Restart the NGINX Web Server with:
+
+```bash
+  sudo systemctl restart nginx
+```
 
 ---
 
