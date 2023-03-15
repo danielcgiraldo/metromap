@@ -9,6 +9,8 @@ By following this tutorial, you will be able to successfully deploy the metromap
 - SSL-certification with Certbot
 - A custom domain name
 
+> Please note that all commands in this document were executed using Linux (Ubuntu) operating system. It is important to be aware that if you are using a different operating system, the bash inputs may vary and require different commands to achieve the same results.
+
 ## Table of Contents
 
 - [Deploying a Production ready Django app on AWS](#deploying-a-production-ready-django-app-on-aws)
@@ -117,7 +119,7 @@ Set your Security Group settings with the following:
 
 | Type         | Port Range | Source            | Description.                                |
 | ------------ | :--------: | :---------------: | ------------------------------------------: |
-| SSH          | 22         | Custom YOUR-IP  | Port for SSH'ing into your server          |
+| SSH          | 22         | My IP  | Port for SSH'ing into your server          |
 | HTTP         | 80         | Anywhere          | Port for HTTP requests to your web server  |
 | HTTPS        | 443        | Anywhere          | Port for HTTPS requests to your web server |
 | Custom TCP   | 8000       | Anywhere          | Port which Django will run                 |
