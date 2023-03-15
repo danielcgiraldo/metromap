@@ -264,14 +264,14 @@ We will install the following:
 Updating packages:
 
 ```bash
-% sudo apt update
-% sudo apt upgrade
+  sudo apt update
+  sudo apt upgrade
 ```
 
 Installing Python 3, NGINX and Gunicorn:
 
 ```bash
-% sudo apt install python3-pip python3-dev nginx gunicorn curl
+  sudo apt install python3-pip python3-dev nginx gunicorn curl
 ```
 
 ---
@@ -281,15 +281,15 @@ Installing Python 3, NGINX and Gunicorn:
 Enable Firewall and allow OpenSSH:
 
 ```bash
-% sudo ufw enable
-% sudo ufw allow OpenSSH
-% sudo ufw allow 'Nginx Full'
+  sudo ufw enable
+  sudo ufw allow OpenSSH
+  sudo ufw allow 'Nginx Full'
 ```
 
 Check to make sure we are allowing OpenSSH
 
 ```bash
-% sudo ufw status
+  sudo ufw status
 ```
 
 Expected output:
@@ -310,11 +310,11 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 To deploy our GitHub repository on our EC2 instance:
 
 ```bash
-% git clone https://github.com/danielcgiraldo/ppi_06.git
-% cd ppi_06/core
-% python3 -m venv env
-% source env/bin/activate
-% pip3 install -r requirements.txt
+  git clone https://github.com/danielcgiraldo/ppi_06.git
+  cd ppi_06/core
+  python3 -m venv env
+  source env/bin/activate
+  pip3 install -r requirements.txt
 ```
 
 **Note: Make sure to update your .env file so that your project has the correct Environment Varialbes necessary to run.**
@@ -326,7 +326,7 @@ To deploy our GitHub repository on our EC2 instance:
 Create a gunicorn.socket file:
 
 ```bash
-% sudo vim /etc/systemd/system/gunicorn.socket
+  sudo vim /etc/systemd/system/gunicorn.socket
 ```
 
 Configure the gunicorn.socket file with:
@@ -345,7 +345,7 @@ WantedBy=sockets.target
 Next configure the gunicorn.service file with:
 
 ```bash
-% sudo nano /etc/systemd/system/gunicorn.service
+  sudo nano /etc/systemd/system/gunicorn.service
 ```
 
 Use the configurations below:
@@ -357,10 +357,10 @@ Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=djangoadmin
+User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/ppi_06/core
-ExecStart=/home/djangoadmin/pyapps/venv/bin/gunicorn \
+ExecStart=/home/ubuntu/ppi_06/core/env/bin/gunicorn \
 --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock metromap.wsgi:application
 
 [Install]
@@ -370,14 +370,14 @@ WantedBy=multi-user.target
 Start and enable Gunicorn:
 
 ```bash
-% sudo systemctl start gunicorn
-% sudo systemctl enable gunicorn
+  sudo systemctl start gunicorn
+  sudo systemctl enable gunicorn
 ```
 
 Check the status of gunicorn with:
 
 ```bash
-% sudo systemctl status gunicorn
+  sudo systemctl status gunicorn
 ```
 
 ---
@@ -389,7 +389,7 @@ Next, we need to configure NGINX to redirect web traffic.
 Create a new NGINX config file with the following command:
 
 ```bash
-% sudo vim /etc/nginx/sites-available/metromap
+  sudo vim /etc/nginx/sites-available/metromap
 ```
 
 Paste in the following configurations and replace any of the ALL CAPS sections with your own project details:
@@ -409,19 +409,19 @@ proxy_pass http://unix:/run/gunicorn.sock;
 Once your NGINX config is set up, make sure there are no syntax errors with:
 
 ```bash
-% sudo nginx -t
+  sudo nginx -t
 ```
 
 Next, create a soft link of your config file from sites-available to the sites-enabled directory. This step is important because NGINX will use the configuration settings located at /etc/nginx/sites-available/default by default if there is nothing in sites-enabled.
 
 ```bash
-% sudo ln -s /etc/nginx/sites-available/metromap /etc/nginx/sites-enabled
+  sudo ln -s /etc/nginx/sites-available/metromap /etc/nginx/sites-enabled
 ```
 
 Restart the NGINX Web Server with:
 
 ```bash
-% sudo systemctl restart nginx
+  sudo systemctl restart nginx
 ```
 
 Now if you go to your Elastic IP on your browser it should show the app!
@@ -462,7 +462,7 @@ Set the records like so:
 Edit the NGINX config file inside your EC2 instance:
 
 ```bash
-% sudo vim /etc/nginx/sites-available/default
+  sudo vim /etc/nginx/sites-available/default
 ```
 
 Update the `server:server_name` section of the config file:
@@ -500,7 +500,7 @@ Select the Software and Operating System (OS) you are using. In this case, we ar
 Inside your EC2 Instance, follow the command-line instructions until you see these instructions:
 
 ```bash
-% sudo certbot --nginx
+  sudo certbot --nginx
 ```
 
 After running this command, Certbot will present to you the following prompt: Which names would you like to activate HTTPS for?
