@@ -25,8 +25,8 @@ By following this tutorial, you will be able to successfully deploy the metromap
     - [_Elastic IP_](#elastic-ip)
     - [_Connecting to your EC2 Instance_](#connecting-to-your-ec2-instance)
   - [EC2 Environment Setup](#ec2-environment-setup)
-    - [_Firewall Setup_](#firewall-setup)
   - [Installing Dependencies](#installing-dependencies)
+    - [_Firewall Setup_](#firewall-setup)
     - [_Setting up the Project on the Remote Server_](#setting-up-the-project-on-the-remote-server)
     - [_Configuring Gunicorn_](#configuring-gunicorn)
     - [_Configuring NGINX_](#configuring-nginx)
@@ -257,7 +257,24 @@ We will install the following:
 - NGINX
 - UFW (Firewall)
 
---
+---
+
+## Installing Dependencies
+
+Updating packages:
+
+```bash
+% sudo apt update
+% sudo apt upgrade
+```
+
+Installing Python 3, NGINX and Gunicorn:
+
+```bash
+% sudo apt install python3-pip python3-dev nginx gunicorn curl
+```
+
+---
 
 ### _Firewall Setup_
 
@@ -284,23 +301,6 @@ Nginx Full                 ALLOW       Anywhere
 OpenSSH                    ALLOW       Anywhere
 Nginx Full (v6)            ALLOW       Anywhere (v6)
 OpenSSH (v6)               ALLOW       Anywhere (v6)
-```
-
----
-
-## Installing Dependencies
-
-Updating packages:
-
-```bash
-% sudo apt update
-% sudo apt upgrade
-```
-
-Installing Python 3, NGINX and Gunicorn:
-
-```bash
-% sudo apt install python3-pip python3-dev nginx gunicorn curl
 ```
 
 ---
