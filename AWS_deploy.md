@@ -364,8 +364,7 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/ppi_06/core
-ExecStart=/home/ubuntu/ppi_06/core/env/bin/gunicorn \
---access-logfile - --workers 3 --bind unix:/run/gunicorn.sock metromap.wsgi:application
+ExecStart=/home/ubuntu/ppi_06/core/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock core.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
@@ -429,6 +428,8 @@ Restart the NGINX Web Server with:
 ```
 
 Now if you go to your Elastic IP on your browser it should show the app!
+
+> It may be necessary to modify the allowed hosts setting in the Django settings file.
 
 [Back to Table of Contents](#table-of-contents)
 
