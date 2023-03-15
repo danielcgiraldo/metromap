@@ -34,6 +34,8 @@ Nuestra plataforma proporciona en tiempo real el estado actual de las líneas de
 | **Correo:** | sriverame@unal.edu.co |
 
 ## Biblografía
-- https://docs.djangoproject.com/en/4.1/intro/
+
+- <https://docs.djangoproject.com/en/4.1/intro/>
+- <https://gist.github.com/rmiyazaki6499/92a7dc283e160333defbae97447c5a83#previewing-the-django-app-project-locally>
 
 > Reconocimiento especial a [Chat GPT](https://chat.openai.com/).
