@@ -311,6 +311,8 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 
 To deploy our GitHub repository on our EC2 instance:
 
+> Before creating python environment, you may install venv using `sudo apt install python3.10-venv`.
+
 ```bash
   git clone https://github.com/danielcgiraldo/ppi_06.git
   cd ppi_06/core
