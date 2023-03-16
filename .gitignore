@@ -135,8 +135,6 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
 
 # mypy
 .mypy_cache/
@@ -162,3 +160,6 @@ cython_debug/
 
 # aws key pairs
 daniel.pem
+#NexJS
+site/.next
+site/node_modules
