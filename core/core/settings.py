@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!g_z5n-+04svgu3he^h@cllm@be+@n_r%hk8&vzv4121yi!)v)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["34.234.99.236", "*.metromap.online"]
+ALLOWED_HOSTS = ['34.234.99.236', 'api.metromap.online', 'embed.metromap.online']
 
 
 # Application definition
