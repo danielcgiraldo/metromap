@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>APIPrueba</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #26a26a;
+      }
+      #container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      p {
+        margin: 10px 0;
+        line-height: 1.5;
+      }
+      img {
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Resultados de la API</h1>
+      <div id="results">
+        {% for result in results %}
+          <hr>
+          <img src="{{ result.picture.large }}" width="150" height="150">
+          <p><strong>Nombre:</strong> {{ result.name.title }} {{ result.name.first }} {{ result.name.last }}</p>
+          <p><strong>Genero:</strong> {{ result.gender }}</p>
+          <p><strong>Direccion:</strong> {{ result.location.street.number }} {{ result.location.street.name }}, {{ result.location.city }}, {{ result.location.state }}, {{ result.location.country }}, {{ result.location.postcode }}</p>
+          <p><strong>Correo:</strong> {{ result.email }}</p>
+          <p><strong>Login:</strong> {{ result.login.username }} / {{ result.login.password }}</p>
+          <p><strong>Fecha de nacimiento:</strong> {{ result.dob.date }}</p>
+          <p><strong>Fecha de registro:</strong> {{ result.registered.date }}</p>
+          <p><strong>Telrfono:</strong> {{ result.phone }}</p>
+          <p><strong>Celular:</strong> {{ result.cell }}</p>
+          <p><strong>Nacionalidad:</strong> {{ result.nat }}</p>
+        {% endfor %}
+        <hr>
+        <p><strong>Informacion de la API:</strong></p>
+        <p>Version: {{ info.version }}</p>
+        <p>Seed: {{ info.seed }}</p>
+        <p>Resultados: {{ info.results }}</p>
+        <p>Pagina: {{ info.page }}</p>
+        <p><a href="https://randomuser.me/api/">https://randomuser.me/api/</a></p>
+      </div>
+    </div>
+    <script>
+      function getData() {
+        fetch('https://randomuser.me/api/')
+          .then(response => response.json())
+          .then(data => {
+            const results = document.getElementById('results');
+            results.innerHTML = '';
+            data.results.forEach(result => {
+              const div = document.createElement('div');
+              div.innerHTML = `
+                <hr>
+                <img src="${result.picture.large}" width="150" height="150">
+                <p><strong>Nombre:</strong> ${result.name.title} ${result.name.first} ${result.name.last}</p>
+                <p><strong>Genero:</strong>
+
+${result.gender}</p>
+<p><strong>Direccion:</strong> ${result.location.street.number} ${result.location.street.name}, ${result.location.city}, ${result.location.state}, ${result.location.country}, ${result.location.postcode}</p>
+<p><strong>Correo:</strong> ${result.email}</p>
+<p><strong>Login:</strong> ${result.login.username} / ${result.login.password}</p>
+<p><strong>Fecha de nacimiento:</strong> ${result.dob.date}</p>
+<p><strong>Fecha de registro:</strong> ${result.registered.date}</p>
+<p><strong>Telrfono:</strong> ${result.phone}</p>
+<p><strong>Celular:</strong> ${result.cell}</p>
+<p><strong>Nacionalidad:</strong> ${result.nat}</p>
+; results.appendChild(div); }); const infoDiv = document.createElement('div'); infoDiv.innerHTML = <hr>
+<p><strong>Informacion de la API:</strong></p>
+<p>Version: ${data.info.version}</p>
+<p>Seed: ${data.info.seed}</p>
+<p>Resultados: ${data.info.results}</p>
+<p>Pagina: ${data.info.page}</p>
+<p><a href="https://randomuser.me/api/">https://randomuser.me/api/</a></p>
+`;
+results.appendChild(infoDiv);
+})
+.catch(error => console.error(error));
+}
+window.addEventListener('DOMContentLoaded', getData);
+</script>
+
+  </body>
+</html>
+

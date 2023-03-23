@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MetroMap</title>
+	<style>
+		.tweet-container {
+			margin-bottom: 20px;
+		}
+		
+		.tweet {
+			margin-top: 10px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+		}
+	</style>
+</head>
+<body>
+	<h1>MetroMap</h1>
+	<li>
+		{% for linea in lineas %}
+		<div class="tweet-container">
+			<p>{{ linea.0 }}: {{ linea.1 }}, ({{ linea.2 }}), <div class="tweet"><blockquote class="twitter-tweet"><a href="{{ linea.3 }}">Link del Tweet</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div></p>
+		</div>
+		{% endfor %}
+	</li>     
+</body>
+</html>
+
