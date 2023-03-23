@@ -1,2 +1,4 @@
-��D�j�a�n�g�o�=�=�4�.�1�.�7�
-requests==2.28.2
+  D j a n g o = = 4 . 1 . 7 
+requests == 2.28.2
+djangorestframework >= 3.14.0
+snscrape >= 0.6.2.20230320
