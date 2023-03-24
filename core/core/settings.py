@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!g_z5n-+04svgu3he^h@cllm@be+@n_r%hk8&vzv4121yi!)v)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.234.99.236', 'api.metromap.online', 'embed.metromap.online', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['api.metromap.online', 'embed.metromap.online', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,12 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'embed',
+    'api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'core.middleware.DomainMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
