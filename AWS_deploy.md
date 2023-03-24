@@ -410,6 +410,10 @@ server {
 
     root /home/ubuntu/ppi_06/core;
 
+    location /static/ {
+        root /home/ubuntu/ppi_06/core;
+    }
+
     location / {
         include proxy_params;
         proxy_pass http://unix:/run/gunicorn.sock;
