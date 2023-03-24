@@ -12,8 +12,8 @@ def gettweets(num=5):
         else: break
 
     #turned into json
-    output = json.dumps(tweets, ensure_ascii=False)
-    return output
+    # output = json.dumps(tweets, ensure_ascii=False)
+    return tweets
     
 
 
