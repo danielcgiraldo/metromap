@@ -1,6 +1,7 @@
+from django.contrib import admin
 from django.urls import path
-from . import views
+from .views import HolaMundo
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path("hola/", HolaMundo)
 ]
