@@ -1,7 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from api import SNT
+from django.http import JsonResponse
 
 # Create your views here.
 
-def HolaMundo(request):
-    return HttpResponse("Hola Api")
+def get_tweets_endpoint(request):
+    tweets = SNT.gettweets()
+    return JsonResponse(tweets, safe=False, json_dumps_params={'ensure_ascii': False})
+
+    
