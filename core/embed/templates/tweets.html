@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweets</title>
+    <link rel="stylesheet" href="{% static 'css/tweets.css' %}">
+  </head>
+  <body>
+    <div id="tweet-container"></div>
+
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="{% static 'js/tweets.js' %}"></script>
+    <script>
+      const apiUrl = "{{ api_url }}";
+      renderTweets(apiUrl);
+    </script>
+  </body>
+</html>

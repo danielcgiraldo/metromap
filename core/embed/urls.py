@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import HolaMundo
+from .views import HolaMundo, tweets
 
 urlpatterns = [
-    path("hola/", HolaMundo)
+    path("v1/tweets/", tweets),
 ]
