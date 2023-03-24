@@ -403,6 +403,8 @@ server {
     listen 443 ssl;
     server_name api.metromap.online embed.metromap.online;
 
+    add_header Access-Control-Allow-Origin *;
+
     ssl_certificate /etc/letsencrypt/live/api.metromap.online/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/api.metromap.online/privkey.pem;
     ssl_certificate /etc/letsencrypt/live/api.metromap.online/fullchain.pem;
