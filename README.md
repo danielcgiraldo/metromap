@@ -14,7 +14,38 @@ Nuestra plataforma proporciona en tiempo real el estado actual de las líneas de
     git clone https://github.com/danielcgiraldo/ppi_06.git
     ```
 
-- Instala las dependencias del repositorio usando el archivo "requirements.txt".
+A partir de aquí, tienes dos aplicaciones web diferentes para ejecutar, el [Sitio Oficial](https://metromap.online)
+y el core de nuestro servicio que contiene la [API](https://api.metromap.online) y el [mapa](https://embed.metromap.online).
+
+### Sitio Oficial
+
+- Dirigirse a la carpeta `site`.
+
+    ```bash
+    cd site
+    ```
+
+- Instalar las dependencias para correr el proyecto.
+
+    ```bash
+    pnpm install
+    ```
+
+- Ejecutar el servidor local en modo desarrollo.
+
+    ```bash
+    pnpm run dev
+    ```
+
+### Core
+
+- Dirigirse a la carpeta `core`.
+
+    ```bash
+    cd core
+    ```
+
+- Instalar las dependencias para correr el proyecto usando el archivo "requirements.txt".
 
     ```bash
     pip install -r requirements.txt

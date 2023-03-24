@@ -159,7 +159,7 @@ cython_debug/
 
 
 # aws key pairs
-daniel.pem
+aws.pem
 #NexJS
 site/.next
 site/node_modules
