@@ -6,10 +6,10 @@ class DomainMiddleware:
 
     def __call__(self, request):
         host = request.get_host()
-        if 'dominio1.com' in host:
-            request.urlconf = 'app_dominio1.urls'
-        elif 'dominio2.com' in host:
-            request.urlconf = 'app_dominio2.urls'
+        if 'embed.metromap.online' in host:
+            request.urlconf = 'embed.urls'
+        elif 'api.metromap.online' in host:
+            request.urlconf = 'api.urls'
         else:
             return HttpResponseBadRequest("Dominio no permitido")
 
