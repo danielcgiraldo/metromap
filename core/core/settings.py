@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['api.metromap.online', 'embed.metromap.online', '127.0.0.1', 'l
 
 
 # Application definition
-
+# Añadimos las Apps embes y api a la web
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

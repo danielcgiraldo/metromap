@@ -2,8 +2,8 @@
 
 ## INFORME 03
 - Web scrapping para sacar los ultimos 5 tweetes del metro de medellin (as a proof of concept)
-- Como hacer/crear/usar una API (link de la api) then jesus'
-- Como montar servidores para lanzar nuestra aplicacion web
+- Como hacer/crear/usar una API. [link de la api](https://api.metromap.online/v1/tweets/)
+- Como montar servidores para lanzar nuestra aplicacion web. [link de la página con los tweets](https://embed.metromap.online/v1/tweets/)
 
 
 ## INFORME 04
