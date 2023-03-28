@@ -6,8 +6,6 @@
 - Como montar servidores para lanzar nuestra aplicacion web
 
 
-
-
 ## INFORME 04
 - organizar la estructura del proyecto
 - todos los urls para las apis que tenemos (explicar las apis y sus usos)
@@ -16,12 +14,11 @@
 
 
 ## INFORME 05
-- progreso de apis 70%
-- documentar el codigo (pagina principal)
++ El avance en el desarrollo de nuestras APIs se espera tener en un 70%. Como siguiente paso importante, se procederá a documentar el código de la [página principal](https://www.metromap.online/) para garantizar la correcta comprensión y uso por parte de los usuarios.
 
 
 ## INFORME 06
-- implementacion del mapa (hacer la parte grafica del mapa)
++ El avance en el desarrollo de nuestras APIs se espera tener en un 100%. Nos enfocaremos en la implementación del mapa (en cuanto a su parte gráfica) para brindar una experiencia de usuario óptima, por ultimo, refinar el web scrapping para obtener solo los tweets mas indicados.
 
 ## INFORME 07
 - hacer el mapa funcional (interactuar con todas las apis)
