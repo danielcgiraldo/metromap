@@ -1,25 +1,20 @@
 import snscrape.modules.twitter as st
-import json
 
-def gettweets(num=5):
+def gettweets(num = 5):
+    '''Obtiene los ultimos 5 tweets del metro de medellin'''
+    
+    # Excluir las respuestas y solo filtrar ultimos tweets
     query = "(from:metrodemedellin) -filter:replies"
     tweets = {"status":"okay", "data":[]}
+    # Se obtienen los tweets del objeto creado por twitterSearchScrapper
     for i,t in enumerate(st.TwitterSearchScraper(query).get_items()):
+        
+        # Filtrar exclusivamente la descripcion del tweet
         cleanup = t.rawContent
-        # cleanup = cleanup[ 0 : t.content.index("https")]
         cleanup = cleanup.replace("\n",'')
+        # Se agregan el ID, URL, Descripcion del tweet
         if i < num: tweets["data"].append({"id":t.id, "url":t.url, "content":cleanup})
         else: break
 
-    #turned into json
-    output = json.dumps(tweets, ensure_ascii=False)
-    return output
-    
-
-
-
-
-# import os
-
-# # Using OS library to call CLI commands in Python
-# os.system("snscrape --jsonl --max-results 5 twitter-user metrodemedellin> metromapTweets.json")
+    # Retorna un diccionario con el estado y el ID, URL, Descripcion de los tweets
+    return tweets
