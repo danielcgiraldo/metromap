@@ -1,4 +1,6 @@
 from django.http import HttpResponseBadRequest
+from dotenv import load_dotenv
+import os
 
 class DomainMiddleware:
     def __init__(self, get_response):
@@ -6,9 +8,9 @@ class DomainMiddleware:
 
     def __call__(self, request):
         host = request.get_host()
-        if 'embed.metromap.online' in host:
+        if os.getenv("EMBED_HOST") in host:
             request.urlconf = 'embed.urls'
-        elif 'api.metromap.online' in host:
+        elif os.getenv("API_HOST") in host:
             request.urlconf = 'api.urls'
         else:
             return HttpResponseBadRequest("Dominio no permitido")
