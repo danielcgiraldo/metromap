@@ -11,10 +11,10 @@
 - todos los urls para las apis que tenemos (explicar las apis y sus usos)
   ```bash
   v1
-  ├── [status](https://api.metromap.online/v1/status/)
+  ├── status
   ├────[linea]
   ├──────[estacion]
-  ├── [data](https://api.metromap.online/v1/data/)
+  ├── data
   ├────[linea]
   └──────[estacion]
   ```
