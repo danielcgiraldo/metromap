@@ -1,14 +1,14 @@
 # PLAN DE TRABAJO
 
 ## INFORME 03
-- Web scrapping para sacar los ultimos 5 tweetes del metro de medellin (as a proof of concept)
-- Como hacer/crear/usar una API. [link de la api](https://api.metromap.online/v1/tweets/)
-- Como montar servidores para lanzar nuestra aplicacion web. [link de la página con los tweets](https://embed.metromap.online/v1/tweets/)
+- Realizar web scrapping para sacar los ultimos 5 tweetes del metro de medellin.
+- Investigar como hacer/crear/usar una API e implementarla en su respectiva [url](https://api.metromap.online/v1/tweets/).
+- Montar los servidores donde lanzaremos [nuestra aplicacion web](https://embed.metromap.online/v1/tweets/).
 
 
 ## INFORME 04
-- organizar la estructura del proyecto
-- todos los urls para las apis que tenemos (explicar las apis y sus usos)
+- Organizaremos la estructura del proyecto.
+- Avanzar con el desarrollo de las APIs con la siguiente estructura.
   ```bash
   v1
   ├── status
@@ -18,8 +18,8 @@
   ├────[linea]
   └──────[estacion]
   ```
-- montar una base de datos
-- adelantar el mapa
+- Implemetar una base de datos.
+- Realizar avances en el mapa.
 
 
 ## INFORME 05
