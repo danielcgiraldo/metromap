@@ -1,6 +1,7 @@
 from django.http import HttpResponseBadRequest
-from dotenv import load_dotenv
 import os
+
+
 
 class DomainMiddleware:
     def __init__(self, get_response):
