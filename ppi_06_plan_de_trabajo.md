@@ -9,6 +9,7 @@
 ## INFORME 04
 - organizar la estructura del proyecto
 - todos los urls para las apis que tenemos (explicar las apis y sus usos)
+  ```bash
   v1
   ├── [status](https://api.metromap.online/v1/status/)
   ├────[linea]
@@ -16,6 +17,7 @@
   ├── [data](https://api.metromap.online/v1/data/)
   ├────[linea]
   └──────[estacion]
+  ```
 - montar una base de datos
 - adelantar el mapa
 
