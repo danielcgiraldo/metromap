@@ -1,11 +1,15 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from api import views
 
 
 urlpatterns = [
-    #URL donde se entrega el json de los tweets
-    path('v1/tweets/', views.get_tweets_endpoint),
+    #All API endpoints
+    path('v1/status/', views.get_status),
+    path('v1/status/<slug:line>', views.get_status_line),
+    path('v1/status/<slug:line>/<slug:station>', views.get_status_station),
+    path('v1/data/', views.get_data),
+    path('v1/data/<slug:line>', views.get_data_line),
+    path('v1/data/<slug:line>/<slug:station>', views.get_data_station)
 ]
 
     
