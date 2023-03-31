@@ -14,7 +14,7 @@ En este [sitio](https://metromap.online) encontrarás ejemplos de uso y la docum
 
 ### Api
 
-Puedes acceder a cualquiera de nuestras APIs a través de <https://api.metromap.online/> y utilizando las siguientes rutas. Ten en cuenta que necesitarás incluir una secret_key en la cabecera de la petición para poder acceder a ellas:
+Puedes acceder a cualquiera de nuestras APIs a través de <https://api.metromap.online/> y utilizando las siguientes rutas. Ten en cuenta que necesitarás incluir una secret-key en la cabecera de la petición para poder acceder a ellas:
 
 ```bash
 v1
@@ -33,12 +33,12 @@ Ejemplo:
 
 ```curl
 curl --location 'https://api.metromap.online/v1/status/A/san_antonio' \
---header 'secret_key: example'
+--header 'secret-key: example'
 ```
 
 ### Mapa
 
-Para acceder a los mapas disponibles, dirígete a <https://embed.metromap.online/> y utiliza cualquiera de las siguientes URLs. Ten en cuenta que deberás incluir una public_key como parámetro GET en tu solicitud.
+Para acceder a los mapas disponibles, dirígete a <https://embed.metromap.online/> y utiliza cualquiera de las siguientes URLs. Ten en cuenta que deberás incluir una public-key como parámetro GET en tu solicitud.
 
 ```bash
 v1
@@ -48,7 +48,7 @@ v1
 Ejemplo:
 
 ```curl
-curl --location 'https://embed.metromap.online/v1/map?public_key=example'
+curl --location 'https://embed.metromap.online/v1/map?public-key=example'
 ```
 
 

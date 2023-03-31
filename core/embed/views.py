@@ -6,8 +6,8 @@ from django.http import JsonResponse
 # Creamos la vista 'tweets'
 def map(request):
     # Check if public_key is in url
-    key = request.GET.get('public_key', '')
+    key = request.GET.get('public-key', '')
     if(key == ""):
-        return JsonResponse({"status":"error", "error": "invalid_client_credentials", "description": "public_key no received"}, status=403)
+        return JsonResponse({"status":"error", "error": "invalid_client_credentials", "description": "public-key no received"}, status=403)
     return JsonResponse({"status":"error", "error": "under_maintenance", "message": "Map is under maintenance"})
     
