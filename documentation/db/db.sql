@@ -21,6 +21,26 @@ CREATE TABLE ALIAS(
     alternate VARCHAR(100) NOT NULL COMMENT 'Name of the station'
 );
 
+DROP TABLE IF EXISTS INCIDENT;
+CREATE TABLE INCIDENT(
+    id varchar(20) NOT NULL COMMENT 'incident number #:',
+    status ENUM('0','1') NOT NULL COMMENT 'status must be either 1 Open or 0 Closed'
+);
+
+DROP TABLE IF EXISTS AFFECTED_STATION;
+CREATE TABLE AFFECTED_STATION(
+    incident varchar(20) NOT NULL COMMENT 'FK of INCIDENT',
+    station varchar(40) NOT NULL COMMENT 'FK of STATION'
+);
+
+DROP TABLE IF EXISTS UPDATE;
+CREATE TABLE UPDATE(
+    tweet_id varchar(40) NOT NULL,
+    incident varchar(20) NOT NULL COMMENT 'FK of INCIDENT PK aka id',
+    date DATETIME NOT NULL COMMENT 'Includes both date and hour format'
+);
+
+
 DROP TABLE IF EXISTS REPORT;
 CREATE TABLE REPORT(
     id VARCHAR(40) NOT NULL,
