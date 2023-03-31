@@ -1,0 +1,21 @@
+.api {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.api.O {
+    color: #2FCC66;
+}
+
+.api.U {
+    color: #3498DB;
+}
+
+.api.M {
+    color: #E74C3C;
+}
+
+.api.P {
+    color: #F1C40F;
+}
