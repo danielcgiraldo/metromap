@@ -24,7 +24,7 @@
   └──────[estacion]
   ```
 
-- Implemetar una base de datos.
+- Implemetar la primera versión de la base de datos.
 - Realizar avances en el mapa.
 
 ## Informe 05
