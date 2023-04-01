@@ -1,5 +1,20 @@
-import Features from "components/features";
+import { Callout } from 'nextra-theme-docs'
+import Map from "components/map";
 
-{<h1>MetroMap</h1>}
+{<div className="row-metromap header"><h1>METROMAP</h1></div>}
+{<div className="row-metromap"><p>Powered by <a href="https://twitter.com/metrodemedellin">@metrodemedellin</a> data</p></div>}
 
-<Features/>
+MetroMap es un mapa interactivo diseñado para ofrecer información en tiempo real sobre el estado de las líneas del metro de Medellín. Con una interfaz intuitiva, MetroMap permite conocer el estado de las estaciones y las posibles interrupciones del servicio
+
+<Callout emoji="💡">
+  Nuestra API en tiempo real está disponible para su uso libre durante el desarrollo de nuestra aplicación.
+</Callout>
+
+{<div className="row-metromap images nx-mt-6">
+<a href="https://www.buymeacoffee.com/metromap" target="_blank">
+<img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" />
+</a>
+
+</div>}
+
+<Map />
