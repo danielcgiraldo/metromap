@@ -6,5 +6,9 @@
     "docs": {
         "title": "Documentación",
         "type": "page"
+    },
+    "status": {
+        "title": "Estado de los servicios",
+        "type": "page"
     }
 }

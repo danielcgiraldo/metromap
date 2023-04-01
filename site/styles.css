@@ -1,3 +1,35 @@
 body {
-    background-color: #FBFBFD;
+    background-color: #fbfbfd;
+}
+
+div.row-metromap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+div.row-metromap.header {
+    margin-top: 3rem;
+}
+
+
+div.row-metromap.header h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 4px 4px 0px #6BB238;
+    margin-bottom: -15px;
+}
+
+div.row-metromap.header ~ div.row-metromap p {
+    font-size: 20px;
+    color: gray;
+    font-style: italic;
+}
+
+div.row-metromap.header ~ div.row-metromap p a {
+    color: gray;
+    text-decoration: none;
 }
