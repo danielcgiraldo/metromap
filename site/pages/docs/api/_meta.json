@@ -1,0 +1,5 @@
+{
+    "status": "/status",
+    "data": "/data",
+    "incident": "/incident"
+}

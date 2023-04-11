@@ -12,14 +12,13 @@ div.row-metromap.header {
     margin-top: 3rem;
 }
 
-
 div.row-metromap.header h1 {
     font-size: 4rem;
     font-weight: bold;
     color: black;
     text-align: center;
     font-style: italic;
-    text-shadow: 4px 4px 0px #6BB238;
+    text-shadow: 4px 4px 0px #6bb238;
     margin-bottom: -15px;
 }
 
@@ -32,4 +31,55 @@ div.row-metromap.header ~ div.row-metromap p {
 div.row-metromap.header ~ div.row-metromap p a {
     color: gray;
     text-decoration: none;
+}
+
+td, th {
+    text-align: left !important;
+    vertical-align: top !important;
+}
+
+a {
+    color: hsl(var(--nextra-primary-hue)100% 45%/var(--tw-text-opacity));
+}
+
+
+a.btn {
+    text-decoration: none;
+    font-weight: 700;
+    padding: .4em 1em .4em 1.2em;
+    font-size: .9em;
+    text-align: center;
+    background-color: hsl(var(--nextra-primary-hue)100% 45%/var(--tw-text-opacity));
+    color: white;
+    border-radius: 48px;
+    margin-top: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+a.btn.default:hover {
+    background-color: hsl(var(--nextra-primary-hue)100% 50%/var(--tw-text-opacity));
+}
+
+a.btn.default::after {
+    content: '';
+    background-image: url("https://metromapmed.s3.amazonaws.com/assets/img/icons/external_link.png");
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: 5px;
+}
+
+code.opt.docs {
+    background-color: hsl(var(--nextra-primary-hue)100% 45%/var(--tw-text-opacity));
+    color: white;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 0.7rem;
+    display: inline-block;
+    margin-top: 5px;
+    text-align: center;
 }

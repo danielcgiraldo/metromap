@@ -1,0 +1,122 @@
+import { Tab, Tabs } from "nextra-theme-docs";
+import Link from "next/link";
+
+# Incidentes
+
+Le permite al usuario consultar los incidentes activos en el sistema, línea o estación específica.
+
+{<div className="row">
+
+<Link className="btn default" href="hola">Ejecutar en Postman</Link>
+<Link className="btn default" href="hola">Obtener secret-key</Link>
+</div>}
+
+### Endpoint URL
+
+`https://api.metromap.online/v1/incident/:line/:station`
+
+### Autenticación y límites de uso
+
+{
+
+<table>
+    <tr>
+        <th>Métodos de autenticación soportados por este<br/>endpoint</th>
+        <td><Link href="docs/comenzar/credenciales">Token de clave secreta</Link></td>
+    </tr>
+    <tr>
+        <th>Limites de uso</th>
+        <td>
+            <ul>
+            <li>Límite de uso del usuario (Contexto de usuario): 70 créditos
+            mensuales por defecto. 
+            </li>
+            <li>Consumo de créditos del Endpoint:
+            <ul>
+                <li>0.7 créditos por consulta a <code>/incident</code>
+                </li>
+                <li>0.5 créditos por consulta a <code>/incident/:line</code>
+                </li>
+                <li>0.4 créditos por consulta a <code>/incident/:line/:station</code>
+                </li>
+                </ul>
+            </li>
+
+            </ul>
+        </td>
+    </tr>
+
+</table>
+
+}
+
+### Parámetros de la URL
+
+| Nombre    | Tipo   | Descripción                                                                                               |
+| --------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| `line` {<><br/><code className="opt docs">OPCIONAL</code></>}    | string | El ID de la línea con la que filtrar los incidentes.                                                      |
+| `station` {<><br/><code className="opt docs">OPCIONAL</code></>} | string | El ID de la estación con la que filtrar los incidentes. Requiere haber definido una `line` anteriormente. |
+
+### Código de Ejemplo
+
+<Tabs items={["curl", "python"]}>
+    <Tab>
+        ```curl 
+        curl --location 'https://api.metromap.online/v1/status/' \
+        --header 'secret-key: *******'
+        ```
+    </Tab>
+    <Tab>
+        ```python 
+        import requests
+
+        url = "https://api.metromap.online/v1/status/"
+
+        payload={}
+        headers = {
+            'secret-key': '*******'
+        }
+
+        response = requests.request("GET", url, headers=headers, data=payload)
+
+        print(response.text)
+        ```
+    </Tab>
+
+</Tabs>
+
+### Ejemplo de Respuestas
+
+<Tabs items={["Respuesta exitosa", "Respuesta fallida", "Mantenimiento"]}>
+    <Tab>
+    ```json
+    {
+        status: "ok", 
+        data: {
+            "1" : {
+                "u_de_m": "A",
+                "tweet_id": "1645243718172024839"
+            }
+        }
+    }
+    ```
+    </Tab>
+    <Tab>
+    ```json
+    {
+        "status": "error", 
+        "error": "invalid_client_credentials", 
+        "description": "secret-key not received"
+    }
+    ```
+    </Tab>
+    <Tab>
+    ```json
+    {
+        "status": "error", 
+        "error": "under_maintenance", 
+        "description": "incident is under maintenance"
+    }
+    ```
+    </Tab>
+</Tabs>
