@@ -5,7 +5,11 @@ from django.db import models
 
     Classes:
         Line
-
+        Station
+        Alias
+        Incident
+        Affected_Station
+        Notification
 """
 
 class Line(models.Model):
@@ -14,9 +18,11 @@ class Line(models.Model):
 
     Attributes:
         id (str)
-        status ('O', 'P', 'M', 'U'): status must be: O, P, M, U: operational, partial outage, major outage, under maintenance.
+        status ('O', 'P', 'M', 'U')
+            status must be: O, P, M, U: operational, partial outage, major outage, under maintenance.
         color (str)
-        type ('M', 'C', 'TB', 'B'): type must be: M, C, TB, B: metro, cable, trolley and electric bus, bus.
+        type ('M', 'C', 'TB', 'B')
+            type must be: M, C, TB, B: metro, cable, trolley and electric bus, bus.
     """
     id = models.CharField(max_length=1, primary_key=True)
     status = models.TextChoices('O', 'P', 'M', 'U')
