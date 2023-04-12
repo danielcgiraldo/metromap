@@ -10,11 +10,12 @@ def get_tweets_endpoint(request):
 """
 
 
-def get_status(request):
-    # checks if secret key credentials are in the header
-    sk = request.META.get("HTTP_SECRET_KEY")
-    if (sk == None):
-       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
+def get_status(params):
+    """
+    if len(params) == 0, then request is /status
+    elif len(params) == 1, request is /status/:line
+    finally elif len(params) == 2 request is /status/:line/:station
+    """
     return JsonResponse({'status':'error', 'error':'under_maintenance','message':'Map in under maintenace'})
 
 def get_status_line(request, line):

@@ -1,10 +1,10 @@
 from django.urls import path
 from api import views
-
+from api.controllers.auth_controller import secret_authentication
 
 urlpatterns = [
     #All API endpoints
-    path('v1/status/', views.get_status),
+    path('v1/status/', lambda request: secret_authentication(views.get_status, request, 1)),
     path('v1/status/<slug:line>', views.get_status_line),
     path('v1/status/<slug:line>/<slug:station>', views.get_status_station),
     path('v1/data/', views.get_data),

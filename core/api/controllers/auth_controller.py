@@ -1,4 +1,6 @@
-def secret_authentication(secret, credits):
+from django.http import JsonResponse
+
+def secret_authentication(fn, request, credits, params = []):
     """
     Checks whether a valid secret-key is received and, 
     if so, verifies whether the user has enough credits 
@@ -7,6 +9,8 @@ def secret_authentication(secret, credits):
     consumed by the request from the user's credit balance.
 
     Parameters:
+        fn (f)
+            Function to execute after authentication
         secret (str)
             The secret-key received in request
         credits (double)
@@ -14,8 +18,12 @@ def secret_authentication(secret, credits):
             request
 
     Returns:
-        Raises an error if the user does not have enough 
+        Returns an error if the user does not have enough 
         credits or if the secret-key is incorrect. Otherwise, 
-        it does not return anything.
+        it calls fn
     """
-    pass
+    # Get secret-key from headers
+    secret = request.META.get("HTTP_SECRET_KEY")
+    if (secret == None):
+       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
+    return fn(params)
