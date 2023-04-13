@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from controllers.incident_controller import Incident
+from api.controllers.incident_controller import Incident
 
 """
 # Create your views here.
