@@ -1,7 +1,7 @@
 class Incident:
     def __init__(self, line, station):
         self.line = line
-        self.status = station
+        self.station = station
 
     def get_data():
         """
