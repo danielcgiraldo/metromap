@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 
-def secret_authentication(fn, request, credits, params = []):
+def secret_authentication(fn, request, credits, line = None, station = None):
     """
     Checks whether a valid secret-key is received and, 
     if so, verifies whether the user has enough credits 
@@ -26,4 +26,4 @@ def secret_authentication(fn, request, credits, params = []):
     secret = request.META.get("HTTP_SECRET_KEY")
     if (secret == None):
        return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
-    return fn(params)
+    return fn(line, station)

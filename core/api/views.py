@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from controllers.incident_controller import Incident
 
 """
 # Create your views here.
@@ -53,23 +54,7 @@ def get_data_station(request, line, station):
        return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
     return JsonResponse({'status':'error', 'error':'under_maintenance','message':'Map in under maintenace'})
 
-def get_incident(request):
-    # checks if secret key credentials are in the header
-    sk = request.META.get("HTTP_SECRET_KEY")
-    if (sk == None):
-       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
-    return JsonResponse({'status':'error', 'error':'under_maintenance','message':'Map in under maintenace'})
- 
-def get_incident_line(request, line):
-    # checks if secret key credentials are in the header
-    sk = request.META.get("HTTP_SECRET_KEY")
-    if (sk == None):
-       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
-    return JsonResponse({'status':'error', 'error':'under_maintenance','message':'Map in under maintenace'})
-
-def get_incident_station(request, line, station):
-    # checks if secret key credentials are in the header
-    sk = request.META.get("HTTP_SECRET_KEY")
-    if (sk == None):
-       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
-    return JsonResponse({'status':'error', 'error':'under_maintenance','message':'Map in under maintenace'})
+def get_incident(line, station):
+    incident = Incident(line, station)
+    return JsonResponse({'status':'ok', 'data':incident.get_data()})
+    
