@@ -1,5 +1,6 @@
 import { Tab, Tabs } from "nextra-theme-docs";
 import Link from "next/link";
+import { Callout } from 'nextra-theme-docs'
 
 # Incidentes
 
@@ -8,12 +9,12 @@ Le permite al usuario consultar los incidentes activos en el sistema, línea o e
 {<div className="row">
 
 <Link className="btn default" href="https://god.gw.postman.com/run-collection/15715400-004293d1-b81b-47f9-8a41-bdacd691c661?action=collection%2Ffork&collection-url=entityId%3D15715400-004293d1-b81b-47f9-8a41-bdacd691c661%26entityType%3Dcollection%26workspaceId%3D48faf861-de30-4c02-87b9-3867c52a87c8" target="_blank">Ejecutar en Postman</Link>
-<Link className="btn default" href="credenciales">Obtener secret-key</Link>
+<Link className="btn default" href="credenciales">Obtener credenciales</Link>
 </div>}
 
 ### Endpoint URL
 
-`https://api.metromap.online/v1/incident/:line/:station`
+`https://api.metromap.online/v1/incident/:line/:station?dt=<dt>`
 
 ### Autenticación y límites de uso
 
@@ -22,7 +23,7 @@ Le permite al usuario consultar los incidentes activos en el sistema, línea o e
 <table>
     <tr>
         <th>Métodos de autenticación soportados por este<br/>endpoint</th>
-        <td><Link className="contrast" href="docs/comenzar/credenciales">Token de clave secreta</Link></td>
+        <td><Link className="contrast" href="../comenzar/credenciales">Token de clave secreta</Link></td>
     </tr>
     <tr>
         <th>Limites de uso</th>
@@ -56,6 +57,11 @@ Le permite al usuario consultar los incidentes activos en el sistema, línea o e
 | --------- | ------ | --------------------------------------------------------------------------------------------------------- |
 | `line` {<><br/><code className="opt docs">OPCIONAL</code></>}    | string | El ID de la línea con la que filtrar los incidentes.                                                      |
 | `station` {<><br/><code className="opt docs">OPCIONAL</code></>} | string | El ID de la estación con la que filtrar los incidentes. Requiere haber definido una `line` anteriormente. |
+| `dt` {<><br/><code className="opt docs">OPCIONAL</code></>} | datetime | El filtro de fecha debe especificarse en el formato ISO 8601 y se utiliza para obtener los incidentes activos que ocurrieron después de la fecha y hora proporcionadas. Si no se especifica este parámetro, se devolverán los incidentes actuales del sistema. |
+
+<Callout emoji="💡" type="info">
+  Puedes obtener las estaciones y líneas del sistema metro usando el endpoint [/data](data)
+</Callout>
 
 ### Código de Ejemplo
 
