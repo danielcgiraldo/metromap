@@ -54,10 +54,11 @@ class Station(models.Model):
     ]
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
+
 class Alias(models.Model):
     alternate = models.CharField(max_length=100)
-    line = models.ForeignKey(Station, related_name='alias_lines', on_delete=models.CASCADE)
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
+
 
 class Incident(models.Model):
     id = models.CharField(max_length=20, primary_key=True)
@@ -65,8 +66,10 @@ class Incident(models.Model):
 
 class AffectedStation(models.Model):
     incident = models.ForeignKey(Incident, on_delete=models.CASCADE)
-    line = models.ForeignKey(Station, related_name='affected_stations_lines', on_delete=models.CASCADE)
+    line = models.ForeignKey(Line, related_name='affected_stations_lines', on_delete=models.CASCADE)
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
+    class Meta:
+        unique_together = (('incident', 'line', 'station'),)
 
 class Notification(models.Model):
     tweet_id = models.CharField(max_length=40, primary_key=True)
