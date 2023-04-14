@@ -1,0 +1,74 @@
+import { Tab, Tabs } from "nextra-theme-docs";
+import Link from "next/link";
+
+
+# Credenciales
+## ¿Qué son las credenciales?
+Una credencial de API es una clave secreta que se utiliza para autenticar y autorizar el acceso a los recursos y datos de una API.
+Las credenciales de API se utilizan para garantizar que solo los usuarios autorizados puedan acceder y utilizar los servicios y recursos de una API determinada. De esta manera, se asegura la privacidad y la seguridad de los datos y se evita cualquier intento de acceso no autorizado a la API.
+
+## Obtén tus credenciales
+Como podrás intuir, las credenciales son una parte fundamental para hacer uso de nuestras API. Para obtener tus credenciales, solo debes seguir los siguientes pasos:
+
+### Paso 1: Iniciar Sesión
+Para comenzar el proceso, lo primero que debes hacer es iniciar sesión con tu usuario y contraseña o con tu cuenta de GitHub. Para hacerlo, simplemente haz clic en el botón a continuación. Si aún no te has registrado, también puedes utilizar este mismo botón para crear una cuenta nueva.
+
+{<div className="row">
+
+<Link className="btn default" href="hola">Iniciar Sesión / Registrarse</Link>
+</div>}
+
+### Paso 2: Seleccionar la API
+Una vez que hayas iniciado sesión, debes seleccionar la API que deseas utilizar. Es importante mencionar que puedes acceder a más de una API si lo deseas. A continuación, encontrarás una tabla con cada API disponible a la que puedes acceder. Desde allí, podrás ver un resumen de lo que hace cada una.
+
+{
+
+<table>
+    <tbody>
+        <tr>
+            <th>API</th>
+            <td>Resumen</td>
+        </tr>
+        <tr>
+            <th><Link className="contrast" href="/docs/api/status">status</Link></th>
+            <td>Proporciona información de la estación como sitos de interés cercanos y servicios integrados  </td>
+        </tr>
+        <tr>
+            <th><Link className="contrast" href="/docs/api/data">data</Link></th>
+            <td>Proporciona información de la estación como sitos de interés cercanos y servicios integrados  </td>
+        </tr>
+        <tr>
+            <th><Link className="contrast" href="/docs/api/incident">incident</Link></th>
+            <td>Otorga información en tiempo real de los incidentes que afectan el funcionamiento normal del metro </td>
+        </tr>
+    </tbody>
+</table>
+
+}
+
+### Paso 3: Guarda tus Keys
+Después de recibir tus claves para la API, es importante que las guardes para evitar que se pierdan o sean compartidas con personas o grupos no autorizados.
+
+En la siguiente tabla, se muestra los tipos de claves que podría generar.
+
+{
+<table>
+<tbody>
+    <tr>
+        <th>Credencial</th>
+        <td>Descripción</td>
+    </tr>
+    <tr>
+        <th><Link className="contrast" href="/docs/api/status">Secret Key</Link></th>
+        <td> Es una clave privada utilizada en la autenticación de una API. Se utiliza en conjunto con una clave pública para establecer una conexión segura y cifrada entre el cliente y el servidor de la API, lo que garantiza que solo aquellos con acceso a la clave secreta puedan realizar solicitudes válidas y acceder a los recursos protegidos por la API. Además, la secret key también se utiliza para generar nuevos tokens de acceso y permitir a los usuarios seguir accediendo a los recursos protegidos sin tener que volver a autenticarse</td>
+    </tr>
+    <tr>
+        <th><Link className="contrast" href="/docs/api/data">data</Link></th>
+        <td>Contiene información sobre el usuario autorizado y su sesión, y se utiliza para permitir el acceso a los recursos protegidos por la API. Los tokens de acceso son una forma segura y escalable de autenticación que no requiere compartir claves secretas con los clientes, y tienen una vida útil limitada que debe ser renovada periódicamente para mantener la seguridad</td>
+    </tr>
+</tbody>
+</table>
+}
+
+### Paso 4: Llama a la API
+Finalmente, solo necesitas utilizar las claves que te proporcionamos y llamar a la API elegida desde tu aplicación. Si tienes dudas de como levar a cabo este proceso, puedes ir a la sección [API](docs/API/)

@@ -1,0 +1,37 @@
+import { Tab, Tabs } from "nextra-theme-docs";
+import Link from "next/link";
+
+# Errores
+En la siguiente tabla podrás encontrar información sobre los tipos de error que pueda presentar mientras usa nuestras APIs
+
+{
+
+<table><tbody>
+    <tr>
+        <th><b>Código del Error</b></th>
+        <td><b>Descripción</b></td>
+
+    </tr>
+   <tr>
+        <th>400 Bad request</th>
+        <td>Indica que la solicitud del usuario es incorrecta o defectuosa y no puede ser procesada por el servidor</td>
+    </tr>
+    <tr>
+        <th>401 No autorizada</th>
+        <td>Indica que la entrada está bien, pero a la solicitud de los usuarios le falta un código de autorización</td>
+    </tr>
+    <tr>
+        <th>403 Prohibida</th>
+        <td>Indica que el código de autorización se reconoce como válido pero el usuario no tiene los permisos necesarios</td>
+    </tr>
+    <tr>
+        <th>404 No encontrado</th>
+        <td>Indica que la solicitud del usuario es válida, pero el punto final o el recurso que solicita no existe</td>
+    </tr>
+    <tr>
+        <th>429 Muchas Solicitudes</th>
+        <td>Indica que el usuario intenta llamar a la API demasiadas veces en un periodo de tiempo demasiado corto</td>
+    </tr>
+</tbody></table>
+
+}

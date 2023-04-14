@@ -1,5 +1,5 @@
 import { useId } from "react";
-import styles from "./features.module.css";
+import styles from "./status.module.css";
 
 export function Component({ title, url, status, key, info = null }) {
     return (
@@ -65,12 +65,12 @@ const SERVICE_LIST = [
                 status: "U",
             },
             {
-                title: "/status/[line]",
+                title: "/status/:line",
                 url: "https://api.metromap.online/v1/status/A",
                 status: "U",
             },
             {
-                title: "/status/[line]/[station]",
+                title: "/status/:line/:station",
                 url: "https://api.metromap.online/v1/status/A/san_antonio",
                 status: "U",
             },
@@ -80,12 +80,12 @@ const SERVICE_LIST = [
                 status: "U",
             },
             {
-                title: "/data/[line]",
+                title: "/data/:line",
                 url: "https://api.metromap.online/v1/data/A",
                 status: "U",
             },
             {
-                title: "/data/[line]/[station]",
+                title: "/data/:line/:station",
                 url: "https://api.metromap.online/v1/data/A/san_antonio",
                 status: "U",
             },
@@ -95,12 +95,12 @@ const SERVICE_LIST = [
                 status: "U",
             },
             {
-                title: "/incident/[line]",
+                title: "/incident/:line",
                 url: "https://api.metromap.online/v1/incident/A",
                 status: "U",
             },
             {
-                title: "/incident/[line]/[station]",
+                title: "/incident/:line/:station",
                 url: "https://api.metromap.online/v1/incident/A/san_antonio",
                 status: "U",
             },
@@ -118,7 +118,7 @@ const SERVICE_LIST = [
     },
 ];
 
-export default function Features() {
+export default function Status() {
     const keyId = useId();
 
     return (

@@ -1,0 +1,112 @@
+id,line,site_of_interest,services,status
+niquia,A,"{""Cámara de Comercio de Medellín"",""Cerro Quitasol"",""Hospital Marco Fidel Suárez"",""Universidad Deportiva Tulio Ospina""}","{""PAC"",""bibliometro"",""ruta_integrada"",""parqueadero_para_bicicletas""}",O
+bello,A,"{""Museo Choza Marco Fidel Suárez"",""Sede Administrativa del METRO""}","{""ruta_integrada"",""parqueadero_para_bicicletas""}",O
+madera,A,"{""Hospital Mental de Antioquia"",""Interactuar""}","{""ruta_integrada""}",O
+acevedo,A,NULL,"{""bibliometro"",""ruta_integrada"",""zona_wifi""}",O
+tricentenario,A,"{""Parque Juanes de la Paz""}","{""ruta_integrada""}",O
+caribe,A,"{""Termina de Transporte del Norte""}","{""ruta_integrada"",""zona_wifi""}",O
+universidad,A,"{""Jardín Botánico"",""Parque de los Deseos"",""Parque Explora"",""Parque Norte"",""Planetario"",""Ruta N"",""Universidad de Antioquia""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""estacion_encicla""}",O
+hospital,A,"{""Clínica León XIII"",""Hospital Infantil"",""Hospital Universitario San Vicente Fundacion"",""Museo Cementerio San Pedro"",""Preuniversitario Formarte""}","{""ruta_integrada"",""zona_wifi""}",O
+prado,A,"{""Catedral Metropolitana"",""Parque de Bolivar""}","{""ruta_integrada""}",O
+parque_berrío,A,"{""Calle Junín"",""Casa Barrientos"",""Corporación Universitaria Rémigton"",""Edificio Coltejer"",""Galería de Arte Colombo Americano"",""Iglesia La Candelaria"",""Museo de Antioquia"",""Palacio de la Cultura Rafael Uribe Uribe"",""Palacio Nacional"",""Plaza Botero"",""Reposteria El Ástor"",""Salón Versalles""}","{""zona_wifi"",""estacion_enclicla""}",O
+san_antonio,A,"{""Parque San Antonio"",""Paseo Peatonal Carabobo""}","{""PAC"",""bibliometro"",""zona_wifi"",""estacion_encicla""}",O
+alpujarra,A,"{""Área Metropolitana"",""Centro Administrativo Alpujarra"",""Cooperativa de Ahorro y crédito COOTRAMED"",""Edificio Carré"",""Edificio EPM"",""Edificio Vásquez"",""Parque Pies Descalzos"",""Plaza de la Libertad"",""Plaza Mayor"",""Salón Málaga"",""Teleantioquia""}",NULL,O
+exposiciones,A,"{""Centro Comercial Sandiego"",""Hospital General Medellín"",""Plaza Mayor"",""Pueblito Paisa"",""Teatro Metropolitano""}","{""ruta_integrada""}",O
+industriales,A,"{""Museo De Arte Moderno"",""Pueblito Paisa""}","{""ruta_integrada"",""zona_wifi"",""estacion_encicla""}",O
+poblado,A,"{""Astorga"",""Aeropuerto Holaya Herrera"",""Calle de la buena mesa"",""La Vía Primavera"",""Parque de El Poblado"",""Terminal de Transporte Sur""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""zona_wifi""}",O
+aguacatala,A,"{""Museo El Castillo""}","{""ruta_integrada""}",O
+ayura,A,"{""Barrio Jardines"",""Casa Museo Fernando González Otraparte""}","{""ruta_integrada""}",O
+envigado,A,"{""Bliblioteca y Parque Cultural Débora Arango"",""Casa de la Cultura Miguel Uribe Restrepo"",""COOPETRABAN, cooperativo de ahorro y crédito"",""La última estación"",""Restaurante La gloria de Gloria""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""estacion_encicla""}",O
+itagui,A,"{""Mayorca el Outlet"",""Vía de la Moda""}","{""bibliometro"",""parqueadero_para_bicicletas"",""zona_wifi""}",O
+sabaneta,A,"{""Iglesia María Auxiliadora"",""La Centralidad Sur""}","{""ruta_integrada"",""estacion_encicla""}",O
+la_estrella,A,"{""La Centralidad Sur""}","{""ruta_integrada""}",O
+san_antonio,B,"{""Villa Sudamerica"", ""Parque San Antonio"", ""Paseo Carabobo""}","{""pac"", ""zona_wifi"",""bibliometro"",""estacion_encicla""}",O
+cisneros,B,"{""Biblioteca EPM"", ""Centro Administrativo Alpujarra"", ""Parque Pies Desclazos"", ""SENA"", ""Linea B""}","{""estacion_encicla""}",O
+sudamericana,B,"{""Barrio Carlos E. Restrepo"", ""Biblioteca Pública Piloto"", ""Sistema de bicicletas públicas ENCICLA"", ""Universidad Nacional""}","{""rutas_integradas"", ""zona_wifi"",""estacion_encicla""}",O
+estadio,B,"{""Boulevard de la 70"", ""Sistema de bicicletas ENCICLA"",""Unidad Deportiva Atanasio Giraldot""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""zona_wifi""}",O
+floresta,B,"{""Cuarta Brigada""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""estacion_encicla""}",O
+santa_lucia,B,NULL,"{""parqueadero_para_bicicletas"",""ruta_integrada""}",O
+san_javier,B,"{""Escaleras Eléctricas de la comuna 13 a través de la ruta integrada 221i""}","{""pac"",""ruta_integrada""}",O
+villa_sierra,H,NULL,"{""zona_wifi""}",O
+las_torres,H,NULL,NULL,O
+oriente,H,NULL,"{""zona_wifi""}",O
+la_aurora,J,"{""Escaleras Eléctricas de la comuna 13 a través de la ruta integrada 221i""}","{""ruta_integrada""}",O
+vallejuelos,J,NULL,"{""sala_de_alfabetizacion_digital""}",O
+juan_xxiii,J,NULL,NULL,O
+san_javier,J,"{""Escaleras Eléctricas de la comuna 13 a través de la ruta integrada 221i""}","{""pac"",""ruta_integrada""}",O
+santo_domingo,K,"{""Biblioteca España""}","{""zona_wifi""}",O
+popular,K,NULL,"{""zona_wifi""}",O
+andalucia,K,NULL,NULL,O
+acevedo,K,NULL,"{""bibliometro"",""ruta_integrada"", ""zona_wifi""}",O
+arvi,L,"{""Parque Arví""}","{""zona_wifi""}",O
+santo_domingo,L,"{""Biblioteca España""}","{""zona_wifi""}",O
+trece_nov,M,NULL,"{""sala_de_alfabetizacion_digital""}",O
+el_pinal,M,NULL,"{""bibliometro""}",O
+miraflores,M,NULL,NULL,O
+acevedo,P,NULL,"{""bibliometro"",""ruta_integrada"", ""zona_wifi""}",O
+sena,P,NULL,NULL,O
+doce_de_octubre,P,NULL,NULL,O
+el_progreso,P,NULL,NULL,O
+oriente,T,NULL,"{""zona_wifi""}",O
+alejandro_echavarria,T,NULL,NULL,O
+loyola,T,NULL,NULL,O
+miraflores,T,NULL,NULL,O
+buenos_aires,T,"{""Unidad Hospitalaria de Buenos Aires""}",NULL,O
+bicentenario,T,"{""Parque Bicentenario, ""Museo Casa de la Memoria"", ""Placita de Florez""}",NULL,O
+PDAEPM,T,NULL,"{""zona_wifi""}",O
+san_jose,T,NULL,NULL,O
+san_antonio,T,"{""Villa Sudamerica, Parque San Antonio, Paseo Carabobo""}","{""pac"", ""zona_wifi"",""bibliometro"",""estacion_encicla""}",O
+caribe,O,"{""Terminal de Transporte Norte""}","{""ruta_integrada"",""zona_wifi""}",O
+universal,O,NULL,NULL,O
+cordoba,O,NULL,NULL,O
+pilarica,O,NULL,NULL,O
+ciudadela_universitaria,O,NULL,NULL,O
+facultad_de_minas,O,NULL,NULL,O
+los_colores,O,NULL,NULL,O
+calasanz,O,NULL,NULL,O
+floresta,O,"{""Cuarta Brigada""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""estacion_encicla""}",O
+los_pinos,O,NULL,NULL,O
+laureles,O,NULL,NULL,O
+santa_gema,O,NULL,NULL,O
+villa_de_aburra,O,NULL,NULL,O
+la_palma,O,NULL,NULL,O
+parque_aranjuez,1,"{""Iglesia San Nicolás de Tolentino"", ""Museo Pedro Nel Gómez""}",NULL,O
+berlin,1,NULL,NULL,O
+las_esmeraldas,1,NULL,NULL,O
+manrique,1,NULL,NULL,O
+gardel,1,"{""Casa Gardelina""}","{""zona_wifi""}",O
+palos_verdes,1,NULL,NULL,O
+hospital,1,"{""Clínica León XIII"",""Hospital Infantil"", ""Hospital Universitario San Vicente Fundación"",""Museo Cemeterio San Pedro"",""Preuniversitario Formarte""}","{""ruta_integrada"",""zona_wifi""}",O
+udea,1,"{""Universidad de Antioquia"", ""Ruta N""}",NULL,O
+chagualo,1,NULL,NULL,O
+minorista,1,NULL,NULL,O
+cisneros,1,"{""Biblioteca EPM"", ""Centro Administrativo Alpujarra"", ""Parque Pies Desclazos"", ""SENA"", ""Linea B""}","{""estacion_encicla""}",O
+plaza_mayor,1,"{""Plaza Mayor""}","{""estacion_encicla""}",O
+industriales,1,"{""Museo de Arte Moderno de Medellín"", ""Pueblito Paisa""}","{""estacion_encicla"",""ruta_integrada"",""zona_wifi""}",O
+nutibara,1,NULL,"{""estacion_encicla""}",O
+fatima,1,"{""Bolera Sudamericana""}",NULL,O
+rosales,1,NULL,"{""estacion_encicla""}",O
+parque_belen,1,"{""Parque Belén¨}",NULL,O
+la_palma,1,NULL,NULL,O
+los_alpes,1,"{""Centro Comercial Los Molinos""}",NULL,O
+udem,1,"{""Universidad de Medellín""}",NULL,O
+parque_aranjuez,2,"{""Iglesia San Nicolás de Tolentino"", ""Museo Pedro Nel Gómez""}",NULL,O
+berlin,2,NULL,NULL,O
+las_esmeraldas,2,NULL,NULL,O
+manrique,2,NULL,NULL,O
+gardel,2,"{""Casa Gardelina""}","{""zona_wifi""}",O
+palos_verdes,2,NULL,NULL,O
+catedral,2,NULL,NULL,O
+la_playa,2,NULL,NULL,O
+san_jose,2,NULL,NULL,O
+barrio_colon,2,NULL,NULL,O
+perpetuo_socorro,2,NULL,NULL,O
+barrio_colombia,2,NULL,NULL,O
+industriales,2,"{""Museo de Arte Moderno de Medellín"",""Pueblito Paisa""}","{""estacion_encicla"",""ruta_integrada"",""zona_wifi""}",O
+nutibara,2,NULL,"{""estacion_encicla""}",O
+fatima,2,"{""Bolera Sudamericana""}",NULL,O
+rosales,2,NULL,"{""estacion_encicla""}",O
+parque_belen,2,"{""Parque Belén¨}",NULL,O
+la_palma,2,NULL,NULL,O
+los_alpes,2,"{""Centro Comercial Los Molinos""}",NULL,O
+udem,2,"{""Universidad de Medellín""}",NULL,O

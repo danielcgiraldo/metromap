@@ -86,10 +86,6 @@ const config: DocsThemeConfig = {
     toc: {
         title: "En Esta Página",
     },
-    primaryHue: {
-        light: 90,
-        dark: 78,
-    },
     feedback: {
         content: "¿Dudas? Danos tu feedback →",
     },
