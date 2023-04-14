@@ -10,23 +10,14 @@ div.row-metromap {
 
 div.row-metromap.header {
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
-div.row-metromap.header h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    font-style: italic;
-    text-shadow: 4px 4px 0px #6bb238;
-    margin-bottom: -15px;
+div.row-metromap.header img {
+    width: 60%;
+    max-width: 350px;
 }
 
-div.row-metromap.header ~ div.row-metromap p {
-    font-size: 20px;
-    color: gray;
-    font-style: italic;
-}
 
 div.row-metromap.header ~ div.row-metromap p a {
     color: gray;
