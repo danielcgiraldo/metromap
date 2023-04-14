@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="./styles.v1.css">
+    <style>
+        svg#metromap_map {
+            width: 100%;
+            height: auto;
+        }
+
+        svg#metromap_map.focus g g {
+            filter: opacity(0.1);
+        }
+
+        svg#metromap_map.focus g.unions,
+        svg#metromap_map.focus g.decorations,
+        svg#metromap_map.focus g.decorations * {
+            filter: opacity(1);
+        }
+
+        svg#metromap_map.focus g.unions g {
+            filter: opacity(0.1);
+        }
+
+        svg#metromap_map g.focus {
+            filter: opacity(1) !important;
+        }
+
+        svg#metromap_map g.focus * {
+            filter: opacity(1) !important;
+        }
+
+        button.active {
+            background-color: green;
+            color: white;
+        }
+
+        div.line_info {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 30px;
+            bottom: 100px;
+        }
+
+        div.line_info button {
+            display: block;
+            width: 200px;
+        }
+
+        /*
+        svg#metromap_map g.lineaAsegments,
+        svg#metromap_map g.lineaAstations {
+            filter: opacity(1);
+        }
+
+        svg#metromap_map g.lineaAstations circle[r='12.5'] {
+            fill: white;
+            stroke: #A3A3A3;
+            stroke-width: 3;
+        }
+        */
+    </style>
+</head>
+
+<body>
+    {% include 'components/map.html' %}
+    <div class="line_info">
+        <div class="group">
+            <button>A</button>
+            <button>B</button>
+        </div>
+        <div class="group">
+            <button>H</button>
+            <button>J</button>
+            <button>K</button>
+            <button>L</button>
+            <button>M</button>
+            <button>P</button>
+        </div>
+        <div class="group">
+            <button>T</button>
+            <button>O</button>
+        </div>
+        <div class="group">
+            <button>1</button>
+            <button>2</button>
+        </div>
+    </div>
+    <script src="./scripts.v1.js"></script>
+    <script>
+
+        const btns = document.querySelectorAll("div.line_info button")
+        const svg = document.getElementById("metromap_map")
+        btns.forEach((btn) => {
+            btn.addEventListener("click", (ev) => {
+                if (ev.target.classList.contains("active")) {
+                    // If the button is active, unfocus line
+                    // Gets all lines that are focused
+                    const activebtns = document.querySelectorAll("div.line_info button.active")
+                    // If there are more no more focused lines, focus all lines
+                    if (activebtns.length <= 1) {
+                        svg.classList.remove("focus")
+                        const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${ev.target.innerHTML}`)
+                        unions.forEach((union) => {
+                            union.classList.remove("focus")
+                        })
+                    } else {
+                        const actives = []
+                        activebtns.forEach((temp) => {
+                            actives.push("linea" + temp.innerHTML)
+                        })
+                        const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${ev.target.innerHTML}`)
+                        unions.forEach((union) => {
+                            let classArray = Array.from(union.classList);
+                            let commonClasses = actives.filter(cls => classArray.includes(cls));
+                            if (commonClasses.length <= 1) {
+                                union.classList.remove("focus")
+                            }
+                        })
+
+                    }
+                    document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}segments`).classList.remove("focus")
+                    document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}stations`).classList.remove("focus")
+                    ev.target.classList.remove("active")
+                } else {
+                    // If the button is not active, focus line
+                    svg.classList.add("focus")
+                    document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}segments`).classList.add("focus")
+                    document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}stations`).classList.add("focus")
+                    const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${ev.target.innerHTML}`)
+                    unions.forEach((union) => {
+                        union.classList.add("focus")
+                    })
+                    ev.target.classList.add("active")
+                }
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>
