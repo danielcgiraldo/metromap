@@ -1,0 +1,126 @@
+import { Tab, Tabs } from "nextra-theme-docs";
+import Link from "next/link";
+import { Callout } from 'nextra-theme-docs'
+
+# Datos
+
+Esta opción permite al usuario consultar información sobre cada estación, incluyendo sitios de interés y servicios disponibles.
+{<div className="row">
+
+<Link className="btn default" href="https://god.gw.postman.com/run-collection/15715400-004293d1-b81b-47f9-8a41-bdacd691c661?action=collection%2Ffork&collection-url=entityId%3D15715400-004293d1-b81b-47f9-8a41-bdacd691c661%26entityType%3Dcollection%26workspaceId%3D48faf861-de30-4c02-87b9-3867c52a87c8" target="_blank">Ejecutar en Postman</Link>
+<Link className="btn default" href="credenciales">Obtener credenciales</Link>
+</div>}
+
+### Endpoint URL
+
+`https://api.metromap.online/v1/data/:station?`
+
+### Autenticación y límites de uso
+
+{
+
+<table>
+    <tr>
+        <th>Métodos de autenticación soportados por este<br/>endpoint</th>
+        <td><Link className="contrast" href="../comenzar/credenciales">Token de clave secreta</Link></td>
+    </tr>
+    <tr>
+        <th>Limites de uso</th>
+        <td>
+            <ul>
+            <li>Límite de uso del usuario (Contexto de usuario): 70 créditos
+            mensuales por defecto. 
+            </li>
+            <li>Consumo de créditos del Endpoint:
+            <ul>
+                <li>1 crédito por consulta a <code>/data</code>
+                </li>
+                <li>0.7 créditos por consulta a <code>/data/:line</code>
+                </li>
+                <li>0.5 créditos por consulta a <code>/data/:line/:station</code>
+                </li>
+                </ul>
+            </li>
+
+            </ul>
+        </td>
+    </tr>
+
+</table>
+
+}
+
+### Parámetros de la URL
+
+| Nombre    | Tipo   | Descripción                                                                                               |
+| --------- | ------ | --------------------------------------------------------------------------------------------------------- |   
+| `station` {<><br/><code className="opt docs">OPCIONAL</code></>} | string | El ID de la estación con la que filtrar los datos. |
+
+
+<Callout emoji="💡" type="info">
+  Puedes obtener las estaciones y líneas del sistema metro usando el endpoint [/data](data)
+</Callout>
+
+### Código de Ejemplo
+
+<Tabs items={["curl", "python"]}>
+    <Tab>
+        ```curl 
+        curl --location 'https://api.metromap.online/v1/data/' \
+        --header 'secret-key: *******'
+        ```
+    </Tab>
+    <Tab>
+        ```python 
+        import requests
+
+        url = "https://api.metromap.online/v1/data/"
+
+        payload={}
+        headers = {
+            'secret-key': '*******'
+        }
+
+        response = requests.request("GET", url, headers=headers, data=payload)
+
+        print(response.text)
+        ```
+    </Tab>
+
+</Tabs>
+
+### Ejemplo de Respuestas
+
+<Tabs items={["Respuesta exitosa", "Respuesta fallida", "Mantenimiento"]}>
+    <Tab>
+    ```json
+    {
+        status: "ok", 
+        data: {
+            "u_de_m" : {
+                "site_of_interest": "{"Villa Sudamerica", "Parque San Antonio", "Paseo Carabobo"}",
+                "services": "{"pac", "zona_wifi","bibliometro","estacion_encicla"}"
+            }
+        }
+    }
+    ```
+    </Tab>
+    <Tab>
+    ```json
+    {
+        "status": "error", 
+        "error": "invalid_client_credentials", 
+        "description": "secret-key not received"
+    }
+    ```
+    </Tab>
+    <Tab>
+    ```json
+    {
+        "status": "error", 
+        "error": "under_maintenance", 
+        "description": "data is under maintenance"
+    }
+    ```
+    </Tab>
+</Tabs>

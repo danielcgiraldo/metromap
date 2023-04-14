@@ -68,7 +68,7 @@ Le permite al usuario consultar los incidentes activos en el sistema, línea o e
 <Tabs items={["curl", "python"]}>
     <Tab>
         ```curl 
-        curl --location 'https://api.metromap.online/v1/status/' \
+        curl --location 'https://api.metromap.online/v1/incident/' \
         --header 'secret-key: *******'
         ```
     </Tab>
@@ -76,7 +76,7 @@ Le permite al usuario consultar los incidentes activos en el sistema, línea o e
         ```python 
         import requests
 
-        url = "https://api.metromap.online/v1/status/"
+        url = "https://api.metromap.online/v1/incident/"
 
         payload={}
         headers = {
