@@ -13,7 +13,7 @@ Esta opción permite al usuario consultar información sobre cada estación, inc
 
 ### Endpoint URL
 
-`https://api.metromap.online/v1/data/:station?`
+`https://api.metromap.online/v1/data/:station`
 
 ### Autenticación y límites de uso
 
@@ -53,8 +53,9 @@ Esta opción permite al usuario consultar información sobre cada estación, inc
 ### Parámetros de la URL
 
 | Nombre    | Tipo   | Descripción                                                                                               |
-| --------- | ------ | --------------------------------------------------------------------------------------------------------- |   
-| `station` {<><br/><code className="opt docs">OPCIONAL</code></>} | string | El ID de la estación con la que filtrar los datos. |
+| --------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| `line` {<><br/><code className="opt docs">OPCIONAL</code></>} | string | El ID de la línea con la que filtrar los datos. |   
+| `station` {<><br/><code className="opt docs">OPCIONAL</code></>} | string | El ID de la estación con la que filtrar los datos. Requiere haber definido una `line` anteriormente.|
 
 
 <Callout emoji="💡" type="info">
