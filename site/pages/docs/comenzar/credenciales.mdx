@@ -47,8 +47,24 @@ Una vez que hayas iniciado sesión, debes seleccionar la API que deseas utilizar
 ### Paso 3: Guarda tus Keys
 Después de recibir tus claves para la API, es importante que las guardes para evitar que se pierdan o sean compartidas con personas o grupos no autorizados.
 
+En la siguiente tabla, se muestra los tipos de claves que podría generar.
 
-
+{
+<table>
+    <tr>
+        <th>Credencial</th>
+        <td>Descripción</td>
+    </tr>
+    <tr>
+        <th><Link className="contrast" href="/docs/api/status">Secret Key</Link></th>
+        <td> Es una clave privada utilizada en la autenticación de una API. Se utiliza en conjunto con una clave pública para establecer una conexión segura y cifrada entre el cliente y el servidor de la API, lo que garantiza que solo aquellos con acceso a la clave secreta puedan realizar solicitudes válidas y acceder a los recursos protegidos por la API. Además, la secret key también se utiliza para generar nuevos tokens de acceso y permitir a los usuarios seguir accediendo a los recursos protegidos sin tener que volver a autenticarse</td>
+    </tr>
+    <tr>
+        <th><Link className="contrast" href="/docs/api/data">data</Link></th>
+        <td>Contiene información sobre el usuario autorizado y su sesión, y se utiliza para permitir el acceso a los recursos protegidos por la API. Los tokens de acceso son una forma segura y escalable de autenticación que no requiere compartir claves secretas con los clientes, y tienen una vida útil limitada que debe ser renovada periódicamente para mantener la seguridad</td>
+    </tr>
+</table>
+}
 
 ### Paso 4: Llama a la API
-Finalmente, solo necesitas utilizar las claves que te proporcionamos y llamar a la API elegida desde tu aplicación.
+Finalmente, solo necesitas utilizar las claves que te proporcionamos y llamar a la API elegida desde tu aplicación. Si tienes dudas de como levar a cabo este proceso, puedes ir a la sección [API](docs/API/)
