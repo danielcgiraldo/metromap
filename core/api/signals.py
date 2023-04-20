@@ -5,6 +5,16 @@ import csv
 
 @receiver(post_migrate)
 def load_csvs(sender, **kwargs):
+    """
+    Load into database default values of lines,
+    stations and alias
+
+    Required Files
+    /data
+        alias.csv
+        line.csv
+        station.csv
+    """
     
     if not Line.objects.exists():
         with open("./api/data/line.csv", 'r') as f:
