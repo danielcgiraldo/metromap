@@ -1,6 +1,6 @@
 from django.db import models
 
-""""
+"""
     Entities that are directly related to the map operation
 
     Classes:
@@ -42,8 +42,9 @@ class Line(models.Model):
     type = models.CharField(max_length=2, choices=TYPE_CHOICES)
 
 class Station(models.Model):
+    id = models.AutoField(primary_key=True)
     line = models.ForeignKey(Line, on_delete=models.RESTRICT)
-    id = models.CharField(max_length=40, primary_key=True)
+    station = models.CharField(max_length=100, default="unknown")
     sites_of_interest = models.JSONField(null=True)
     services = models.JSONField(null=True)
     STATUS_CHOICES = [
@@ -53,28 +54,29 @@ class Station(models.Model):
         ('U', 'Under maintenance'),
     ]
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    class Meta:
+        unique_together = (('line', 'station'),)
 
 
 class Alias(models.Model):
+    id = models.AutoField(primary_key=True)
     alternate = models.CharField(max_length=100)
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
-
-
+    
 class Incident(models.Model):
     id = models.CharField(max_length=20, primary_key=True)
     status = models.BooleanField()
 
 class AffectedStation(models.Model):
+    id = models.AutoField(primary_key=True)
     incident = models.ForeignKey(Incident, on_delete=models.CASCADE)
-    line = models.ForeignKey(Line, related_name='affected_stations_lines', on_delete=models.CASCADE)
-    station = models.ForeignKey(Station, on_delete=models.CASCADE)
-    class Meta:
-        unique_together = (('incident', 'line', 'station'),)
+    affected_station = models.ForeignKey(Station, on_delete=models.CASCADE)
 
 class Notification(models.Model):
     tweet_id = models.CharField(max_length=40, primary_key=True)
     incident = models.ForeignKey(Incident, on_delete=models.CASCADE)
     date = models.DateTimeField()
+    
 
 
 """"
@@ -87,7 +89,7 @@ class Notification(models.Model):
 """
 
 class Report(models.Model):
-    id = models.CharField(max_length=40, primary_key=True)
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     TYPE_CHOICES = [
         ('V', 'Vehicles'),
