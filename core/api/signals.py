@@ -17,7 +17,7 @@ def load_csvs(sender, **kwargs):
     """
     
     if not Line.objects.exists():
-        with open("./api/data/line.csv", 'r') as f:
+        with open("./api/data/line.csv", 'r',encoding="utf8") as f:
             reader = csv.reader(f)
             next(reader) # Skip the header row
             for row in reader:
@@ -25,8 +25,9 @@ def load_csvs(sender, **kwargs):
                 obj = Line(id=row[0], status=row[1], color=row[2], type=row[3])
                 obj.save()
 
+    
     if not Station.objects.exists():
-        with open("./api/data/station.csv", 'r') as f:
+        with open("./api/data/station.csv", 'r',encoding="utf8") as f:
             reader = csv.reader(f)
             next(reader) # Skip the header row
             for row in reader:
@@ -34,9 +35,9 @@ def load_csvs(sender, **kwargs):
                 # Create an instance of the model and save it to the database
                 obj = Station(station=row[0], line=line, sites_of_interest=row[2], services=row[3], status=row[4])
                 obj.save()
-
+    
     if not Alias.objects.exists():
-        with open("./api/data/alias.csv", 'r') as f:
+        with open("./api/data/alias.csv", 'r',encoding="utf8") as f:
             reader = csv.reader(f)
             next(reader) # Skip the header row
             for row in reader:
