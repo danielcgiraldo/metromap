@@ -1,8 +1,20 @@
-def scrapping(tweet, id):
-    """La función retorna un lista de listas donde cada sublista contiene la url,
-    el contenido y el gif de cada tweet individual desde el tweet de entrada hasta
-    el último tweet en la base de datos.
+import snscrape.modules.twitter as st
 
-    Esta recibe el último tweet registrado con el id
-    """
-    pass
+def get_tweets(num = 5):
+    '''Obtiene los ultimos 5 tweets del metro de medellin'''
+    
+    # Excluir las respuestas y solo filtrar ultimos tweets
+    query = "(from:metrodemedellin) -filter:replies"
+    tweets = {"status":"okay", "data":[]}
+    # Se obtienen los tweets del objeto creado por twitterSearchScrapper
+    for i,t in enumerate(st.TwitterSearchScraper(query).get_items()):
+        
+        # Filtrar exclusivamente la descripcion del tweet
+        cleanup = t.rawContent
+        cleanup = cleanup.replace("\n",'')
+        # Se agregan el ID, URL, Descripcion del tweet
+        if i < num: tweets["data"].append({"id":t.id, "url":t.url, "content":cleanup})
+        else: break
+
+    # Retorna un diccionario con el estado y el ID, URL, Descripcion de los tweets
+    return tweets
