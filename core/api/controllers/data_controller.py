@@ -17,33 +17,31 @@ class Data:
                 sites_of_interest = estacion.sites_of_interest
                 services = estacion.services
                 if self.line.id not in data:
-                        data[self.line.id] = {}
-                data[self.line.id] = {"color": color} 
+                    data[self.line.id] = {}
+                    data[self.line.id] = {"color": color} 
                 data[self.line.id][estacion.station] = {"sites_of_interest": sites_of_interest, "services": services}
             
             else:
-                estaciones = Station.objects.filter(line = self.line)
+                estaciones = Station.objects.filter(line = self.line).order_by("id")
                 for estacion in estaciones:
                     color = self.line.color
                     sites_of_interest = estacion.sites_of_interest
                     services = estacion.services
                     if self.line.id not in data:
                         data[self.line.id] = {}
-                    data[self.line.id] = {"color": color} 
+                        data[self.line.id] = {"color": color} 
                     data[self.line.id][estacion.station] = {"sites_of_interest": sites_of_interest, "services": services}
                     
         else:
             lineas = Line.objects.all()
             for linea in lineas:
-                estaciones = Station.objects.filter(line = linea)
+                
+                estaciones = Station.objects.filter(line = linea).order_by("id")
                 for estacion in estaciones:
-                    color = linea.color
-                    sites_of_interest = estacion.sites_of_interest
-                    services = estacion.services
                     if linea.id not in data:
-                        data[linea.id] = {}
-                    data[linea.id] = {"color": color} 
-                    data[linea.id][estacion.station] = {"sites_of_interest": sites_of_interest, "services": services}
+                        data[linea.id] = {"color": linea.color, "stations": {}} 
+                        print(linea.id,estacion.station)
+                    data[linea.id]["stations"][estacion.station] = {"sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
         
         return data
 
