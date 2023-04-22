@@ -5,6 +5,7 @@ import random
 import string
 import numpy as np
 import re
+import itertools
 
 class Tweet:
     """
@@ -67,6 +68,31 @@ class Tweet:
         return False
     
     def get_lines(self):
-        lineas_referencia = re.findall(r'línea\s+(\d+|[A-Za-z])', self.content)
-        return lineas_referencia
+        """
+        This function determines the referenced lines in a tweet.
+
+        Returns:
+            A list with the referenced lines.
+        """
+      
+        # Finding all matches for 'línea' followed by a digit or alphabet and adding it to 'caso1'
+        match = re.findall(r'línea\s+(\d+|[A-Za-z])', self.content)
+        if match:
+            caso1 = match 
+
+        # Finding all matches for 'líneas' followed by a digit or alphabet and adding it to 'caso2'
+        # 'caso2' is flattened using itertools.chain()
+        busqueda = re.findall(r'\b(líneas?)\s+([A-Za-z]|\d+)(?:\s+y\s+(\d+|[A-Za-z]|\d+))?', self.content)
+        if busqueda:
+            caso2 = list(itertools.chain(*busqueda))
+
+        
+        # Finding all matches for 'líneas 1🚌 y 2🚌' and adding '1' and '2' to 'pepe'
+        caso3 = []
+        patron = r"líneas\s+1🚌\s+y\s+2🚌"
+        if re.search(patron, self.content):
+            caso3 = ["1", "2"]
+            
+        # Combining all the cases and returning a list of unique elements
+        return list(set(caso1 + caso2 + caso3))
 
