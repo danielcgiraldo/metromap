@@ -4,6 +4,7 @@ import cv2
 import random
 import string
 import numpy as np
+import re
 
 class Tweet:
     """
@@ -65,5 +66,7 @@ class Tweet:
             if(mse < 0.05): return key
         return False
     
-    def get_lines():
-        pass
+    def get_lines(self):
+        lineas_referencia = re.findall(r'línea\s+(\d+|[A-Za-z])', self.content)
+        return lineas_referencia
+
