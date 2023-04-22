@@ -26,7 +26,7 @@ def secret_authentication(fn, request, credits, line = None, station = None):
     # Get secret-key from headers
     secret = request.META.get("HTTP_SECRET_KEY")
     if (secret == None):
-       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret_key not received',}, status=403)
+       return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret-key not received',}, status=403)
     # TODO: Check if user has enough credits
     if line:
         try:
