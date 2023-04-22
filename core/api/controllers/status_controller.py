@@ -35,6 +35,5 @@ class Status:
                 for estacion in estaciones:
                     if linea.id not in data:
                         data[linea.id] = {"status": linea.status, "stations": {}} 
-                        print(linea.id, estacion.station)
                     data[linea.id]["stations"][estacion.station] = {"status": estacion.status}
         return data
