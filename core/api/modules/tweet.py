@@ -1,11 +1,13 @@
-import snscrape.modules.twitter as sntwitter
-import tempfile
 import cv2
-import random
-import string
 import numpy as np
 import re
 import itertools
+import os
+from django.conf import settings
+import random
+import string
+
+
 
 class Tweet:
     """
@@ -19,7 +21,7 @@ class Tweet:
         self.content = content
         self.capture = self.gen_capture(medium.variants[0].url)
 
-    def gen_capture(url):
+    def gen_capture(self, url):
         """
         This function captures the first frame of a GIF and 
         saves it as an image file.
@@ -34,11 +36,11 @@ class Tweet:
             If there is an error, the function returns False.
         """
         cam = cv2.VideoCapture(url)
-        temp_dir = tempfile.TemporaryDirectory()
         ret,frame = cam.read()
         if(ret):
-            cv2.imwrite(f"{temp_dir}/img.jpg", frame)
-            return temp_dir
+            file_name = ''.join(random.choice(string.ascii_lowercase) for i in range(10))
+            cv2.imwrite(os.path.join(settings.PROJECT_ROOT, f"../api/modules/images/temp/{file_name}.jpg"), frame)
+            return f"../api/modules/images/temp/{file_name}.jpg"
         return False
     
     def get_type(self):
@@ -51,11 +53,12 @@ class Tweet:
             image, it returns False. Otherwise, it returns the 
             key of the default image that the captured image matches.
         """
-        img = cv2.imread(f"{self.capture}/img.jpg")
+        img = cv2.imread(os.path.join(settings.PROJECT_ROOT, self.capture))
+        # TODO: Delete image file
         colors = {
-            "P": cv2.imread("./images/yellow.jpg"),
-            "O": cv2.imread("./images/green.jpg"),
-            "M": cv2.imread("./images/red.jpg")
+            "P": cv2.imread(os.path.join(settings.PROJECT_ROOT, "../api/modules/images/yellow.jpg")),
+            "O": cv2.imread(os.path.join(settings.PROJECT_ROOT, "../api/modules/images/green.jpg")),
+            "M": cv2.imread(os.path.join(settings.PROJECT_ROOT, "../api/modules/images/red.jpg"))
         }
         for key, value in list(colors.items()):
             if value.shape != img.shape: break

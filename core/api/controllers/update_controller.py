@@ -1,6 +1,7 @@
-from modules.scrapping import get_tweets
+from django.http import JsonResponse
+from api.modules.scrapping import get_tweets
 from datetime import timedelta
-from models import Line
+from api.models import Line
 
 
 def update_status():
@@ -14,9 +15,10 @@ def update_status():
                 affected_lines = tweet.get_lines()
             for affected_line in affected_lines:
                 try:
-                    Line.objects.get(pk=affected_line).update(status=type)
+                    Line.objects.filter(pk=affected_line).update(status=type)
                 except Line.DoesNotExist:
                     pass
 
                 # TODO: Affected stations
                 # TODO: Create incidents
+    return True

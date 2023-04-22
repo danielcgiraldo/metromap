@@ -139,3 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRONJOBS = [
     ('*/3 * * * *', 'api.controllers.update_controller.update_status')
 ]
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
