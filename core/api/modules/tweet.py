@@ -52,9 +52,9 @@ class Tweet:
         """
         img = cv2.imread(f"{self.capture}/img.jpg")
         colors = {
-            "yellow": cv2.imread("./images/yellow.jpg"),
-            "green": cv2.imread("./images/green.jpg"),
-            "red": cv2.imread("./images/red.jpg")
+            "P": cv2.imread("./images/yellow.jpg"),
+            "O": cv2.imread("./images/green.jpg"),
+            "M": cv2.imread("./images/red.jpg")
         }
         for key, value in list(colors.items()):
             if value.shape != img.shape: break

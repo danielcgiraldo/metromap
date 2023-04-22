@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [os.getenv("EMBED_HOST"), os.getenv("API_HOST")]
 # Application definition
 # Añadimos las Apps embes y api a la web
 INSTALLED_APPS = [
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,3 +135,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRONJOBS = [
+    ('*/3 * * * *', 'api.controllers.update_controller.update_status')
+]
