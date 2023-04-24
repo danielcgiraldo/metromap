@@ -68,7 +68,8 @@ div.tooltip:hover span {
     display: block;
 }
 
-p.status_title svg p.O {
+p.status_title svg p.O,
+p.O {
     color: #2fcc66;
 }
 
