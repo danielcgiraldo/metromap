@@ -92,17 +92,17 @@ const SERVICE_LIST = [
             {
                 title: "/incident",
                 url: "https://api.metromap.online/v1/incident",
-                status: "P",
+                status: "O",
             },
             {
                 title: "/incident/:line",
                 url: "https://api.metromap.online/v1/incident/A",
-                status: "P",
+                status: "O",
             },
             {
                 title: "/incident/:line/:station",
                 url: "https://api.metromap.online/v1/incident/A/san_antonio",
-                status: "P",
+                status: "O",
             },
         ],
     },
