@@ -77,7 +77,7 @@ class Tweet:
         Returns:
             A list with the referenced lines.
         """
-      
+        caso1, caso2, caso3 = list(), list(), list()
         # Finding all matches for 'línea' followed by a digit or alphabet and adding it to 'caso1'
         match = re.findall(r'línea\s+(\d+|[A-Za-z])', self.content)
         if match:
@@ -91,7 +91,6 @@ class Tweet:
 
         
         # Finding all matches for 'líneas 1🚌 y 2🚌' and adding '1' and '2' to 'pepe'
-        caso3 = []
         patron = r"líneas\s+1🚌\s+y\s+2🚌"
         if re.search(patron, self.content):
             caso3 = ["1", "2"]
