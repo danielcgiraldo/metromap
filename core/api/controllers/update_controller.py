@@ -2,9 +2,20 @@ from django.http import JsonResponse
 from api.modules.scrapping import get_tweets
 from datetime import timedelta
 from api.models import Line
-
+import os
+from django.conf import settings
+import datetime
 
 def update_status():
+    # Log
+    now = datetime.datetime.now()
+    # format the date as a string
+    date_string = now.strftime("%Y-%m-%d %H:%M:%S")
+    file = open(os.path.join(settings.PROJECT_ROOT, "../api/controllers/log.txt"), 'a')
+    file.write(date_string + '\n')
+    file.close()
+
+
     tweets = get_tweets(timedelta(minutes=3))
     for tweet in tweets:
         type = tweet.get_type()
