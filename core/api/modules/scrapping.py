@@ -1,5 +1,5 @@
 import snscrape.modules.twitter as sntwitter
-from datetime import timedelta, datetime
+from datetime import datetime
 from api.modules.tweet import Tweet
 import pytz
 

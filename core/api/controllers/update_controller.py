@@ -1,4 +1,3 @@
-from django.http import JsonResponse
 from api.modules.scrapping import get_tweets
 from datetime import timedelta
 from api.models import Line
