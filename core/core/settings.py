@@ -141,23 +141,3 @@ CRONJOBS = [
 ]
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': '/home/ubuntu/ppi_06/core/logs/error.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    },
-}
