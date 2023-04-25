@@ -32,4 +32,4 @@ def update_status():
 
                 # TODO: Affected stations
                 # TODO: Create incidents
-    return True
+    return JsonResponse({"status": "ok"})
