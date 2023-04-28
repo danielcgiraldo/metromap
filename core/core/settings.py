@@ -137,7 +137,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRONJOBS = [
-    ('*/3 * * * *', 'api.controllers.update_controller.update_status')
+    ('*/3 * * * *', 'api.controllers.update_controller.update_status'),
+    ('0 5 * * *', 'api.controllers.update_controller.renew_status')
 ]
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))

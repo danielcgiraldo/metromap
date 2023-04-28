@@ -54,7 +54,7 @@ class Tweet:
             key of the default image that the captured image matches.
         """
         img = cv2.imread(os.path.join(settings.PROJECT_ROOT, self.capture))
-        # TODO: Delete image file
+        os.remove(os.path.join(settings.PROJECT_ROOT, self.capture))
         colors = {
             "P": cv2.imread(os.path.join(settings.PROJECT_ROOT, "../api/modules/images/yellow.jpg")),
             "O": cv2.imread(os.path.join(settings.PROJECT_ROOT, "../api/modules/images/green.jpg")),

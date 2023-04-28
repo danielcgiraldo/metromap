@@ -40,4 +40,4 @@ def secret_authentication(fn, request, credits, line = None, station = None):
 
               
     # TODO: Take credits from user
-    return fn(line, station)
+    return fn(line, station, request.GET)

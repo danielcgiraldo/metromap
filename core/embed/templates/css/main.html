@@ -1,0 +1,63 @@
+<style>
+    body {
+        overflow: hidden;
+    }
+
+    svg#metromap_map {
+        width: 100%;
+        height: auto;
+    }
+
+    svg#metromap_map.focus g g {
+        opacity: 0.1;
+    }
+
+    svg#metromap_map.focus g.unions,
+    svg#metromap_map.focus g.decorations,
+    svg#metromap_map.focus g.decorations * {
+        opacity: 1;
+    }
+
+    svg#metromap_map.focus g.unions g {
+        opacity: 0.1;
+    }
+
+    svg#metromap_map g.focus {
+        opacity: 1 !important;
+    }
+
+    svg#metromap_map g.focus * {
+        opacity: 1 !important;
+    }
+
+    button.active {
+        background-color: green;
+        color: white;
+    }
+
+    div.line_info {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 30px;
+        bottom: 100px;
+    }
+
+    div.line_info button {
+        display: block;
+        width: 200px;
+    }
+
+    /*
+    svg#metromap_map g.lineaAsegments,
+    svg#metromap_map g.lineaAstations {
+        opacity: 1;
+    }
+
+    svg#metromap_map g.lineaAstations circle[r='12.5'] {
+        fill: white;
+        stroke: #A3A3A3;
+        stroke-width: 3;
+    }
+    */
+</style>
