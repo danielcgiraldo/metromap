@@ -6,15 +6,7 @@ import os
 from django.conf import settings
 import random
 import string
-<<<<<<< HEAD
-
-
-=======
-import numpy as np
-import re
-import itertools
 from api.models import Alias
->>>>>>> dev
 
 class Tweet:
     """
@@ -104,9 +96,6 @@ class Tweet:
             
         # Combining all the cases and returning a list of unique elements
         return list(set(caso1 + caso2 + caso3))
-<<<<<<< HEAD
-
-=======
     
     def get_stations(self):
         """
@@ -153,4 +142,3 @@ class Tweet:
         
         # Return the results dictionary
         return data
->>>>>>> dev
