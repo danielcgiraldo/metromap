@@ -4,6 +4,9 @@ import cv2
 import random
 import string
 import numpy as np
+import re
+import itertools
+from api.models import Alias
 
 class Tweet:
     """
@@ -65,5 +68,76 @@ class Tweet:
             if(mse < 0.05): return key
         return False
     
-    def get_lines():
-        pass
+    def get_lines(self):
+        """
+        This function determines the referenced lines in a tweet.
+
+        Returns:
+            A list with the referenced lines.
+        """
+        caso1, caso2, caso3 = list(), list(), list()
+        # Finding all matches for 'línea' followed by a digit or alphabet and adding it to 'caso1'
+        match = re.findall(r'línea\s+(\d+|[A-Za-z])', self.content)
+        if match:
+            caso1 = match 
+
+        # Finding all matches for 'líneas' followed by a digit or alphabet and adding it to 'caso2'
+        # 'caso2' is flattened using itertools.chain()
+        busqueda = re.findall(r'\b(líneas?)\s+([A-Za-z]|\d+)(?:\s+y\s+(\d+|[A-Za-z]|\d+))?', self.content)
+        if busqueda:
+            caso2 = list(itertools.chain(*busqueda))
+
+        
+        # Finding all matches for 'líneas 1🚌 y 2🚌' and adding '1' and '2' to 'pepe'
+        patron = r"líneas\s+1🚌\s+y\s+2🚌"
+        if re.search(patron, self.content):
+            caso3 = ["1", "2"]
+            
+        # Combining all the cases and returning a list of unique elements
+        return list(set(caso1 + caso2 + caso3))
+    
+    def get_stations(self):
+        """
+        This function determines the referenced lines in a tweet.
+
+        Returns:
+            A dictionary with the line IDs as keys and the corresponding station IDs as values.
+        """
+        # Initialize an empty dictionary to store the results
+        data = {}
+        
+        # First, search for individual words that start with a capital letter
+        match1 = re.findall(r'\b[A-Z]\w*', self.content)
+        if match1:
+            # Iterate over all lines
+            for line in Tweet.get_lines():
+                # Iterate over all matching words
+                for element in match1:
+                    # Query the database to find any aliases for the current word and line
+                    alias = Alias.objects.filter(alternate=element, line_id=line)
+                    if alias != None:
+                        # If the line is not already in the results dictionary, add it
+                        if line.id not in data:
+                            data[line.id] =[]
+                        # Add the corresponding station ID to the line's set of stations
+                        data[line.id].append(alias.station_id)
+
+        # Second, search for pairs of words that start with a capital letter
+        # separated by either a space and/or the word "de" or "del"
+        match2 = re.findall(r'\b([A-Z]\w+\s+[A-Z]\w+|\b[A-Z]\w+\sde\s[A-Z]\w+|\b[A-Z]\w+\sdel\s[A-Z]\w+)', self.content)
+        if match2:
+            # Iterate over all lines
+            for line in Tweet.get_lines():
+                # Iterate over all matching word pairs
+                for element in match1:
+                    # Query the database to find any aliases for the current word pair and line
+                    alias = Alias.objects.filter(alternate=element, line_id=line)
+                    if alias != None:
+                        # If the line is not already in the results dictionary, add it
+                        if line.id not in data:
+                            data[line.id] = []
+                        # Add the corresponding station ID to the line's set of stations
+                        data[line.id].append(alias.station_id)
+        
+        # Return the results dictionary
+        return data
