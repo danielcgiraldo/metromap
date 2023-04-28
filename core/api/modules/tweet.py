@@ -6,8 +6,15 @@ import os
 from django.conf import settings
 import random
 import string
+<<<<<<< HEAD
 
 
+=======
+import numpy as np
+import re
+import itertools
+from api.models import Alias
+>>>>>>> dev
 
 class Tweet:
     """
@@ -97,4 +104,53 @@ class Tweet:
             
         # Combining all the cases and returning a list of unique elements
         return list(set(caso1 + caso2 + caso3))
+<<<<<<< HEAD
 
+=======
+    
+    def get_stations(self):
+        """
+        This function determines the referenced lines in a tweet.
+
+        Returns:
+            A dictionary with the line IDs as keys and the corresponding station IDs as values.
+        """
+        # Initialize an empty dictionary to store the results
+        data = {}
+        
+        # First, search for individual words that start with a capital letter
+        match1 = re.findall(r'\b[A-Z]\w*', self.content)
+        if match1:
+            # Iterate over all lines
+            for line in Tweet.get_lines():
+                # Iterate over all matching words
+                for element in match1:
+                    # Query the database to find any aliases for the current word and line
+                    alias = Alias.objects.filter(alternate=element, line_id=line)
+                    if alias != None:
+                        # If the line is not already in the results dictionary, add it
+                        if line.id not in data:
+                            data[line.id] =[]
+                        # Add the corresponding station ID to the line's set of stations
+                        data[line.id].append(alias.station_id)
+
+        # Second, search for pairs of words that start with a capital letter
+        # separated by either a space and/or the word "de" or "del"
+        match2 = re.findall(r'\b([A-Z]\w+\s+[A-Z]\w+|\b[A-Z]\w+\sde\s[A-Z]\w+|\b[A-Z]\w+\sdel\s[A-Z]\w+)', self.content)
+        if match2:
+            # Iterate over all lines
+            for line in Tweet.get_lines():
+                # Iterate over all matching word pairs
+                for element in match1:
+                    # Query the database to find any aliases for the current word pair and line
+                    alias = Alias.objects.filter(alternate=element, line_id=line)
+                    if alias != None:
+                        # If the line is not already in the results dictionary, add it
+                        if line.id not in data:
+                            data[line.id] = []
+                        # Add the corresponding station ID to the line's set of stations
+                        data[line.id].append(alias.station_id)
+        
+        # Return the results dictionary
+        return data
+>>>>>>> dev
