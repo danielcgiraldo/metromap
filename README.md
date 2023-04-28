@@ -106,14 +106,14 @@ y el core de nuestro servicio que contiene la [API](https://api.metromap.online)
 | **Asignatura:** | Programación para Ingeniería |
 | **Profesor:** | Gabriel Awad Aubad |
 | **Integrante 1:** | [Jesús Porto López](https://github.com/JPortoL) |
-| **Correo:** | jporto@unal.edu.co |
 | **Integrante 2:** | [Daniel Castillo Giraldo](https://github.com/danielcgiraldo)  |
-| **Correo:** | dcastillogi@unal.edu.co |
 | **Integrante 3:** | [Santiago Rivera Mejía](https://github.com/SRCrimson)  |
-| **Correo:** | sriverame@unal.edu.co |
 
 ## Biblografía
 
 - <https://docs.djangoproject.com/>
 
 > Reconocimiento especial a [Chat GPT](https://chat.openai.com/).
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+

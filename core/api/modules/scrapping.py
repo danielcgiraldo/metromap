@@ -1,6 +1,6 @@
 import snscrape.modules.twitter as sntwitter
-from datetime import timedelta, datetime
-from tweet import Tweet
+from datetime import datetime
+from api.modules.tweet import Tweet
 import pytz
 
 def get_tweets(min_ago):
@@ -35,13 +35,11 @@ def get_tweets(min_ago):
 
         # If the tweet is not a reply.
         if(content[0] != "@" and ''.join(content[0:2]) != "RT"):
-
             # If the tweet has a GIF, add it to the list of tweets.
             if(tweet.media):
                 for medium in tweet.media:
                     if type(medium) == sntwitter.Gif:
                         tweets.append(Tweet(tweet.id, content, medium))
-        break
     
     # Return the list of tweets that meet the search criteria.
     return tweets

@@ -63,7 +63,6 @@ class Data:
                     # Get the properties of the station
                     if linea.id not in data:
                         data[linea.id] = {"color": linea.color, "stations": {}}
-                        print(linea.id, estacion.station)
 
                     # Add the properties of the station to the data dictionary
                     data[linea.id]["stations"][estacion.station] = {"sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
