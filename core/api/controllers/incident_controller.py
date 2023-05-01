@@ -1,4 +1,4 @@
-from api.models import Incidents, AffectedStation, Notification
+from api.models import Incident, AffectedStation, Notification
 class Incidents:
     def __init__(self, line, station, GET):
         self.line = line
@@ -23,9 +23,9 @@ class Incidents:
 
         # Filter incidents based on date and status
         if self.dt:
-            incidents = Incidents.objects.filter(date__gte=self.dt, status=1)
+            incidents = Incident.objects.filter(date__gte=self.dt, status=1)
         else:
-            incidents = Incidents.objects.filter(status=1)
+            incidents = Incident.objects.filter(status=1)
 
         # Loop through incidents and retrieve tweet_id and affected stations
         for incident in incidents:

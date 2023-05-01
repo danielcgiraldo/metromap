@@ -42,11 +42,19 @@
     // Get the SVG element with the ID "metromap_map"
     const svg = document.getElementById("metromap_map")
 
+    // Get the div with the class name "line_info"
+    const line_info = document.querySelector("div.line_info")
+
     // Add a click event listener to each button
     btns.forEach((btn) => {
         btn.addEventListener("click", (ev) => {
+            button = ev.target
+            if (button.dataset.line == undefined) {
+                button = ev.target.parentNode
+            }
+            line = button.dataset.line
             // Check if the button is active
-            if (ev.target.classList.contains("active")) {
+            if (btn.classList.contains("active")) {
                 // If the button is active, unfocus the line
 
                 // Get all lines that are currently focused
@@ -55,7 +63,8 @@
                 // If there are no more focused lines, focus all lines
                 if (activebtns.length <= 1) {
                     svg.classList.remove("focus")
-                    const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${ev.target.innerHTML}`)
+                    line_info.classList.remove("focus")
+                    const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${line}`)
                     unions.forEach((union) => {
                         union.classList.remove("focus")
                     })
@@ -63,9 +72,9 @@
                     // If there are other lines in focus, check the unions
                     const actives = []
                     activebtns.forEach((temp) => {
-                        actives.push("linea" + temp.innerHTML)
+                        actives.push("linea" + temp.dataset.line)
                     })
-                    const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${ev.target.innerHTML}`)
+                    const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${line}`)
                     unions.forEach((union) => {
                         let classArray = Array.from(union.classList);
                         let commonClasses = actives.filter(cls => classArray.includes(cls));
@@ -76,28 +85,33 @@
 
                 }
                 // Unfocus the line's segments and stations
-                document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}segments`).classList.remove("focus")
-                document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}stations`).classList.remove("focus")
+                document.querySelector(`svg#metromap_map g.linea${line}segments`).classList.remove("focus")
+                document.querySelector(`svg#metromap_map g.linea${line}stations`).classList.remove("focus")
                 // Remove the "active" class from the button
-                ev.target.classList.remove("active")
+                btn.classList.remove("active")
             } else {
                 // If the button is not active, focus the line
 
                 // Focus the entire map
                 svg.classList.add("focus")
+                line_info.classList.add("focus")
                 // Focus the line's segments and stations
-                document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}segments`).classList.add("focus")
-                document.querySelector(`svg#metromap_map g.linea${ev.target.innerHTML}stations`).classList.add("focus")
+                document.querySelector(`svg#metromap_map g.linea${line}segments`).classList.add("focus")
+                document.querySelector(`svg#metromap_map g.linea${line}stations`).classList.add("focus")
                 // Focus the unions that have the same class as the line button
-                const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${ev.target.innerHTML}`)
+                const unions = document.querySelectorAll(`svg#metromap_map g.unions g.linea${line}`)
                 unions.forEach((union) => {
                     union.classList.add("focus")
                 })
                 // Add the "active" class to the button
-                ev.target.classList.add("active")
+                btn.classList.add("active")
             }
 
         })
     })
+
+
+
+
 
 </script>
