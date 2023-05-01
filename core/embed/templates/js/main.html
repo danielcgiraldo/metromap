@@ -1,7 +1,41 @@
 <script>
+    function chigüiro(station){
+        const idStation = station.getAttribute('class').split(' ')[0];
+        const lineParent = station.parent;
+        const reg = /linea([a-zA-Z0-9])/g;
+        const line = lineParent.getAttribute('class').split(' ')[0];
+        const idLine = line.match(reg);
 
+        fetch(`https://api.metromap.online/v1/status/${idLine}/${idStation}`)
+            .then(response => response.json())
+            .then(data => {
+                // Guarda la respuesta en una variable
+                const stationStatus = data.datos[idLine][idStation].status;
+            })
+            .catch(error => console.error(error));
+        
+        fetch(`https://api.metromap.online/v1/data/${idLine}/${idStation}`)
+            .then(response => response.json())
+            .then(data => {
+                // Guarda la respuesta en una variable
+                const stationSitesOfInterest = data.datos[idLine][idStation].sites_of_interest;
+                const stationServices = data.datos[idLine][idStation].services;
+            })
+            .catch(error => console.error(error));
+        
+        alert("El estado de la estación es: " + stationStatus +"\n"+
+            "Sitios de Interés cercanos: " + stationSitesOfInterest.join(", ") +"\n"+
+            "Servicios de la Estación: " + stationServices.join(", "));
+    }
 
+    // Select all elements that have a class that constains the word "station"
+    const element = document.querySelectorAll('[class*="station"]');
 
+    // Agregar un evento "click" a cada elemento
+    elements.forEach(element => {
+    element.addEventListener("click", chigüiro(element));
+    });
+        
     // Select all buttons within a div with the class name "line_info"
     const btns = document.querySelectorAll("div.line_info button")
 
