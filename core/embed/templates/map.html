@@ -4,7 +4,13 @@
 <html>
 
 <head>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./styles.v1.css">
     {% include 'css/main.html' %}
 </head>
@@ -12,25 +18,93 @@
 <body>
     {% include 'components/map.html' %}
     <div class="line_info">
-        <div class="group">
-            <button>A</button>
-            <button>B</button>
+        <div class="main_title">
+            <h2>Líneas</h2>
+            <span> / Lines</span>
+        </div>
+        <div class="title">
+            <h3>Metro</h3>
+            <span> / Metro</span>
         </div>
         <div class="group">
-            <button>H</button>
-            <button>J</button>
-            <button>K</button>
-            <button>L</button>
-            <button>M</button>
-            <button>P</button>
+            <button style="--line-color: #005BA9" data-line="A">
+                <div class="line"></div>
+                <div class="line_name">A</div>
+                <label>Niquía - La Estrella</label>
+            </button>
+            <button style="--line-color: #EE7D00" data-line="B">
+                <div class="line"></div>
+                <div class="line_name">B</div>
+                <label>San Antonio - San Javier</label>
+            </button>
+        </div>
+        <div class="title">
+            <h3>Cable</h3>
+            <span> / Aerial Cable Car</span>
         </div>
         <div class="group">
-            <button>T</button>
-            <button>O</button>
+            <button style="--line-color: #DB2F89" data-line="H">
+                <div class="line"></div>
+                <div class="line_name">H</div>
+                <label>Oriente - Villa Sierra</label>
+            </button>
+            <button style="--line-color: #FFCC01" data-line="J">
+                <div class="line"></div>
+                <div class="line_name">J</div>
+                <label>San Javier - La Aurora</label>
+            </button>
+            <button style="--line-color: #B7CE3F" data-line="K">
+                <div class="line"></div>
+                <div class="line_name">K</div>
+                <label>Acevedo - Santo Domingo</label>
+            </button>
+            <button style="--line-color: #9F6D0A" data-line="L">
+                <div class="line"></div>
+                <div class="line_name">L</div>
+                <label>Santo Domingo - Arví</label>
+            </button>
+            <button style="--line-color: #6E237F" data-line="M">
+                <div class="line"></div>
+                <div class="line_name">M</div>
+                <label>Miraflores - Trece de Noviembre</label>
+            </button>
+            <button style="--line-color: #E2051F" data-line="P">
+                <div class="line"></div>
+                <div class="line_name">P</div>
+                <label>Acevedo - El Progreso</label>
+            </button>
+        </div>
+        <div class="title">
+            <h3>Tranvía y bus eléctrico</h3>
+            <span> / Tram and electric bus</span>
         </div>
         <div class="group">
-            <button>1</button>
-            <button>2</button>
+            <button style="--line-color: #189339" data-line="T">
+                <div class="line"></div>
+                <div class="line_name">T</div>
+                <label>San Antonio - Oriente</label>
+            </button>
+            <button style="--line-color: #F59CA2" data-line="O">
+                <div class="line"></div>
+                <div class="line_name">O</div>
+                <label>Caribe - La Palma</label>
+            </button>
+        </div>
+        <div class="title">
+            <h3>Bus</h3>
+            <span> / BRT (Bus Rapid Transit)</span>
+        </div>
+        <div class="group">
+            <button style="--line-color: #007385" data-line="1">
+                <div class="line"></div>
+                <div class="line_name">1</div>
+                <label>U. de M. - Prque Aranjuez</label>
+            </button>
+            <button style="--line-color: #61AAB1" data-line="2">
+                <div class="line"></div>
+                <div class="line_name">2</div>
+                <label>U. de M. - Parque Aranjuez</label>
+            </button>
         </div>
     </div>
     <script src="./scripts.v1.js"></script>

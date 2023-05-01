@@ -1,19 +1,35 @@
-from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
+import requests
+import os
 
 # Create your views here.
+
+def get_now_str():
+    import datetime
+    import pytz 
+
+    # get the current UTC date and time
+    now_utc = datetime.datetime.now(pytz.utc)   
+
+    # format the date and time as a string in the desired format
+    now_str = now_utc.strftime('%Y-%m-%d %H:%M:%S %Z')  
+    
+    return now_str
+
 
 def map(request):
     # Check if public_key is in url
     key = request.GET.get('public-key', '')
     if(key == ""):
-        return JsonResponse({"status":"error", "error": "invalid_client_credentials", "description": "public-key not received"}, status=403)
-    # Render map in /templates/map.html
-    template = loader.get_template('map.html')
-    return HttpResponse(template.render())
+        template = loader.get_template('error.html')
+        return HttpResponse(template.render({'now_str': get_now_str(), 'error' : '401', 'case': '001'}))
+    else:
+        template = loader.get_template('map.html')
+        return HttpResponse(template.render())
+    
 
-def check_incoming(request, fn, line = None, station = None):
+def check_incoming(request):
     """
     Check if the request is made from map, and not someone else.
 
@@ -35,16 +51,13 @@ def check_incoming(request, fn, line = None, station = None):
     # Check if referer is valid
     if referer and not referer.startswith(request.scheme + '://' + request.get_host()):
         return JsonResponse({"status":"error", "error": "invalid_referer", "description": "referer is not metromap.online"}, status=403)
-    if line:
-        return fn(line, station)
-    else:
-        return fn()
+    url = request.GET.get('uri', '')
 
-def get_data(line, station):
-    pass
+    payload = {}
+    headers = {
+      'secret-key': os.getenv("SECRET-KEY")
+    }
 
-def get_update():
-    pass
+    response = requests.request("GET", url, headers=headers, data=payload)
 
-def get_incidents(line, station):
-    pass
+    return JsonResponse(response.json(), status=response.status_code)
