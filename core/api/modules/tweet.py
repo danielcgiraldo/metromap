@@ -121,7 +121,8 @@ class Tweet:
                         if line.id not in data:
                             data[line.id] =[]
                         # Add the corresponding station ID to the line's set of stations
-                        data[line.id].append(alias.station_id)
+                        if alias.station_id not in data[line.id]:
+                            data[line.id].append(alias.station_id)
 
         # Second, search for pairs of words that start with a capital letter
         # separated by either a space and/or the word "de" or "del"
@@ -138,7 +139,8 @@ class Tweet:
                         if line.id not in data:
                             data[line.id] = []
                         # Add the corresponding station ID to the line's set of stations
-                        data[line.id].append(alias.station_id)
+                        if alias.station_id not in data[line.id]:
+                            data[line.id].append(alias.station_id)
         
         # Return the results dictionary
         return data

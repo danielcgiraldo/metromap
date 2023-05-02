@@ -119,13 +119,23 @@
         })
     })
 
-    panzoom(svg, {
+    const pz = panzoom(svg, {
         minZoom: 1,
+        maxZoom: 5,
         bounds: true,
         boundsPadding: 1,
         autocenter: true,
         zoomDoubleClickSpeed: 1
     })
+
+    pz.on('zoom', function (e) {
+        if (e.getTransform().scale > 1) {
+            svg.classList.add("zoomed")
+        } else {
+            svg.classList.remove("zoomed")
+        }
+    });
+
 
 
 </script>
