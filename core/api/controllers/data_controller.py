@@ -19,6 +19,8 @@ class Data:
         """
         data = {}
 
+        # TODO: Return first alias as name
+
         # If a line is specified
         if self.line:
             # If a station is also specified

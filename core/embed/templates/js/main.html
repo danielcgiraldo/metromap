@@ -1,11 +1,16 @@
 <script>
     function chigüiro(ev) {
+        const modal = document.getElementById("station_info");
+        modal.classList.add("active")
         const station = ev.target;
         const idStation = station.classList[0];
         const lineParent = station.parentNode;
         const reg = /linea([a-zA-Z0-9])/g;
         const line = lineParent.classList[0];
         const idLine = (line.match(reg)[0].slice(-1));
+        modal.querySelector("button.close").addEventListener("click", () => {
+            modal.classList.remove("active")
+        })
 
         // FIXME: Change domain
         fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/status/${idLine}/${idStation}`)
@@ -13,7 +18,7 @@
             .then(data => {
                 // Guarda la respuesta en una variable
                 const stationStatus = data.data[idLine][idStation].status;
-                alert("El estado de la estación es: " + stationStatus)
+                console.log("El estado de la estación es: " + stationStatus)
             })
             .catch(error => console.error(error));
 
