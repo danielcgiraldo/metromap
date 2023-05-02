@@ -22,7 +22,7 @@ sabaneta,A,"{""Iglesia María Auxiliadora"",""La Centralidad Sur""}","{""ruta_in
 la_estrella,A,"{""La Centralidad Sur""}","{""ruta_integrada""}",O
 san_antonio,B,"{""Villa Sudamerica"", ""Parque San Antonio"", ""Paseo Carabobo""}","{""pac"", ""zona_wifi"",""bibliometro"",""estacion_encicla""}",O
 cisneros,B,"{""Biblioteca EPM"", ""Centro Administrativo Alpujarra"", ""Parque Pies Desclazos"", ""SENA"", ""Linea B""}","{""estacion_encicla""}",O
-sudamericana,B,"{""Barrio Carlos E. Restrepo"", ""Biblioteca Pública Piloto"", ""Sistema de bicicletas públicas ENCICLA"", ""Universidad Nacional""}","{""rutas_integradas"", ""zona_wifi"",""estacion_encicla""}",O
+suramericana,B,"{""Barrio Carlos E. Restrepo"", ""Biblioteca Pública Piloto"", ""Sistema de bicicletas públicas ENCICLA"", ""Universidad Nacional""}","{""rutas_integradas"", ""zona_wifi"",""estacion_encicla""}",O
 estadio,B,"{""Boulevard de la 70"", ""Sistema de bicicletas ENCICLA"",""Unidad Deportiva Atanasio Giraldot""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""zona_wifi""}",O
 floresta,B,"{""Cuarta Brigada""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""estacion_encicla""}",O
 santa_lucia,B,NULL,"{""parqueadero_para_bicicletas"",""ruta_integrada""}",O
@@ -84,7 +84,7 @@ cisneros,1,"{""Biblioteca EPM"", ""Centro Administrativo Alpujarra"", ""Parque P
 plaza_mayor,1,"{""Plaza Mayor""}","{""estacion_encicla""}",O
 industriales,1,"{""Museo de Arte Moderno de Medellín"", ""Pueblito Paisa""}","{""estacion_encicla"",""ruta_integrada"",""zona_wifi""}",O
 nutibara,1,NULL,"{""estacion_encicla""}",O
-fatima,1,"{""Bolera Sudamericana""}",NULL,O
+fatima,1,"{""Bolera Suramericana""}",NULL,O
 rosales,1,NULL,"{""estacion_encicla""}",O
 parque_belen,1,"{""Parque Belén¨}",NULL,O
 la_palma,1,NULL,NULL,O
@@ -104,7 +104,7 @@ perpetuo_socorro,2,NULL,NULL,O
 barrio_colombia,2,NULL,NULL,O
 industriales,2,"{""Museo de Arte Moderno de Medellín"",""Pueblito Paisa""}","{""estacion_encicla"",""ruta_integrada"",""zona_wifi""}",O
 nutibara,2,NULL,"{""estacion_encicla""}",O
-fatima,2,"{""Bolera Sudamericana""}",NULL,O
+fatima,2,"{""Bolera Suramericana""}",NULL,O
 rosales,2,NULL,"{""estacion_encicla""}",O
 parque_belen,2,"{""Parque Belén¨}",NULL,O
 la_palma,2,NULL,NULL,O
