@@ -3,8 +3,8 @@ Niquia,A,niquia
 Bello,A,bello
 Madera,A,madera
 Acevedo,A,acevedo
-tricentenario,A,tricentenario
-caribe,A,caribe
+Tricentenario,A,tricentenario
+Caribe,A,caribe
 Universidad,A,universidad
 Hospital,A,hospital
 Prado,A,prado
@@ -77,10 +77,10 @@ Manrique,1,manrique
 Gardel,1,gardel
 Palos Verdes,1,palos_verdes
 Hospital,1,hospital
+Universidad de Antioquia,1,udea
 U.de.A,1,udea
 udea,1,udea
 UdeA,1,udea
-Universidad de Antioquia,1,u.de.a
 Chagualo,1,chagualo
 Minorista,1,minorista
 Cisneros,1,cisneros
@@ -92,8 +92,8 @@ Rosales,1,rosales
 Parque Belen,1,parque_belén
 La Palma,1,la_palma
 Los Alpes,1,los_alpes
-U.de.M,1,u.de.m
-Universidad de Medellin,1,u.de.m
+Universidad de Medellin,1,udem
+U.de.M,1,udem
 Parque Aranjuez,2,parque_aranjuez
 Berlin,2,berlín
 Las Esmeraldas,2,las_esmeraldas
@@ -114,5 +114,5 @@ Rosales,2,rosales
 Parque Belen,2,parque_belén
 La Palma,2,la_palma
 Los Alpes,2,los_alpes
-U.de.M,2,udem
 Universidad de Medellin,2,udem
+U.de.M,2,udem

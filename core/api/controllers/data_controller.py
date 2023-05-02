@@ -1,4 +1,4 @@
-from api.models import Line, Station
+from api.models import Line, Station, Alias
 
 
 class Data:
@@ -22,7 +22,7 @@ class Data:
         # TODO: Return first alias as name
 
         # If a line is specified
-        if self.line:
+        if self.line:   
             # If a station is also specified
             if self.station:
                 # Get the properties of the station
@@ -30,6 +30,8 @@ class Data:
                 color = self.line.color
                 sites_of_interest = estacion.sites_of_interest
                 services = estacion.services
+                alias = Alias.objects.filter(station=estacion).first()
+                
 
                 # Add the color of the line to the data dictionary
                 if self.line.id not in data:
@@ -37,7 +39,7 @@ class Data:
                     data[self.line.id] = {"color": color}
 
                 # Add the properties of the station to the data dictionary
-                data[self.line.id][estacion.station] = {"sites_of_interest": sites_of_interest, "services": services}
+                data[self.line.id][estacion.station] = {"name": alias.alternate, "sites_of_interest": sites_of_interest, "services": services}
             else:
                 # If no station is specified, get all stations for the line ordered for id
                 estaciones = Station.objects.filter(line=self.line).order_by("id")
@@ -46,6 +48,7 @@ class Data:
                     color = self.line.color
                     sites_of_interest = estacion.sites_of_interest
                     services = estacion.services
+                    alias = Alias.objects.filter(station=estacion).first()  
 
                     # Add the color of the line to the data dictionary
                     if self.line.id not in data:
@@ -53,7 +56,7 @@ class Data:
                         data[self.line.id] = {"color": color}
 
                     # Add the properties of the station to the data dictionary
-                    data[self.line.id][estacion.station] = {"sites_of_interest": sites_of_interest, "services": services}
+                    data[self.line.id][estacion.station] = {"name": alias.alternate, "sites_of_interest": sites_of_interest, "services": services}
 
         else:
             # If no line is specified, get all lines
@@ -66,7 +69,9 @@ class Data:
                     if linea.id not in data:
                         data[linea.id] = {"color": linea.color, "stations": {}}
 
+                    alias = Alias.objects.filter(station=estacion).first()
+
                     # Add the properties of the station to the data dictionary
-                    data[linea.id]["stations"][estacion.station] = {"sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
+                    data[linea.id]["stations"][estacion.station] = {"name": alias.alternate, "sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
 
         return data
