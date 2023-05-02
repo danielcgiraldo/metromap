@@ -2,6 +2,7 @@
     /* ============= general ============= */
     body {
         overflow: hidden;
+        background-color: white;
     }
 
     * {
@@ -9,6 +10,48 @@
         padding: 0;
         margin: 0;
         border: 0;
+    }
+
+    header.map,
+    footer.map {
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+        background-color: white;
+    }
+
+    header.map div.line,
+    footer.map div.line {
+        height: 0.8vw;
+        width: 100%;
+        background-color: #6BB238;
+    }
+
+    header.map {
+        top: 0;
+        padding-top: 3.5vw;
+        left: 0
+    }
+
+    header.map img {
+        position: absolute;
+        top: 3.5vw;
+        right: 5vw;
+        width: 35vw;
+    }
+    header.map h3 {
+        font-weight: 800;
+        color: #948E98;
+        position: absolute;
+        top: 10vw;
+        right: 5vw;
+        font-size: 2.5vw;
+        letter-spacing: -5% ;
+    }
+    footer.map {
+        top: 130vw;
+        left: 0;
+        padding-bottom: calc(max(5vw, 100vh - 131vw));
     }
 
     div.line.skeleton {
@@ -39,6 +82,7 @@
     svg#metromap_map {
         width: 100%;
         height: auto;
+        cursor: grab;
     }
 
     svg#metromap_map.focus g * {
@@ -77,12 +121,13 @@
         top: calc(100vw / 1.35);
         width: 30vw;
         transform: scale(0.85);
+        background-color: white;
     }
 
     div.line_info div.group {
         width: 100%;
         border-top: 1px solid #97969B;
-        padding: 10px 0 0 0;
+        padding: 0.8vw 0 0 0;
     }
 
     div.line_info div.main_title {
@@ -112,8 +157,8 @@
 
     div.line_info div.title {
         display: flex;
-        margin-top: 10px;
-        margin-bottom: 1px;
+        margin-top: 1vw;
+        margin-bottom: 0;
     }
 
     div.line_info div.title h3 {
@@ -135,7 +180,7 @@
         height: 2.5vw;
         background: transparent;
         cursor: pointer;
-        margin-bottom: 3px;
+        margin-bottom: 0.3vw;
     }
 
     div.line_info.focus button {
@@ -201,7 +246,7 @@
 
     div#station_info header div.title {
         height: auto;
-        padding: 5px 10px;
+        padding: 0.5vw 1vw;
         background-color: #6BB238;
         display: flex;
         align-items: center;
@@ -211,13 +256,13 @@
 
     div#station_info header div.title button {
         position: absolute;
-        right: 10px;
+        right: 1vw;
         width: 2vw;
         height: 2vw;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: -2px;
+        margin-top: -0.2vw;
         cursor: pointer;
     }
 
@@ -248,8 +293,8 @@
 
     div#station_info div.info {
         border-top: 0.5vw solid #6BB238;
-        width: calc(100% - 20px);
-        padding: 0 10px;
+        width: calc(100% - 2vw);
+        padding: 0 1vw;
     }
 
     div#station_info div.info div.title {
@@ -338,17 +383,17 @@
 
     rect.station {
         stroke: transparent;
-        stroke-width: 60px;
+        stroke-width: 50;
     }
 
     path.station {
         stroke: transparent;
-        stroke-width: 20;
+        stroke-width: 10;
     }
 
     circle.station:hover {
         r: 15;
-        stroke-width: 8;
+        stroke-width: 5;
 
     }
 </style>

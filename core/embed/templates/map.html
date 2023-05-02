@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://metromapmed.s3.amazonaws.com/assets/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,500&display=swap"
@@ -16,10 +17,19 @@
 </head>
 
 <body>
+    <header class="map">
+        <div class="line"></div>
+        <img src="https://metromapmed.s3.amazonaws.com/assets/img/public/logo.svg" alt="MetroMap Medellín">
+        <h3>METRO map</h3>
+    </header>
     {% include 'components/map.html' %}
     {% include 'components/line_info.html' %}
     {% include 'components/station_info.html' %}
-    
+    <footer class="map">
+        <div class="line"></div>
+    </footer>
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+
     <script src="./scripts.v1.js"></script>
     {% include 'js/main.html' %}
 </body>
