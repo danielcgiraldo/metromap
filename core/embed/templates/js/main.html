@@ -1,6 +1,8 @@
 <script>
+    const modal = document.getElementById("station_info");
+
     function chigüiro(ev) {
-        const modal = document.getElementById("station_info");
+
         modal.classList.add("active")
         const station = ev.target;
         const idStation = station.classList[0];
@@ -8,9 +10,6 @@
         const reg = /linea([a-zA-Z0-9])/g;
         const line = lineParent.classList[0];
         const idLine = (line.match(reg)[0].slice(-1));
-        modal.querySelector("button.close").addEventListener("click", () => {
-            modal.classList.remove("active")
-        })
 
         // FIXME: Change domain
         fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/status/${idLine}/${idStation}`)
@@ -33,6 +32,10 @@
             })
             .catch(error => console.error(error));
     }
+
+    modal.querySelector("button.close").addEventListener("click", () => {
+        modal.classList.remove("active")
+    })
 
     // Select all elements that have a class that constains the word "station"
     const stations = document.querySelectorAll('.station');
