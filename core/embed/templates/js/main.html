@@ -169,10 +169,41 @@
 
 
 
+    // Select station
+    function selectStation(line, station) {
+        const linea = document.querySelector(`.linea${line}stations`);
+        var estacion = linea.querySelector(`.${station}.station`);
+        return estacion;
+    }
+
+    // Select Segment
+    function selectSegment(line, station1, station2){
+        const linea = document.querySelector(`.linea${line}segments`);
+        var segment = linea.querySelector(`.${station1}.${station2}`);
+        if (segment == null){
+            var segment = linea.querySelector(`.${station2}.${station1}`);
+        }
+        return segment
+    }
+
+    // alert(selectStation("O","facultad_de_minas"));
+    /*
+    setInterval(function minutero(line, station){
+        const fechaActual = new Date();
+        const fechaISO = fechaActual.toISOString();
+        fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/incident/${line}/${station}/${fechaActual}`)
+            .then(response => response.json())
+            .then(data => {
+                alert("Hola" + data)
+            })
+            .catch(error => console.error(error));
+    }, 6000);
+    */
+
     // Select all elements that have a class that constains the word "station"
     const stations = document.querySelectorAll('.station');
 
-    // Agregar un evento "click" a cada elemento
+    // Add a "click" event to each element
     stations.forEach(station => {
         station.addEventListener("click", focus_station);
     });
