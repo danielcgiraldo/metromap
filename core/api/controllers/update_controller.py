@@ -1,9 +1,10 @@
 from api.modules.scrapping import get_tweets
 from datetime import timedelta
-from api.models import Line, Station, Incident
+from api.models import Line, Station, Incident, AffectedStation, Notification
 import os
 from django.conf import settings
 import datetime
+from api.modules.incident import create_incident
 
 
 def update_status():
@@ -69,14 +70,18 @@ def update_status():
 
                         stations_len = len(stations)
                         if stations_len == 1:
+                            # Very unlikely case
                             # Suppose that the affected station is closed but trains are still passing by
                             Station.objects.filter(
                                 pk=stations[0]).update(status=type)
+                            # Check if there is an incident active related to the station, if so update it
+                            create_incident(stations, tweet.id)
                         elif stations_len == 2:
                             # Suppose that the affected stations are the interval where trains are passing by
+
                             pass
                         elif stations_len == 3:
-                            # Suppose the station in the middle is closed and trains are not passing by
+                            # Suppose the station in the middle is closed and trains are passing by
                             pass
                         elif stations_len == 4:
                             # Suppose that each pair of affected stations are the interval where trains are passing by
