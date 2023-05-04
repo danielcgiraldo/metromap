@@ -157,7 +157,7 @@
     // Select station
     function selectStation(line, station) {
         const linea = document.querySelector(`.linea${line}stations`);
-        var estacion = linea.querySelector(`.${station}`);
+        var estacion = linea.querySelector(`.${station}.station`);
         return estacion;
     }
 
@@ -171,7 +171,7 @@
         return segment
     }
 
-    // alert(selectSegment("A","la_estrella", "sabaneta"));
+    // alert(selectStation("O","facultad_de_minas"));
     /*
     setInterval(function minutero(line, station){
         const fechaActual = new Date();
