@@ -13,15 +13,15 @@ def get_tweets_endpoint(request):
 """
 
 
-def get_status(line, station):
+def get_status(line, station, GET):
     status = Status(line, station)
     return JsonResponse({'status':'ok', 'data':status.get_data()})
 
-def get_data(line, station):
+def get_data(line, station, GET):
     data = Data(line, station)
     return JsonResponse({'status':'ok', 'data':data.get_data()})
 
-def get_incident(line, station):
-    incident = Incident(line, station)
+def get_incident(line, station, GET):
+    incident = Incident(line, station, GET)
     return JsonResponse({'status':'ok', 'data':incident.get_data()})
     

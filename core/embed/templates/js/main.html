@@ -1,0 +1,50 @@
+<script>
+
+
+
+
+    // Select station
+    function station_status(line, station, status) {
+        const linea = document.querySelector(`.linea${line}stations`);
+        var estacion = linea.querySelector(`.${station}.station`);
+        estacion.classList.remove("O", "M", "P", "U")
+        estacion.classList.add(status);
+    }
+
+    // Select Segment
+    function segment_status(line, station1, station2, status) {
+        const linea = document.querySelector(`.linea${line}segments`);
+        var segment = linea.querySelector(`.${station1}.${station2}`);
+        segment.classList.remove("O", "M")
+        segment.classList.add(status);
+    }
+
+    // alert(selectStation("O","facultad_de_minas"));
+
+    setInterval(function minutero(line, station) {
+        const fechaActual = new Date();
+        fechaActual.setMinutes(fechaActual.getMinutes() - 6);
+        const fechaMenos6Min = fechaActual.toISOString();
+
+        fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/incident/${line}/${station}?dt=${fechaMenos6Min}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status == "ok") {
+                    const lines = data.data.keys()
+                    for (const line of lines) {
+                        const stations = data.data[line].keys()
+                        for (const station of stations) {
+                            const status = data.data[line][station].status
+                            station_status(line, station, status)
+                            //TODO: segment_status(line, station1, station2, status)
+                        }
+                    }
+                }
+            })
+            .catch(error => console.error(error));
+    }, 60000);
+
+
+
+
+</script>

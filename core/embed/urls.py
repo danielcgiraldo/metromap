@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import map
+from .views import map, check_incoming
 
-# Añadimos la vista tweets a las urls
+# Map and API endpoints map uses.
+# Endpoints work using api.metromap.online requests.
 urlpatterns = [
     path("v1/map/", map),
+    path("request", check_incoming)
 ]

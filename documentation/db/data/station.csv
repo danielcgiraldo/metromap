@@ -8,12 +8,12 @@ A,caribe,"{""Termina de Transporte del Norte""}","{""ruta_integrada"",""zona_wif
 A,universidad,"{""Jardín Botánico"",""Parque de los Deseos"",""Parque Explora"",""Parque Norte"",""Planetario"",""Ruta N"",""Universidad de Antioquia""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""estacion_encicla""}",O
 A,hospital,"{""Clínica León XIII"",""Hospital Infantil"",""Hospital Universitario San Vicente Fundacion"",""Museo Cementerio San Pedro"",""Preuniversitario Formarte""}","{""ruta_integrada"",""zona_wifi""}",O
 A,prado,"{""Catedral Metropolitana"",""Parque de Bolivar""}","{""ruta_integrada""}",O
-A,parque_berrío,"{""Calle Junín"",""Casa Barrientos"",""Corporación Universitaria Rémigton"",""Edificio Coltejer"",""Galería de Arte Colombo Americano"",""Iglesia La Candelaria"",""Museo de Antioquia"",""Palacio de la Cultura Rafael Uribe Uribe"",""Palacio Nacional"",""Plaza Botero"",""Reposteria El Ástor"",""Salón Versalles""}","{""zona_wifi"",""estacion_enclicla""}",O
+A,parque_berrio,"{""Calle Junín"",""Casa Barrientos"",""Corporación Universitaria Rémigton"",""Edificio Coltejer"",""Galería de Arte Colombo Americano"",""Iglesia La Candelaria"",""Museo de Antioquia"",""Palacio de la Cultura Rafael Uribe Uribe"",""Palacio Nacional"",""Plaza Botero"",""Reposteria El Ástor"",""Salón Versalles""}","{""zona_wifi"",""estacion_enclicla""}",O
 A,san_antonio,"{""Parque San Antonio"",""Paseo Peatonal Carabobo""}","{""PAC"",""bibliometro"",""zona_wifi"",""estacion_encicla""}",O
 A,alpujarra,"{""Área Metropolitana"",""Centro Administrativo Alpujarra"",""Cooperativa de Ahorro y crédito COOTRAMED"",""Edificio Carré"",""Edificio EPM"",""Edificio Vásquez"",""Parque Pies Descalzos"",""Plaza de la Libertad"",""Plaza Mayor"",""Salón Málaga"",""Teleantioquia""}",NULL,O
 A,exposiciones,"{""Centro Comercial Sandiego"",""Hospital General Medellín"",""Plaza Mayor"",""Pueblito Paisa"",""Teatro Metropolitano""}","{""ruta_integrada""}",O
 A,industriales,"{""Museo De Arte Moderno"",""Pueblito Paisa""}","{""ruta_integrada"",""zona_wifi"",""estacion_encicla""}",O
-A,poblado,"{""Astorga"",""Aeropuerto Holaya Herrera"",""Calle de la buena mesa"",""La Vía Primavera"",""Parque de El Poblado"",""Terminal de Transporte Sur""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""zona_wifi""}",O
+A,poblado,"{""Astorga"",""Aeropuerto Olaya Herrera"",""Calle de la buena mesa"",""La Vía Primavera"",""Parque de El Poblado"",""Terminal de Transporte Sur""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""zona_wifi""}",O
 A,aguacatala,"{""Museo El Castillo""}","{""ruta_integrada""}",O
 A,ayura,"{""Barrio Jardines"",""Casa Museo Fernando González Otraparte""}","{""ruta_integrada""}",O
 A,envigado,"{""Bliblioteca y Parque Cultural Débora Arango"",""Casa de la Cultura Miguel Uribe Restrepo"",""COOPETRABAN, cooperativo de ahorro y crédito"",""La última estación"",""Restaurante La gloria de Gloria""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""estacion_encicla""}",O
@@ -22,7 +22,7 @@ A,sabaneta,"{""Iglesia María Auxiliadora"",""La Centralidad Sur""}","{""ruta_in
 A,la_estrella,"{""La Centralidad Sur""}","{""ruta_integrada""}",O
 B,san_antonio,"{""Villa Sudamerica"", ""Parque San Antonio"", ""Paseo Carabobo""}","{""pac"", ""zona_wifi"",""bibliometro"",""estacion_encicla""}",O
 B,cisneros,"{""Biblioteca EPM"", ""Centro Administrativo Alpujarra"", ""Parque Pies Desclazos"", ""SENA"", ""Linea B""}","{""estacion_encicla""}",O
-B,sudamericana,"{""Barrio Carlos E. Restrepo"", ""Biblioteca Pública Piloto"", ""Sistema de bicicletas públicas ENCICLA"", ""Universidad Nacional""}","{""rutas_integradas"", ""zona_wifi"",""estacion_encicla""}",O
+B,suramericana,"{""Barrio Carlos E. Restrepo"", ""Biblioteca Pública Piloto"", ""Sistema de bicicletas públicas ENCICLA"", ""Universidad Nacional""}","{""rutas_integradas"", ""zona_wifi"",""estacion_encicla""}",O
 B,estadio,"{""Boulevard de la 70"", ""Sistema de bicicletas ENCICLA"",""Unidad Deportiva Atanasio Giraldot""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""zona_wifi""}",O
 B,floresta,"{""Cuarta Brigada""}","{""parqueadero_para_bicicletas"",""ruta_integrada"",""estacion_encicla""}",O
 B,santa_lucia,NULL,"{""parqueadero_para_bicicletas"",""ruta_integrada""}",O
@@ -84,7 +84,7 @@ O,la_palma,NULL,NULL,O
 1,plaza_mayor,"{""Plaza Mayor""}","{""estacion_encicla""}",O
 1,industriales,"{""Museo de Arte Moderno de Medellín"", ""Pueblito Paisa""}","{""estacion_encicla"",""ruta_integrada"",""zona_wifi""}",O
 1,nutibara,NULL,"{""estacion_encicla""}",O
-1,fatima,"{""Bolera Sudamericana""}",NULL,O
+1,fatima,"{""Bolera Suramericana""}",NULL,O
 1,rosales,NULL,"{""estacion_encicla""}",O
 1,parque_belen,"{""Parque Belén¨}",NULL,O
 1,la_palma,NULL,NULL,O
@@ -104,7 +104,7 @@ O,la_palma,NULL,NULL,O
 2,barrio_colombia,NULL,NULL,O
 2,industriales,"{""Museo de Arte Moderno de Medellín"",""Pueblito Paisa""}","{""estacion_encicla"",""ruta_integrada"",""zona_wifi""}",O
 2,nutibara,NULL,"{""estacion_encicla""}",O
-2,fatima,"{""Bolera Sudamericana""}",NULL,O
+2,fatima,"{""Bolera Suramericana""}",NULL,O
 2,rosales,NULL,"{""estacion_encicla""}",O
 2,parque_belen,"{""Parque Belén¨}",NULL,O
 2,la_palma,NULL,NULL,O

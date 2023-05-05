@@ -166,3 +166,4 @@ site/.next
 site/node_modules
 
 core/api/controllers/log.txt
+site/.env.local
