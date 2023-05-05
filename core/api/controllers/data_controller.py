@@ -39,7 +39,7 @@ class Data:
                     data[self.line.id] = {"color": color}
 
                 # Add the properties of the station to the data dictionary
-                data[self.line.id][estacion.station] = {"name": alias.alternate, "sites_of_interest": sites_of_interest, "services": services}
+                data[self.line.id][estacion.station] = {"name": alias[0].alternate, "sites_of_interest": sites_of_interest, "services": services}
             else:
                 # If no station is specified, get all stations for the line ordered for id
                 estaciones = Station.objects.filter(line=self.line).order_by("id")
@@ -56,7 +56,7 @@ class Data:
                         data[self.line.id] = {"color": color}
 
                     # Add the properties of the station to the data dictionary
-                    data[self.line.id][estacion.station] = {"name": alias.alternate, "sites_of_interest": sites_of_interest, "services": services}
+                    data[self.line.id][estacion.station] = {"name": alias[0].alternate, "sites_of_interest": sites_of_interest, "services": services}
 
         else:
             # If no line is specified, get all lines
@@ -72,6 +72,6 @@ class Data:
                     alias = Alias.objects.filter(station=estacion).first()
 
                     # Add the properties of the station to the data dictionary
-                    data[linea.id]["stations"][estacion.station] = {"name": alias.alternate, "sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
+                    data[linea.id]["stations"][estacion.station] = {"name": alias[0].alternate, "sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
 
         return data
