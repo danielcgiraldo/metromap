@@ -39,6 +39,7 @@
         right: 5vw;
         width: 35vw;
     }
+
     header.map h3 {
         font-weight: 800;
         color: #948E98;
@@ -46,8 +47,9 @@
         top: 10vw;
         right: 5vw;
         font-size: 2.5vw;
-        letter-spacing: -5% ;
+        letter-spacing: -5%;
     }
+
     footer.map {
         top: 130vw;
         left: 0;
@@ -82,8 +84,9 @@
     svg#metromap_map {
         width: 100%;
         height: auto;
-        
+
     }
+
     svg#metromap_map.zoomed {
         cursor: grab;
     }
@@ -295,7 +298,7 @@
     }
 
     div#station_info div.info {
-        
+
         width: calc(100% - 2vw);
         padding: 0 1vw;
     }
@@ -416,5 +419,18 @@
         r: 15;
         stroke-width: 5;
 
+    }
+
+    svg#metromap_map .station.P {
+        overflow: auto;
+        position: relative;
+    }
+
+    svg#metromap_map .station.P {
+        fill: #f1c40f;
+    }
+
+    svg#metromap_map .station.M {
+        fill: #e74c3c;
     }
 </style>
