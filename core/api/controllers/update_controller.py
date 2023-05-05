@@ -78,23 +78,77 @@ def update_status():
                             create_incident(stations, tweet.id)
                         elif stations_len == 2:
                             # Suppose that the affected stations are the interval where trains are passing by
+                            line_stations = Station.objects.filter(line=line)
+                            flag = False
+                            affected_stations = []
+                            for station in line_stations:
+                                if not flag:
+                                    affected_stations.append(station)
+                                    # Update the status of the station to closed
+                                    Station.objects.filter(
+                                        pk=station.id).update(status="M")
+                                if station in line_stations:
+                                    flag = not flag
 
-                            pass
+                            # Check if there is an incident active related to the stations, if so update it
+                            create_incident(affected_stations, tweet.id)
                         elif stations_len == 3:
-                            # Suppose the station in the middle is closed and trains are passing by
-                            pass
+                            line_stations = Station.objects.filter(line=line)
+                            flag = False
+                            state = 0
+                            affected_stations = []
+                            for station in line_stations:
+                                if station in line_stations:
+                                    if flag:
+                                        if state == 1:
+                                            affected_stations.append(station)
+                                            # Update the status of the station to train passing by but closed
+                                            Station.objects.filter(
+                                                pk=station.id).update(status="P")
+                                            state += 1
+                                        else:
+                                            flag = False
+                                    else:
+                                        state += 1
+                                        flag = True
+                                if not flag:
+                                    # Update the status of the station to closed
+                                    Station.objects.filter(
+                                        pk=station.id).update(status="M")
+                                    affected_stations.append(station)
+
+                            # Check if there is an incident active related to the stations, if so update it
+                            create_incident(affected_stations, tweet.id)
+
                         elif stations_len == 4:
                             # Suppose that each pair of affected stations are the interval where trains are passing by
-                            pass
+                            line_stations = Station.objects.filter(line=line)
+                            flag = False
+                            affected_stations = []
+                            for station in line_stations:
+                                if not flag:
+                                    affected_stations.append(station)
+                                    # Update the status of the station to closed
+                                    Station.objects.filter(
+                                        pk=station.id).update(status="M")
+                                if station in line_stations:
+                                    flag = not flag
+                                
+
+                            # Check if there is an incident active related to the stations, if so update it
+                            create_incident(affected_stations, tweet.id)
                         else:
                             # Not very clear case
                             # Register an incident related to all stations, update date of incidents
-                            pass
+                            line_stations = Station.objects.filter(line=line)
+                            for station in line_stations:
+                                # Update the status of the station to closed
+                                Station.objects.filter(
+                                    pk=station.id).update(status="P")
+                            # Check if there is an incident active related to the stations, if so update it
+                            create_incident(line_stations, tweet.id)
                     except Line.DoesNotExist or Station.DoesNotExist:
                         pass
-
-                    # TODO: Affected stations
-                    # TODO: Create incidents, update date of incidents
     return True
 
 
