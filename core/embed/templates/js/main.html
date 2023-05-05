@@ -26,7 +26,7 @@
         fechaActual.setMinutes(fechaActual.getMinutes() - 6);
         const fechaMenos6Min = fechaActual.toISOString();
 
-        fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/incident/${line}/${station}?dt=${fechaMenos6Min}`)
+        fetch(`https://embed.metromap.online/request?uri=https://api.metromap.online/v1/incident/${line}/${station}?dt=${fechaMenos6Min}`)
             .then(response => response.json())
             .then(data => {
                 if (data.status == "ok") {
