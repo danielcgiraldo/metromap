@@ -8,12 +8,12 @@ caribe,A,"{""Termina de Transporte del Norte""}","{""ruta_integrada"",""zona_wif
 universidad,A,"{""Jardín Botánico"",""Parque de los Deseos"",""Parque Explora"",""Parque Norte"",""Planetario"",""Ruta N"",""Universidad de Antioquia""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""estacion_encicla""}",O
 hospital,A,"{""Clínica León XIII"",""Hospital Infantil"",""Hospital Universitario San Vicente Fundacion"",""Museo Cementerio San Pedro"",""Preuniversitario Formarte""}","{""ruta_integrada"",""zona_wifi""}",O
 prado,A,"{""Catedral Metropolitana"",""Parque de Bolivar""}","{""ruta_integrada""}",O
-parque_berrío,A,"{""Calle Junín"",""Casa Barrientos"",""Corporación Universitaria Rémigton"",""Edificio Coltejer"",""Galería de Arte Colombo Americano"",""Iglesia La Candelaria"",""Museo de Antioquia"",""Palacio de la Cultura Rafael Uribe Uribe"",""Palacio Nacional"",""Plaza Botero"",""Reposteria El Ástor"",""Salón Versalles""}","{""zona_wifi"",""estacion_enclicla""}",O
+parque_berrio,A,"{""Calle Junín"",""Casa Barrientos"",""Corporación Universitaria Rémigton"",""Edificio Coltejer"",""Galería de Arte Colombo Americano"",""Iglesia La Candelaria"",""Museo de Antioquia"",""Palacio de la Cultura Rafael Uribe Uribe"",""Palacio Nacional"",""Plaza Botero"",""Reposteria El Ástor"",""Salón Versalles""}","{""zona_wifi"",""estacion_enclicla""}",O
 san_antonio,A,"{""Parque San Antonio"",""Paseo Peatonal Carabobo""}","{""PAC"",""bibliometro"",""zona_wifi"",""estacion_encicla""}",O
 alpujarra,A,"{""Área Metropolitana"",""Centro Administrativo Alpujarra"",""Cooperativa de Ahorro y crédito COOTRAMED"",""Edificio Carré"",""Edificio EPM"",""Edificio Vásquez"",""Parque Pies Descalzos"",""Plaza de la Libertad"",""Plaza Mayor"",""Salón Málaga"",""Teleantioquia""}",NULL,O
 exposiciones,A,"{""Centro Comercial Sandiego"",""Hospital General Medellín"",""Plaza Mayor"",""Pueblito Paisa"",""Teatro Metropolitano""}","{""ruta_integrada""}",O
 industriales,A,"{""Museo De Arte Moderno"",""Pueblito Paisa""}","{""ruta_integrada"",""zona_wifi"",""estacion_encicla""}",O
-poblado,A,"{""Astorga"",""Aeropuerto Holaya Herrera"",""Calle de la buena mesa"",""La Vía Primavera"",""Parque de El Poblado"",""Terminal de Transporte Sur""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""zona_wifi""}",O
+poblado,A,"{""Astorga"",""Aeropuerto Olaya Herrera"",""Calle de la buena mesa"",""La Vía Primavera"",""Parque de El Poblado"",""Terminal de Transporte Sur""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""zona_wifi""}",O
 aguacatala,A,"{""Museo El Castillo""}","{""ruta_integrada""}",O
 ayura,A,"{""Barrio Jardines"",""Casa Museo Fernando González Otraparte""}","{""ruta_integrada""}",O
 envigado,A,"{""Bliblioteca y Parque Cultural Débora Arango"",""Casa de la Cultura Miguel Uribe Restrepo"",""COOPETRABAN, cooperativo de ahorro y crédito"",""La última estación"",""Restaurante La gloria de Gloria""}","{""ruta_integrada"",""parqueadero_para_bicicletas"",""estacion_encicla""}",O
@@ -96,6 +96,7 @@ las_esmeraldas,2,NULL,NULL,O
 manrique,2,NULL,NULL,O
 gardel,2,"{""Casa Gardelina""}","{""zona_wifi""}",O
 palos_verdes,2,NULL,NULL,O
+prado,2,NULL,NULL,O
 catedral,2,NULL,NULL,O
 la_playa,2,NULL,NULL,O
 san_jose,2,NULL,NULL,O
