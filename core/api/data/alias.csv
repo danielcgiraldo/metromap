@@ -48,15 +48,15 @@ Villa Sierra,H,villa_sierra
 Las Torres,H,las_torres
 Oriente,H,oriente
 Oriente,T,oriente
-Alejandro Echevarría,T,alejandro_echevarría
+Alejandro Echevarría,T,alejandro_echavarria
 Loyola,T,loyola
 Miraflores,T,miraflores
 Buenos Aires,T,buenos_aires
 Bicentenario,T,bicentenario
-Pabellón del Agua EPM,T,EPM
+Pabellón del Agua EPM,T,PDAEPM
 San José,T,san_josé
 San Antonio,T,san_antonio
-Trece de Noviembre,M,trece_de_noviembre
+Trece de Noviembre,M,trece_nov
 El Pinal,M,el_pinal
 Miraflores,M,miraflores
 San Antonio,B,san_antonio
@@ -105,7 +105,7 @@ Catedral,2,catedral
 La Playa,2,la_playa
 San José,2,san_josé
 Barrio Colón,2,barrio_colón
-Perpetuo Socorro,2,perpeturo_socorro
+Perpetuo Socorro,2,perpetuo_socorro
 Barrio Colombia,2,barrio_colombia
 Industriales,2,industriales
 Nutibara,2,nutibara
