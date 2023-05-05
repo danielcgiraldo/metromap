@@ -40,7 +40,7 @@ async function focus_station(ev) {
     modal.classList.add("active")
     const infoSection = modal.querySelector(".info");
 
-    fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/data/${idLine}/${idStation}`)
+    fetch(`https://embed.metromap.online/request?uri=https://api.metromap.online/v1/data/${idLine}/${idStation}`)
         .then(response => response.json())
         .then(data => {
             infoSection.innerHTML = ``
@@ -143,10 +143,7 @@ async function focus_station(ev) {
                 modal.classList.remove("active")
             }
 
-
-            // FIXME: Change domain
-            // TODO: Change status to incident endpoint
-            fetch(`http://embed.metromap.local:8000/request?uri=https://api.metromap.online/v1/incident/${idLine}/${idStation}`)
+            fetch(`https://embed.metromap.online/request?uri=https://api.metromap.online/v1/incident/${idLine}/${idStation}`)
                 .then(response => response.json())
                 .then(data => {
                     // Guarda la respuesta en una variable
