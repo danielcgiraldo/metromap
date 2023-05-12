@@ -11,10 +11,8 @@
         "title": "Estado de los servicios",
         "type": "page"
     },
-    "login": {
-      "title": "Log In",
-      "type": "page",
-      "href": "/api/auth/login",
-      "newWindow": true
+    "pagtest": {
+        "title": "pagtest",
+        "type": "page"
     }
 }
