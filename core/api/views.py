@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from api.controllers.incident_controller import Incidents
 from api.controllers.data_controller import Data
 from api.controllers.status_controller import Status
+from api.controllers.user_controller import UserCredentials
 
 """
 # Create your views here.
@@ -25,5 +26,12 @@ def get_incident(line, station, GET):
     incident = Incidents(line, station, GET)
     return JsonResponse({'status':'ok', 'data':incident.get_data()})
     
-def user(request, type):
-    pass
+def user( GET, type, email):
+    user = UserCredentials(email)
+    if type == "set":
+        return user.set()
+    if type == "get":
+        return user.get()
+    else:
+        return JsonResponse({'status': 'error', 'error': 'not_found',
+                             'description': 'not valid method'}, status=404)
