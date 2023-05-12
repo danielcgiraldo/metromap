@@ -104,10 +104,9 @@ class Report(models.Model):
 
 class User(models.Model):
     email = models.EmailField(primary_key=True)
-    pwd = models.CharField(max_length=100)
     name = models.CharField(max_length=50)
     status = models.BooleanField()
     credits = models.IntegerField()
-    secret_key = models.CharField(max_length=100, unique=True)
-    public_key = models.CharField(max_length=100, unique=True)
+    secret_key = models.CharField(max_length=20, unique=True)
+    public_key = models.CharField(max_length=20, unique=True)
     allowed_domains = models.JSONField()
