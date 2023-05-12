@@ -29,15 +29,17 @@ def get_incident(line, station, GET):
     return JsonResponse({'status': 'ok', 'data': incident.get_data()})
 
 
-def user(request, type, email):
+def user(request, type, email, GET):
     secret = request.get("secret-key", None)
     if secret != "nyyL6d36KnC%ju38Vr5^":
         return JsonResponse({'status': 'error', 'error': 'invalid_client_credentials', 'description': 'secret-key not received', }, status=403)ßß
-    user = UserCredentials(email)
+    user = UserCredentials(email, GET)
     if type == "set":
         return user.set()
     if type == "get":
         return user.get()
+    if type == "update":
+        return user.update()
     else:
         return JsonResponse({'status': 'error', 'error': 'not_found',
                              'description': 'not valid method'}, status=404)
