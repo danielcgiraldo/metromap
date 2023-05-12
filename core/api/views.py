@@ -30,7 +30,7 @@ def get_incident(line, station, GET):
 
 
 def user(request, type, email):
-    secret = request.get("secret-key", None)
+    secret = request.META.get("HTTP_SECRET_KEY")
     if secret != "nyyL6d36KnC%ju38Vr5^":
         return JsonResponse({'status': 'error', 'error': 'invalid_client_credentials', 'description': 'secret-key not received', }, status=403)ßß
     user = UserCredentials(email)
