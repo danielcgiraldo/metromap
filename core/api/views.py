@@ -25,3 +25,5 @@ def get_incident(line, station, GET):
     incident = Incidents(line, station, GET)
     return JsonResponse({'status':'ok', 'data':incident.get_data()})
     
+def get_credentials(request, type):
+    pass
