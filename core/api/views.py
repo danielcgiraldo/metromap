@@ -16,17 +16,23 @@ def get_tweets_endpoint(request):
 
 def get_status(line, station, GET):
     status = Status(line, station)
-    return JsonResponse({'status':'ok', 'data':status.get_data()})
+    return JsonResponse({'status': 'ok', 'data': status.get_data()})
+
 
 def get_data(line, station, GET):
     data = Data(line, station)
-    return JsonResponse({'status':'ok', 'data':data.get_data()})
+    return JsonResponse({'status': 'ok', 'data': data.get_data()})
+
 
 def get_incident(line, station, GET):
     incident = Incidents(line, station, GET)
-    return JsonResponse({'status':'ok', 'data':incident.get_data()})
-    
-def user( GET, type, email):
+    return JsonResponse({'status': 'ok', 'data': incident.get_data()})
+
+
+def user(request, type, email):
+    secret = request.get("secret-key", None)
+    if secret != "nyyL6d36KnC%ju38Vr5^":
+        return JsonResponse({'status': 'error', 'error': 'invalid_client_credentials', 'description': 'secret-key not received', }, status=403)ßß
     user = UserCredentials(email)
     if type == "set":
         return user.set()
