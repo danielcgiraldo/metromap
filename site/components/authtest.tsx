@@ -9,7 +9,7 @@ export default function Profile() {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
     if (user) {
-        return <p>Hola</p>;
+        return <div>Hola</div>;
     } else {
         router.push("/api/auth/login");
         return null; // or a loading indicator while redirecting

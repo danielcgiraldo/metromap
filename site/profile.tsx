@@ -11,12 +11,13 @@ export default function Profile() {
     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {user ? (
         <>
-            <a href="https://ejemplo.com">
             <img src={user.picture} alt={user.name} style={{ width: '50px', height: 'auto' }} />
-            </a>
             <div style={{ marginLeft: '20px' }}>
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
+            <a href="/api/auth/logout">
+          <div style={{ width: 'auto', height: 'auto', backgroundColor: '#6BB238', color: '#fff', textAlign: 'center', paddingTop: 'auto', paddingBottom: 'auto', paddingLeft: 'auto', paddingRight: 'auto' }}>
+            Log Out
+          </div>
+        </a>
             </div>
         </>
       ) : (
