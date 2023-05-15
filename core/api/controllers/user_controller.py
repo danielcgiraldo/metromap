@@ -68,4 +68,4 @@ class UserCredentials:
             return JsonResponse({'status': 'ok',
                                  'message': {'domains changed successfully'}})
         else:
-            return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'userID not found'}, status=404)
+            return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'allowed_domains not found'}, status=404)

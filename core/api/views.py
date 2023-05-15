@@ -31,7 +31,7 @@ def get_incident(line, station, GET):
 
 def user(request, type, userID):
     if request.method == "POST":
-        allowed_domains = request.POST('allowed_domains', None)
+        allowed_domains = request.POST.get('allowed_domains', None)
     else:
         allowed_domains = None
     user = UserCredentials(userID, allowed_domains)
