@@ -3,6 +3,7 @@ from api.controllers.incident_controller import Incidents
 from api.controllers.data_controller import Data
 from api.controllers.status_controller import Status
 from api.controllers.user_controller import UserCredentials
+from django.views.decorators.csrf import csrf_exempt
 
 """
 # Create your views here.
@@ -28,7 +29,7 @@ def get_incident(line, station, GET):
     incident = Incidents(line, station, GET)
     return JsonResponse({'status': 'ok', 'data': incident.get_data()})
 
-
+@csrf_exempt
 def user(request, type, userID):
     if request.method == "POST":
         allowed_domains = request.POST.get('allowed_domains', None)
