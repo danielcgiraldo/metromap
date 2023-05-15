@@ -23,8 +23,8 @@ def get_now_str():
 def map(request):
     # Check if public_key is in url
     key = request.GET.get('public-key', '')
+    template = loader.get_template('error.html')
     if (key == ""):
-        template = loader.get_template('error.html')
         return HttpResponse(template.render({'now_str': get_now_str(), 'error': '401', 'case': '001'}))
     else:
         # Check if public_key is valid
@@ -37,8 +37,8 @@ def map(request):
             else:
                 user.credits = user.credits - 1
                 user.save()
-        template = loader.get_template('map.html')
-        return HttpResponse(template.render())
+                template = loader.get_template('map.html')
+                return HttpResponse(template.render())
 
 
 def check_incoming(request):
