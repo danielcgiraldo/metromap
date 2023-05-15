@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 export default function Request({ userID }: { userID: string }) {
     const [data, setData] = useState(null);
+    const ref = React.useRef(null);
+    const [domains, setDomains] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -10,13 +12,66 @@ export default function Request({ userID }: { userID: string }) {
                 const res = await fetch(
                     `https://api.metromap.online/v1/user/get/${userID}`
                 );
-                setData(await res.json());
+                const result = await res.json();
+                setData(result);
+                setDomains(result.data.allowed_domains.join(","));
             } catch (err) {
                 console.error(err);
             }
         };
         fetchData();
     }, []);
+
+    function validateDomains(domains) {
+        var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
+        var domainList = domains.split(",");
+
+        for (var i = 0; i < domainList.length; i++) {
+            var domain = domainList[i].trim();
+
+            if (!domainRegex.test(domain)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    useEffect(() => {
+        const update_domains = async () => {
+            try {
+                console.log(domains);
+                if (validateDomains(domains)) {
+                    const res = await fetch(
+                        `https://api.metromap.online/v1/user/update/${userID}`,
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                allowed_domains: domains.split(","),
+                            }),
+                        }
+                    );
+                    const data = await res.json();
+                    if (data.status === "ok") {
+                        alert("Dominios actualizados correctamente");
+                    } else {
+                        alert("Error al actualizar los dominios");
+                    }
+                } else {
+                    alert("Dominios no válidos");
+                }
+            } catch (error) {}
+        };
+
+        ref.current.addEventListener("click", update_domains);
+
+        return () => {
+            ref.current.removeEventListener("click", update_domains);
+        };
+    }, [ref, domains]);
     return (
         <div id="credenciales-div">
             <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100">
@@ -72,10 +127,11 @@ export default function Request({ userID }: { userID: string }) {
             </div>
             <input
                 type="text"
-                value={
-                    data ? data.data.allowed_domains.join(",") : "Cargando..."
-                }
+                value={domains}
                 disabled={data ? false : true}
+                onChange={(e) => {
+                    setDomains(e.target.value);
+                }}
             />
             <p className="nx-mt-6 nx-leading-7 first:nx-mt-0">
                 Recuerde que la seguridad es crucial cuando se trata de
@@ -83,6 +139,9 @@ export default function Request({ userID }: { userID: string }) {
                 seguridad necesarias para proteger sus credenciales y evitar el
                 acceso no autorizado.
             </p>
+            <button ref={ref} className="btn default">
+                Guardar
+            </button>
         </div>
     );
 }
