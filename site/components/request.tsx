@@ -47,7 +47,7 @@ export default function Request({ userID }: { userID: string }) {
                 const dom = validateDomains(domains);
                 if (dom) {
                     const res = await fetch(
-                        `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${dom}`
+                        `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${JSON.stringify(dom)}`
                     );
                     const data = await res.json();
                     if (data.status === "ok") {
