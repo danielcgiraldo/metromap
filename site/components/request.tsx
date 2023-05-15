@@ -24,12 +24,18 @@ export default function Request({ userID }: { userID: string }) {
 
     function validateDomains(domains) {
         var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
-        var domainList = domains.split(",");
+        if (domains.contains(",")) {
+            var domainList = domains.split(",");
 
-        for (var i = 0; i < domainList.length; i++) {
-            var domain = domainList[i].trim();
+            for (var i = 0; i < domainList.length; i++) {
+                var domain = domainList[i].trim();
 
-            if (!domainRegex.test(domain)) {
+                if (!domainRegex.test(domain)) {
+                    return false;
+                }
+            }
+        } else {
+            if (!domainRegex.test(domains)) {
                 return false;
             }
         }
