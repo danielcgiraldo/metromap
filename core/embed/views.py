@@ -32,7 +32,7 @@ def map(request):
         if (user == None):
             return HttpResponse(template.render({'now_str': get_now_str(), 'error': '401', 'case': '002'}))
         else:
-            if user.credits < 1 or request.META.get('HTTP_HOST') not in user.allowed_domains:
+            if user.credits < 1:
                 return HttpResponse(template.render({'now_str': get_now_str(), 'error': '403', 'case': '001'}))
             else:
                 user.credits = user.credits - 1
