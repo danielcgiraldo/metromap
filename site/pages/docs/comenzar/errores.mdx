@@ -2,8 +2,10 @@ import { Tab, Tabs } from "nextra-theme-docs";
 import Link from "next/link";
 
 # Errores
-En la siguiente tabla podrás encontrar información sobre los tipos de error que pueda presentar mientras usa nuestras APIs
+En las siguientes tablas podrás encontrar información sobre los tipos de error que pueda presentar mientras usa nuestras APIs y servicios.
 
+
+## Errores HTTP
 {
 
 <table><tbody>
@@ -32,6 +34,34 @@ En la siguiente tabla podrás encontrar información sobre los tipos de error qu
         <th>429 Muchas Solicitudes</th>
         <td>Indica que el usuario intenta llamar a la API demasiadas veces en un periodo de tiempo demasiado corto</td>
     </tr>
+</tbody></table>
+
+}
+
+## Errores Internos
+{
+
+<table><tbody>
+    <tr>
+        <th><b>Código del Error</b></th>
+        <td><b>Descripción</b></td>
+
+    </tr>
+   <tr>
+        <th>not_found</th>
+        <td>Indica que la solicitud del usuario es válida, pero el punto final o el recurso que solicita no existe</td>
+    </tr>
+    <tr>
+        <th>invalid_client_credentials</th>
+        <td>Indica que los credenciales de acceso a los servicios son incorrectas. Dependiendo del código HTTP puede ser le falta de un código de autorización, o la negación de este.</td>
+    </tr>
+    <tr>
+        <th>under_maintenance</th>
+        <td>Indica que dicho servicio se encuentra bajo mantenimiento.</td>
+    </tr>
+
+
+    
 </tbody></table>
 
 }

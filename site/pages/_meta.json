@@ -11,7 +11,7 @@
         "title": "Estado de los servicios",
         "type": "page"
     },
-    "keys": {
+    "credenciales": {
         "title": "Credenciales",
         "type": "page"
     }
