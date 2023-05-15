@@ -47,7 +47,6 @@ export default function Request({ userID }: { userID: string }) {
     useEffect(() => {
         const update_domains = async () => {
             try {
-                console.log(domains);
                 if (validateDomains(domains)) {
                     const res = await fetch(
                         `https://api.metromap.online/v1/user/update/${userID}`,
@@ -70,7 +69,9 @@ export default function Request({ userID }: { userID: string }) {
                 } else {
                     alert("Dominios no válidos");
                 }
-            } catch (error) {}
+            } catch (error) {
+                console.error(error);
+            }
         };
 
         ref.current.addEventListener("click", update_domains);
