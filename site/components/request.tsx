@@ -66,7 +66,12 @@ export default function Request({ userID }: { userID: string }) {
         ref.current.addEventListener("click", update_domains);
 
         return () => {
-            ref.current.removeEventListener("click", update_domains);
+            try {
+                ref.current.removeEventListener("click", update_domains);
+            } catch (error) {
+                
+            }
+            
         };
     }, [ref, domains]);
     return (
