@@ -11,8 +11,8 @@
         "title": "Estado de los servicios",
         "type": "page"
     },
-    "changua": {
-        "title": "changua",
+    "keys": {
+        "title": "Credenciales",
         "type": "page"
     }
 }

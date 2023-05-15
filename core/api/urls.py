@@ -15,5 +15,5 @@ urlpatterns = [
     path('v1/incident/<slug:line>', lambda request, line: secret_authentication(views.get_incident, request, 1, line)),
     path('v1/incident/<slug:line>/<slug:station>', lambda request, line, station: secret_authentication(views.get_incident, request, 1, line, station)),
     
-    path("v1/user/<slug:type>/<str:email>", lambda request, type, email: views.user(request, type, email)),
+    path("v1/user/<slug:type>/<str:id>", lambda request, type, id: views.user(request, type, id)),
 ]

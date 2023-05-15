@@ -2,7 +2,7 @@ import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { Profile } from './profile';
+import { Profile } from './components/profile';
 
 const config: DocsThemeConfig = {
     useNextSeoProps() {
@@ -22,7 +22,6 @@ const config: DocsThemeConfig = {
     },
     navbar: {
         extraContent: <Profile />,
-        
     },
     head: () => {
         const { frontMatter } = useConfig();
