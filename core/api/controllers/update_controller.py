@@ -1,6 +1,6 @@
 from api.modules.scrapping import get_tweets
 from datetime import timedelta
-from api.models import Line, Station, Incident, AffectedStation, Notification
+from api.models import Line, Station
 import os
 from django.conf import settings
 import datetime
@@ -22,15 +22,12 @@ def update_status():
 
     # Format the datetime as a string
     date_string = now.strftime("%Y-%m-%d %H:%M:%S")
-
-    # Open a log file and write the datetime string to it
-    file = open(os.path.join(settings.PROJECT_ROOT,
-                "../api/controllers/log.txt"), 'a')
-    file.write(date_string + '\n')
-    file.close()
-
+    
     # Get tweets that were posted within the last 3 minutes
     tweets = get_tweets(timedelta(minutes=3))
+    
+    if len(tweets) == 0:
+        return False
 
     # Loop through the tweets and update the status of the affected lines in the database
     for tweet in tweets:
