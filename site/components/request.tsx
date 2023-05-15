@@ -25,23 +25,17 @@ export default function Request({ userID }: { userID: string }) {
 
     function validateDomains(domains) {
         var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
-        if (domains.contains(",")) {
-            var domainList = domains.split(",");
+        if (!domains.contains(",")) domains = [domains];
+        else domains = domains.split(",");
 
-            for (var i = 0; i < domainList.length; i++) {
-                var domain = domainList[i].trim();
+        for (var i = 0; i < domains.length; i++) {
+            var domain = domains[i].trim();
 
-                if (!domainRegex.test(domain)) {
-                    return false;
-                }
-            }
-        } else {
-            if (!domainRegex.test(domains)) {
+            if (!domainRegex.test(domain)) {
                 return false;
             }
         }
-
-        return true;
+        return domains;
     }
 
     useEffect(() => {
