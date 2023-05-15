@@ -14,11 +14,8 @@ export default function Request({ userID }: { userID: string }) {
                 );
                 const result = await res.json();
                 setData(result);
-                if (Array.isArray(result.data.allowed_domains)) {
-                    setDomains(result.data.allowed_domains.join(","));
-                } else {
-                    setDomains(result.data.allowed_domains);
-                }
+                const domains = JSON.parse(result.data.allowed_domains);
+                setDomains(result.data.allowed_domains.join(","));
             } catch (err) {
                 console.error(err);
             }
