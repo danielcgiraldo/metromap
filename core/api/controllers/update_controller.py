@@ -1,8 +1,6 @@
 from api.modules.scrapping import get_tweets
 from datetime import timedelta
 from api.models import Line, Station
-import os
-from django.conf import settings
 import datetime
 from api.modules.incident import create_incident
 
