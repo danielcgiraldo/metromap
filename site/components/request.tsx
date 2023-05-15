@@ -27,9 +27,9 @@ export default function Request({ userID }: { userID: string }) {
         var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
         if (!domains.includes(",")) {
             domains = [domains];
-          } else {
+        } else {
             domains = domains.split(",");
-          }
+        }
 
         for (var i = 0; i < domains.length; i++) {
             var domain = domains[i].trim();
@@ -44,18 +44,10 @@ export default function Request({ userID }: { userID: string }) {
     useEffect(() => {
         const update_domains = async () => {
             try {
-                if (validateDomains(domains)) {
+                const dom = validateDomains(domains);
+                if (dom) {
                     const res = await fetch(
-                        `https://api.metromap.online/v1/user/update/${userID}`,
-                        {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                allowed_domains: domains.split(","),
-                            }),
-                        }
+                        `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${dom}`
                     );
                     const data = await res.json();
                     if (data.status === "ok") {
