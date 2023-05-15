@@ -77,6 +77,11 @@ export default function Request({ userID }: { userID: string }) {
             <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100">
                 Credenciales
             </h1>
+            <input
+                type="text"
+                disabled
+                value={data ? "Créditos: " + data.data.credits : "Cargando..."}
+            />
             <p className="nx-mt-6 nx-leading-7 first:nx-mt-0">
                 Bienvenido a la página de credenciales de nuestro servicio. Aquí
                 puede obtener las credenciales necesarias para integrar su
