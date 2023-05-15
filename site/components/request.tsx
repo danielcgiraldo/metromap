@@ -25,8 +25,11 @@ export default function Request({ userID }: { userID: string }) {
 
     function validateDomains(domains) {
         var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
-        if (!domains.contains(",")) domains = [domains];
-        else domains = domains.split(",");
+        if (!domains.includes(",")) {
+            domains = [domains];
+          } else {
+            domains = domains.split(",");
+          }
 
         for (var i = 0; i < domains.length; i++) {
             var domain = domains[i].trim();
