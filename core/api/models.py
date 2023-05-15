@@ -103,7 +103,7 @@ class Report(models.Model):
     date = models.DateTimeField()
 
 class User(models.Model):
-    id = models.CharField(max_length=30,primary_key=True)
+    id = models.CharField(max_length=30,primary_key=True,default="000")
     status = models.BooleanField()
     credits = models.IntegerField()
     secret_key = models.CharField(max_length=20, unique=True)
