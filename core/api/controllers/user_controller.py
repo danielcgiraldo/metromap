@@ -61,11 +61,17 @@ class UserCredentials:
             return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'userID not found'}, status=404)
 
     def update(self):
-        if self.allowed_domains != None:
+        if self.allowed_domains is not None:
             # Search for a user with the given userID
             user = User.objects.filter(id=self.userID).first()
-            user.update(allowed_domains=self.allowed_domains)
-            return JsonResponse({'status': 'ok',
-                                 'message': {'domains changed successfully'}})
+            
+            if user:
+                user.allowed_domains = self.allowed_domains
+                user.save()
+                
+                return JsonResponse({'status': 'ok', 'message': 'Domains changed successfully'})
+            else:
+                return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'User not found'}, status=404)
         else:
-            return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'allowed_domains not found'}, status=404)
+            return JsonResponse({'status': 'error', 'error': 'bad_request', 'description': 'allowed_domains not provided'}, status=400)
+
