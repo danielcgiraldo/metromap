@@ -1,6 +1,8 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { Profile } from './components/profile';
 
 const config: DocsThemeConfig = {
     useNextSeoProps() {
@@ -17,6 +19,9 @@ const config: DocsThemeConfig = {
                     "MetroMap es un mapa interactivo diseñado para ofrecer información en tiempo real sobre el estado de las líneas del metro de Medellín. Con una interfaz intuitiva, MetroMap permite conocer el estado de las estaciones y las posibles interrupciones del servicio.",
             };
         }
+    },
+    navbar: {
+        extraContent: <Profile />,
     },
     head: () => {
         const { frontMatter } = useConfig();

@@ -1,1 +1,67 @@
-# Comenzar Ahora
+import Link from "next/link";
+
+# Mapa Interactivo
+
+Le permite al usuario incrustar un mapa interactivo en su sitio web en pocos pasos.
+
+{<div className="row">
+
+<Link className="btn default" href="https://codepen.io/dcgiraldocg/pen/eYPjyGe" target="_blank">Ver Ejemplo</Link>
+<Link className="btn default" href="../credenciales">Obtener credenciales</Link>
+</div>}
+
+### Embed URL
+
+`https://embed.metromap.online/v1/map?public-key=<public-key>`
+
+### Autenticación y límites de uso
+
+{
+
+<table><tbody>
+    <tr>
+        <th>Métodos de autenticación<br></br>soportados por este servicio.</th>
+        <td><ul>
+        <li>
+<Link className="contrast" href="../comenzar/credenciales">Public Key</Link>
+        </li>
+        <li>
+<Link className="contrast" href="../comenzar/credenciales">Dominios Permitidos</Link>
+        </li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Limites de uso</th>
+        <td>
+            <ul>
+            <li>Límite de uso del usuario (Contexto de usuario): 70 créditos
+            para pruebas. 
+            </li>
+            <li>Consumo de créditos del Endpoint:
+            <ul>
+                <li>1 crédito por mapa cargado
+                </li>
+                </ul>
+            </li>
+
+            </ul>
+        </td>
+    </tr>
+
+</tbody>
+</table>
+
+}
+
+### Parámetros de la URL
+
+| Nombre    | Tipo   | Descripción                                                                                               |
+| --------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| `public-key` {<><br/><code className="opt docs">OPCIONAL</code></>}    | string | Para autenticar el mapa y permitir su inserción en un dominio específico, se requiere una clave pública válida. Además, es necesario haber configurado el dominio permitido previamente para poder insertar el mapa en él."                                                      |
+
+### Código de Ejemplo
+
+```html
+<iframe style="aspect-ratio: 3/4; width: 100%; border: 0;"src="https://embed.metromap.online/v1/map?public-key=<public-key>" />
+```
