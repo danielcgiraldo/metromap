@@ -68,6 +68,8 @@ def check_incoming(request):
         'secret-key': os.getenv("SECRET-KEY")
     }
 
+    # TODO: Free map and paid map. Free map has donation button, paid map doesn't.
+
     response = requests.request("GET", url, headers=headers, data=payload)
 
     return JsonResponse(response.json(), status=response.status_code)
