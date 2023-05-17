@@ -2,6 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 import requests
 import os
+from api.models import User
 
 # Create your views here.
 
