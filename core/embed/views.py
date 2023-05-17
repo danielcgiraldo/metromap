@@ -25,9 +25,25 @@ def map(request):
         template = loader.get_template('error.html')
         return HttpResponse(template.render({'now_str': get_now_str(), 'error' : '401', 'case': '001'}))
     else:
+<<<<<<< Updated upstream
         template = loader.get_template('map.html')
         return HttpResponse(template.render())
     
+=======
+        # Check if public_key is valid
+        user = User.objects.filter(public_key=key).first()
+        if (user == None):
+            return HttpResponse(template.render({'now_str': get_now_str(), 'error': '401', 'case': '002'}))
+        else:
+            if user.credits < 1:
+                return HttpResponse(template.render({'now_str': get_now_str(), 'error': '403', 'case': '001'}))
+            else:
+                user.credits = user.credits - 1
+                user.save()
+                template = loader.get_template('map.html')
+                return HttpResponse(template.render({"paid": user.paid}))
+
+>>>>>>> Stashed changes
 
 def check_incoming(request):
     """

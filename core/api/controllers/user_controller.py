@@ -25,9 +25,15 @@ class UserCredentials:
         if not user:
             # Generate new secret and public keys and update them
             secret, public = secrets.token_hex(10), secrets.token_hex(10)
+<<<<<<< Updated upstream
             user = User(id= self.userID, status = "1", credits = 70,
                         secret_key =  secret, public_key = public,
                         allowed_domains = "[]")
+=======
+            user = User(id=self.userID, status="1", credits=70,
+                        secret_key=secret, public_key=public,
+                        paid=False, allowed_domains="[]")
+>>>>>>> Stashed changes
             user.save()
             # Return the new credentials
             return JsonResponse({'status': 'ok', 

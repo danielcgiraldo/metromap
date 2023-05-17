@@ -108,4 +108,5 @@ class User(models.Model):
     credits = models.IntegerField()
     secret_key = models.CharField(max_length=20, unique=True)
     public_key = models.CharField(max_length=20, unique=True)
+    paid = models.BooleanField()
     allowed_domains = models.JSONField()
