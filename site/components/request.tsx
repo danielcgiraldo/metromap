@@ -47,7 +47,9 @@ export default function Request({ userID }: { userID: string }) {
                 const dom = validateDomains(domains);
                 if (dom) {
                     const res = await fetch(
-                        `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${JSON.stringify(dom)}`
+                        `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${JSON.stringify(
+                            dom
+                        )}`
                     );
                     const data = await res.json();
                     if (data.status === "ok") {
@@ -68,10 +70,7 @@ export default function Request({ userID }: { userID: string }) {
         return () => {
             try {
                 ref.current.removeEventListener("click", update_domains);
-            } catch (error) {
-                
-            }
-            
+            } catch (error) {}
         };
     }, [ref, domains]);
     return (
@@ -132,6 +131,11 @@ export default function Request({ userID }: { userID: string }) {
                     Por ejemplo: dominio1.com,dominio2.com,dominio3.com
                 </pre>
             </div>
+            <p className="nx-mt-6 nx-leading-7 first:nx-mt-0">
+                No debes incluir el protocolo (http:// o https://) en la lista,
+                ni www. o cualquier subdominio. Solo incluya el nombre de
+                dominio principal.
+            </p>
             <input
                 type="text"
                 value={domains}

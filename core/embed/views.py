@@ -22,8 +22,11 @@ def get_now_str():
 
 def map(request):
     # Check if public_key is in url
+    error = request.GET.get('error', '')
     key = request.GET.get('public-key', '')
     template = loader.get_template('error.html')
+    if (error != ""):
+        return HttpResponse(template.render({'now_str': get_now_str(), 'error': error, 'case': '000'}))
     if (key == ""):
         return HttpResponse(template.render({'now_str': get_now_str(), 'error': '401', 'case': '001'}))
     else:

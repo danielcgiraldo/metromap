@@ -31,8 +31,7 @@ class UserCredentials:
                         paid=False, allowed_domains="[]")
             user.save()
             # Return the new credentials
-            return JsonResponse({'status': 'ok',
-                                 'data': {'userID': self.userID, 'secret_key': secret, 'public_key': public, 'allowed_domains': {}}})
+            return JsonResponse({'status': 'ok'})
 
         # If user was not found, return error
         else:
@@ -55,7 +54,7 @@ class UserCredentials:
         if user:
             # Return the user's credentials
             return JsonResponse({'status': 'ok',
-                                 'data': {'userID': self.userID, 'secret_key': user.secret_key, 'public_key': user.public_key, 'allowed_domains': user.allowed_domains, 'credits': user.credits}})
+                                 'data': {'userID': self.userID, 'secret_key': user.secret_key, 'public_key': user.public_key, 'allowed_domains': user.allowed_domains, 'credits': user.credits, 'paid': user.paid}})
         # If user was not found, return error
         else:
             return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'userID not found'}, status=404)
