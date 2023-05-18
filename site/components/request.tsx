@@ -14,7 +14,8 @@ export default function Request({ userID }: { userID: string }) {
                 );
                 const result = await res.json();
                 setData(result);
-                setDomains(result.data.allowed_domains.join(","));
+                const domains = JSON.parse(result.data.allowed_domains);
+                setDomains(domains.join(","));
             } catch (err) {
                 console.error(err);
             }
@@ -24,35 +25,29 @@ export default function Request({ userID }: { userID: string }) {
 
     function validateDomains(domains) {
         var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
-        var domainList = domains.split(",");
+        if (!domains.includes(",")) {
+            domains = [domains];
+        } else {
+            domains = domains.split(",");
+        }
 
-        for (var i = 0; i < domainList.length; i++) {
-            var domain = domainList[i].trim();
+        for (var i = 0; i < domains.length; i++) {
+            var domain = domains[i].trim();
 
             if (!domainRegex.test(domain)) {
                 return false;
             }
         }
-
-        return true;
+        return domains;
     }
 
     useEffect(() => {
         const update_domains = async () => {
             try {
-                console.log(domains);
-                if (validateDomains(domains)) {
+                const dom = validateDomains(domains);
+                if (dom) {
                     const res = await fetch(
-                        `https://api.metromap.online/v1/user/update/${userID}`,
-                        {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                allowed_domains: domains.split(","),
-                            }),
-                        }
+                        `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${JSON.stringify(dom)}`
                     );
                     const data = await res.json();
                     if (data.status === "ok") {
@@ -63,13 +58,20 @@ export default function Request({ userID }: { userID: string }) {
                 } else {
                     alert("Dominios no válidos");
                 }
-            } catch (error) {}
+            } catch (error) {
+                console.error(error);
+            }
         };
 
         ref.current.addEventListener("click", update_domains);
 
         return () => {
-            ref.current.removeEventListener("click", update_domains);
+            try {
+                ref.current.removeEventListener("click", update_domains);
+            } catch (error) {
+                
+            }
+            
         };
     }, [ref, domains]);
     return (
@@ -77,6 +79,11 @@ export default function Request({ userID }: { userID: string }) {
             <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100">
                 Credenciales
             </h1>
+            <input
+                type="text"
+                disabled
+                value={data ? "Créditos: " + data.data.credits : "Cargando..."}
+            />
             <p className="nx-mt-6 nx-leading-7 first:nx-mt-0">
                 Bienvenido a la página de credenciales de nuestro servicio. Aquí
                 puede obtener las credenciales necesarias para integrar su

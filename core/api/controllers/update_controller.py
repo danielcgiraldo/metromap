@@ -1,8 +1,6 @@
 from api.modules.scrapping import get_tweets
 from datetime import timedelta
-from api.models import Line, Station
-import os
-from django.conf import settings
+from api.models import Incident, Line, Station
 import datetime
 from api.modules.incident import create_incident
 
@@ -160,6 +158,11 @@ def renew_status():
     Returns:
         Returns True if the status of all lines has been updated
     """
+    incidents = Incident.objects.filter(status=1)
+    for incident in incidents:
+        incident.status = 0
+        incident.save()
+
     lines = Line.objects.filter(status__in=["P", "M"])
     for line in lines:
         line.status = "O"

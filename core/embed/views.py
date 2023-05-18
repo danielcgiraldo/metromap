@@ -6,25 +6,26 @@ from api.models import User
 
 # Create your views here.
 
+
 def get_now_str():
     import datetime
-    import pytz 
+    import pytz
 
     # get the current UTC date and time
-    now_utc = datetime.datetime.now(pytz.utc)   
+    now_utc = datetime.datetime.now(pytz.utc)
 
     # format the date and time as a string in the desired format
-    now_str = now_utc.strftime('%Y-%m-%d %H:%M:%S %Z')  
-    
+    now_str = now_utc.strftime('%Y-%m-%d %H:%M:%S %Z')
+
     return now_str
 
 
 def map(request):
     # Check if public_key is in url
     key = request.GET.get('public-key', '')
-    if(key == ""):
-        template = loader.get_template('error.html')
-        return HttpResponse(template.render({'now_str': get_now_str(), 'error' : '401', 'case': '001'}))
+    template = loader.get_template('error.html')
+    if (key == ""):
+        return HttpResponse(template.render({'now_str': get_now_str(), 'error': '401', 'case': '001'}))
     else:
         # Check if public_key is valid
         user = User.objects.filter(public_key=key).first()
@@ -54,20 +55,20 @@ def check_incoming(request):
         If the request is valid, the function returns the result of fn.
     """
 
-    # TODO: Check public key in request
-    
     # Get referer
     referer = request.META.get('HTTP_REFERER', '')
 
     # Check if referer is valid
     if referer and not referer.startswith(request.scheme + '://' + request.get_host()):
-        return JsonResponse({"status":"error", "error": "invalid_referer", "description": "referer is not metromap.online"}, status=403)
+        return JsonResponse({"status": "error", "error": "invalid_referer", "description": "referer is not metromap.online"}, status=403)
     url = request.GET.get('uri', '')
 
     payload = {}
     headers = {
-      'secret-key': os.getenv("SECRET-KEY")
+        'secret-key': os.getenv("SECRET-KEY")
     }
+
+    # TODO: Free map and paid map. Free map has donation button, paid map doesn't.
 
     response = requests.request("GET", url, headers=headers, data=payload)
 
