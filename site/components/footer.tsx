@@ -1,49 +1,37 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-const Footer: React.FC = () => {
+const Contributors = () => {
+  const [contributors, setContributors] = useState([]);
+
+  useEffect(() => {
+    const fetchContributors = async () => {
+      try {
+        const response = await fetch('https://api.github.com/repos/danielcgiraldo/ppi_06/contributors');
+        const data = await response.json();
+        setContributors(data);
+      } catch (error) {
+        console.error('Error al obtener los contribuidores:', error);
+      }
+    };
+
+    fetchContributors();
+  }, []);
+
   return (
-    <div className="container">
-      <div className="left">
-        <span>
-        Copyright © {new Date().getFullYear()}{" "}
-                <a href="https://metromap.online" target="_blank">
-                    MetroMap Project
-                </a>
-                .
-        </span>
-      </div>
-      <div className="right">
-        <ul>
-          <li>
-            <a href="https://github.com/danielcgiraldo">Daniel Castillo Giraldo</a>
+    <div>
+      <h2 style={{ color: '#333', textAlign: 'center' }}>Contribuidores</h2>
+      <ul style={{ listStyle: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {contributors.map((contributor) => (
+          <li key={contributor.id} style={{ margin: '0 10px', textAlign: 'center' }}>
+            <a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
+              <img src={contributor.avatar_url} alt={contributor.login} style={{ width: '100px', borderRadius: '50%' }} />
+              <p style={{ marginTop: '10px', color: '#666' }}>{contributor.login}</p>
+            </a>
           </li>
-          <li>
-            <a href="https://github.com/JPortoL">Jesús Miguel Porto López</a>
-          </li>
-          <li>
-            <a href="https://github.com/SRCrimson">Autor 3</a>
-          </li>
-        </ul>
-      </div>
-
-      <style jsx>{`
-        .container {
-          display: flex;
-          justify-content: space-between;
-        }
-  
-        .left {
-          text-align: left;
-          width: 50%;
-        }
-  
-        .right {
-          text-align: right;
-          width: 50%;
-        }
-      `}</style>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default Footer;
+export default Contributors;
