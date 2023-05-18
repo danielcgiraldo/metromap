@@ -3,6 +3,6 @@ import styles from "./map.module.css";
 export default function Map() {
 
     return (
-        <iframe className={styles.map} style={{aspectRatio: "3/4"}} src="https://embed.metromap.online/v1/map?public-key=a2da1b7fb4ffc12e301c" />
+        <iframe className={styles.map} style={{aspectRatio: "3/4"}} src="https://embed.metromap.online/v1/map?public-key=4ff4747e398be349379c" />
     )
 }

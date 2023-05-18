@@ -14,22 +14,50 @@
 </head>
 
 <body>
-
+    <header class="map">
+        <div class="line"></div>
+        <img src="https://metromapmed.s3.amazonaws.com/assets/img/public/logo.svg" alt="MetroMap Medellín">
+        <h3>METRO map</h3>
+    </header>
+    {% include 'components/map.html' %}
+    {% include 'components/line_info.html' %}
+    {% include 'components/station_info.html' %}
+    {% if not paid %}
+    <a href="https://www.buymeacoffee.com/metromap" target="_blank" rel="noopener noreferrer" id="bmc">
+        <img src="https://metromapmed.s3.amazonaws.com/assets/img/bmc.png" alt="¡Apóyanos con un café!">
+    </a>
+    {% endif %}
+    <footer class="map">
+        <div class="line"></div>
+    </footer>
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+    <script src='https://metromapmed.s3.amazonaws.com/assets/js/animations.v2.min.js'></script>
+    <script src='https://metromapmed.s3.amazonaws.com/assets/js/stations.v1.min.js'></script>
+    <script src='https://metromapmed.s3.amazonaws.com/assets/js/status.v1.min.js'></script>
 
     <script>
-        function getDomainFromURL(url) {
-            var domain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+\.[^:\/\n]+)/im);
-            return domain && domain[1];
+        try {
+            function getDomainFromURL(url) {
+                var domain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+\.[^:\/\n]+)/im);
+                return domain && domain[1];
+            }
+
+            var host = document.location.ancestorOrigins[0]
+            console.log("Host: " + host)
+            var domain = getDomainFromURL(host);
+            console.log("Domain: " + domain)
+            var domains = '{{ domains }}';
+
+            if (!domains.includes(domain)) {
+                var errorComponent = `{% include 'components/error.html' with error="403" case="999" %}`;
+                document.body.innerHTML = errorComponent
+            }
+        } catch (error) {
+            var errorComponent = `{% include 'components/error.html' with error="403" case="999" %}`;
+            document.body.innerHTML = errorComponent
         }
 
-        var host = document.location.ancestorOrigins[0]
-        console.log("Domain: " + host)
-        var domain = getDomainFromURL(host);
-        var domains = '{{ domains }}';
 
-        if (!domains.includes(domain)) {
-            window.location.href = 'https://embed.metromap.online/v1/map?error=403';
-        }
     </script>
 </body>
 
