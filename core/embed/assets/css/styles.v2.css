@@ -9,6 +9,12 @@ body {
     padding: 0;
     margin: 0;
     border: 0;
+    transition: visibility 0.1s, opacity 0.1s linear;
+}
+
+div.line_info,
+a#bmc {
+    transition: visibility 0.3s, opacity 0.3s linear;
 }
 
 header.map,
@@ -47,6 +53,12 @@ header.map h3 {
     right: 5vw;
     font-size: 2.5vw;
     letter-spacing: -5%;
+}
+
+a.zoomed,
+div.zoomed {
+    visibility: hidden;
+    opacity: 0;
 }
 
 footer.map {
@@ -120,11 +132,13 @@ button.active {
 div.line_info {
     display: block;
     position: absolute;
-    right: 3vw;
-    top: calc(100vw / 1.35);
+    right: calc(3vw - 10px);
+    top: calc(100vw / 1.31 - 10px);
     width: 30vw;
     transform: scale(0.85);
     background-color: white;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 div.line_info div.group {
@@ -430,4 +444,17 @@ svg#metromap_map .station.P {
 
 svg#metromap_map .station.M {
     fill: #e74c3c;
+}
+
+a#bmc {
+    position: absolute;
+    height: auto;
+    width: 25vw;
+    left: 6vw;
+    top: calc(100vw / 1.1);
+}
+
+a#bmc img {
+    width: 100%;
+    height: auto;
 }

@@ -86,7 +86,11 @@ const pz = panzoom(svg, {
 pz.on('zoom', function (e) {
     if (e.getTransform().scale > 1) {
         svg.classList.add("zoomed")
+        document.querySelector(".line_info").classList.add("zoomed")
+        document.querySelector("#bmc").classList.add("zoomed")
     } else {
         svg.classList.remove("zoomed")
+        document.querySelector(".line_info").classList.remove("zoomed")
+        document.querySelector("#bmc").classList.remove("zoomed")
     }
 });
