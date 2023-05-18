@@ -28,7 +28,7 @@ class UserCredentials:
             secret, public = secrets.token_hex(10), secrets.token_hex(10)
             user = User(id=self.userID, status="1", credits=70,
                         secret_key=secret, public_key=public,
-                        allowed_domains="[]")
+                        paid=False, allowed_domains="[]")
             user.save()
             # Return the new credentials
             return JsonResponse({'status': 'ok',

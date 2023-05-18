@@ -38,7 +38,7 @@ def map(request):
                 user.credits = user.credits - 1
                 user.save()
                 template = loader.get_template('map.html')
-                return HttpResponse(template.render())
+                return HttpResponse(template.render({"paid": user.paid, "domains": user.allowed_domains}))
 
 
 def check_incoming(request):

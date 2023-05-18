@@ -3,6 +3,7 @@ import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Profile } from './components/profile';
+import Footer from "./components/footer";
 
 const config: DocsThemeConfig = {
     useNextSeoProps() {
@@ -75,14 +76,8 @@ const config: DocsThemeConfig = {
     },
     docsRepositoryBase: "https://github.com/danielcgiraldo/ppi_06/blob/main/site",
     footer: {
-        text: (
-            <span>
-                Copyright © {new Date().getFullYear()}{" "}
-                <a href="https://metromap.online" target="_blank">
-                    MetroMap Project
-                </a>
-                .
-            </span>
+        component: (
+            <Footer/>
         ),
     },
     search: {
