@@ -36,20 +36,27 @@
     <script src='https://metromapmed.s3.amazonaws.com/assets/js/status.v1.min.js'></script>
 
     <script>
-        function getDomainFromURL(url) {
-            var domain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+\.[^:\/\n]+)/im);
-            return domain && domain[1];
-        }
+        try {
+            function getDomainFromURL(url) {
+                var domain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+\.[^:\/\n]+)/im);
+                return domain && domain[1];
+            }
 
-        var host = document.location.ancestorOrigins[0]
-        var domain = getDomainFromURL(host);
-        console.log("Domain: " + domain)
-        var domains = '{{ domains }}';
+            var host = document.location.ancestorOrigins[0]
+            console.log("Host: " + host)
+            var domain = getDomainFromURL(host);
+            console.log("Domain: " + domain)
+            var domains = '{{ domains }}';
 
-        if (!domains.includes(domain)) {
-            var errorComponent = `{% include 'components/error.html' %}`;
+            if (!domains.includes(domain)) {
+                var errorComponent = `{% include 'components/error.html' with error="403" case="999" %}`;
+                document.body.innerHTML = errorComponent
+            }
+        } catch (error) {
+            var errorComponent = `{% include 'components/error.html' with error="403" case="999" %}`;
             document.body.innerHTML = errorComponent
         }
+
 
     </script>
 </body>
