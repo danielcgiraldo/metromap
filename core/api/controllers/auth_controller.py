@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from api.models import Line, Station
+from api.models import Line, Station, User
 
 def secret_authentication(fn, request, credits, line = None, station = None):
     """
@@ -27,7 +27,13 @@ def secret_authentication(fn, request, credits, line = None, station = None):
     secret = request.META.get("HTTP_SECRET_KEY")
     if (secret == None):
        return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'secret-key not received',}, status=401)
-    # TODO: Check if user has enough credits
+    
+    # Find the user who made the request
+    user = User.objects.filter(secret_key=secret).first()
+    # Check if user has enough credits
+    if user.credits < credits:
+        return JsonResponse({'status':'error', 'error':'invalid_client_credentials', 'description':'not credits enougth',}, status=401)
+    
     if line:
         try:
             line = Line.objects.get(pk=line)
@@ -39,5 +45,7 @@ def secret_authentication(fn, request, credits, line = None, station = None):
                 return JsonResponse({'status': 'error', 'error': 'not_found', 'description': 'station not found'}, status=404)
 
               
-    # TODO: Take credits from user
+    # Take credits from user
+    user.credits -= credits
+    user.save()
     return fn(line, station, request.GET)
