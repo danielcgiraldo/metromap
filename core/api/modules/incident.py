@@ -1,5 +1,5 @@
 import datetime
-from api.models import Incident, AffectedStation, Notification
+from api.models import Incident, AffectedStation, Notification, Station
 
 
 def create_incident(affected_stations, tweet_id):
@@ -43,3 +43,45 @@ def create_incident(affected_stations, tweet_id):
             af_st = AffectedStation(
                 incident=incident, affected_station=station)
             af_st.save()
+
+
+def full_incident(line, tweet, type="O"):
+    """
+    Change the status of all stations of a line to the given type.
+    """
+    stations_of_line = Station.objects.filter(line=line)
+    if type == "O":
+        incidents = Incident.objects.filter(status=1)
+        if incidents:
+            for incident in incidents:
+                affected_stations = AffectedStation.objects.filter(
+                    incident=incident)
+                affected_stations_len = len(affected_stations)
+                station_count = 0
+                for station in affected_stations:
+                    if station in stations_of_line:
+                        station_count += 1
+                        station.status = "O"
+                        station.save()
+                if station_count == affected_stations_len:
+                    # If the incident stations are all related to the line
+                    incident.status = 0
+                if station_count > 0:
+                    notif = Notification(tweet_id=tweet,
+                                         incident=incident, date=datetime.now())
+                    notif.save()
+                incident.updated_at = datetime.now()
+                incident.save()
+    else:
+        for station in stations_of_line:
+            station.status = "M"
+            station.save()
+        incident = Incident(status=1)
+        incident.save()
+        for station in stations_of_line:
+            affected_station = AffectedStation(
+                incident=incident, affected_station=station)
+            affected_station.save()
+        notif = Notification(tweet_id=tweet,
+                             incident=incident, date=datetime.now())
+        notif.save()

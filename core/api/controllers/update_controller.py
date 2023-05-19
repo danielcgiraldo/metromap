@@ -2,7 +2,7 @@ from api.modules.scrapping import get_tweets
 from datetime import timedelta
 from api.models import Incident, Line, Station
 import datetime
-from api.modules.incident import create_incident
+from api.modules.incident import create_incident, full_incident
 
 
 def update_status():
@@ -17,16 +17,12 @@ def update_status():
 
     # Get the current datetime
     now = datetime.datetime.now()
-
-    # Format the datetime as a string
-    date_string = now.strftime("%Y-%m-%d %H:%M:%S")
     
     # Get tweets that were posted within the last 3 minutes
-    tweets = get_tweets(timedelta(minutes=3))
+    tweets = get_tweets(timedelta(minutes=1100))
     
     if len(tweets) == 0:
         return False
-
     # Loop through the tweets and update the status of the affected lines in the database
     for tweet in tweets:
         # Get the type of the tweet ("O" for outage, "M" for maintenance, or None for other types)
@@ -50,6 +46,8 @@ def update_status():
                             # Update the status of the station
                             Station.objects.filter(
                                 pk=station.id).update(status=type)
+                            
+                        full_incident(line, tweet.id, type)
 
                     except Line.DoesNotExist or Station.DoesNotExist:
                         pass

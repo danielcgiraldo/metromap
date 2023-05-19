@@ -6,7 +6,7 @@ import os
 from django.conf import settings
 import random
 import string
-from api.models import Alias, Station
+from api.models import Alias, Line
 
 
 class Tweet:
@@ -96,7 +96,7 @@ class Tweet:
         # Finding all matches for 'líneas' followed by a digit or alphabet and adding it to 'caso2'
         # 'caso2' is flattened using itertools.chain()
         busqueda = re.findall(
-            r'\b(líneas?)\s+([A-Za-z]|\d+)(?:\s+y\s+(\d+|[A-Za-z]|\d+))?', self.content)
+            r'líneas?\s+([A-Za-z]{1}|\d)\s[y|-]\s([A-Za-z]|\d)', self.content)
         if busqueda:
             caso2 = list(itertools.chain(*busqueda))
 
@@ -106,7 +106,7 @@ class Tweet:
             caso3 = ["1", "2"]
 
         # Combining all the cases and returning a list of unique elements
-        return [Station.objects.get(id=station) for station in list(set(caso1 + caso2 + caso3))]
+        return [Line.objects.get(pk=line) for line in list(set(caso1 + caso2 + caso3))]
 
     def get_stations(self):
         """
