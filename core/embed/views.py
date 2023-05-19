@@ -68,7 +68,7 @@ def check_incoming(request):
 
     payload = {}
     headers = {
-        'secret-key': os.getenv("SECRET-KEY")
+        'secret-key': os.getenv("SECRET_KEY")
     }
 
     # TODO: Free map and paid map. Free map has donation button, paid map doesn't.
