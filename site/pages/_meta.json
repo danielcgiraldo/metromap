@@ -14,5 +14,10 @@
     "credenciales": {
         "title": "Credenciales",
         "type": "page"
+    },
+    "Legal": {
+        "title": "page",
+        "display": "hidden",
+        "type": "page"
     }
 }
