@@ -1,80 +1,107 @@
+// Imports
 "use client";
-
 import React, { useState, useEffect } from "react";
+
 export default function Request({ userID }: { userID: string }) {
+    // State for storing fetched data
     const [data, setData] = useState(null);
+    // Reference for the button element
     const ref = React.useRef(null);
+    // State for storing and updating allowed domains
     const [domains, setDomains] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // Fetching data from API
                 const res = await fetch(
                     `https://api.metromap.online/v1/user/get/${userID}`
                 );
+                // Parsing the response
                 const result = await res.json();
+                // Updating the data state
                 setData(result);
+                // Parsing allowed domains from the data
                 const domains = JSON.parse(result.data.allowed_domains);
+                // Joining domains with commas and updating the state
                 setDomains(domains.join(","));
             } catch (err) {
+                // Logging the error if fetch fails
                 console.error(err);
             }
         };
+        // Fetching data on component mount
         fetchData();
     }, []);
 
     function validateDomains(domains) {
         var domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
+
         if (!domains.includes(",")) {
+            // Converting single domain string to an array
             domains = [domains];
         } else {
+            // Splitting comma-separated domains into an array
             domains = domains.split(",");
         }
 
         for (var i = 0; i < domains.length; i++) {
+            // Removing leading and trailing whitespaces
             var domain = domains[i].trim();
 
             if (!domainRegex.test(domain)) {
+                // Return false if any domain fails regex validation
                 return false;
             }
         }
+        // Return the array of valid domains
         return domains;
     }
 
     useEffect(() => {
         const update_domains = async () => {
             try {
+                // Validating the entered domains
                 const dom = validateDomains(domains);
+                // Updating the allowed domains for the user
                 if (dom) {
                     const res = await fetch(
                         `https://api.metromap.online/v1/user/update/${userID}?allowed_domains=${JSON.stringify(
                             dom
                         )}`
                     );
+                    // Parsing the response
                     const data = await res.json();
+                    // Showing success message
                     if (data.status === "ok") {
                         alert("Dominios actualizados correctamente");
+                    // Showing error message
                     } else {
                         alert("Error al actualizar los dominios");
                     }
                 } else {
+                    // Showing error message for invalid domains
                     alert("Dominios no válidos");
                 }
+                // Logging the error if update fails
             } catch (error) {
                 console.error(error);
             }
         };
-
+        // Adding event listener for the button click
         ref.current.addEventListener("click", update_domains);
 
         return () => {
+            // Removing event listener on component unmount
             try {
                 ref.current.removeEventListener("click", update_domains);
             } catch (error) {}
         };
     }, [ref, domains]);
+
     return (
         <div id="credenciales-div">
+            {/* Content related to credentials */}
             <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight nx-text-slate-900 dark:nx-text-slate-100">
                 Credenciales
             </h1>
