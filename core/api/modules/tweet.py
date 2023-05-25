@@ -122,11 +122,11 @@ class Tweet:
         match1 = re.findall(r'\b[A-Z]\w*', self.content)
         if match1:
             # Iterate over all lines
-            for line in Tweet.get_lines():
+            for line in self.get_lines():
                 # Iterate over all matching words
                 for element in match1:
                     # Query the database to find any aliases for the current word and line
-                    alias = Alias.objects.filter(alternate=element)
+                    alias = Alias.objects.filter(alternate=element).first()
                     if alias and alias.station.line.id == line:
                         # If the line is not already in the results dictionary, add it
                         if line.id not in data:
@@ -141,11 +141,11 @@ class Tweet:
             r'\b([A-Z]\w+\s+[A-Z]\w+|\b[A-Z]\w+\sde\s[A-Z]\w+|\b[A-Z]\w+\sdel\s[A-Z]\w+)', self.content)
         if match2:
             # Iterate over all lines
-            for line in Tweet.get_lines():
+            for line in self.get_lines():
                 # Iterate over all matching word pairs
                 for element in match1:
                     # Query the database to find any aliases for the current word pair and line
-                    alias = Alias.objects.filter(alternate=element)
+                    alias = Alias.objects.filter(alternate=element).first()
                     if alias and alias.station.line.id == line:
                         # If the line is not already in the results dictionary, add it
                         if line.id not in data:

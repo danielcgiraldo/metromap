@@ -71,12 +71,6 @@ class Data:
                         data[linea.id] = {"color": linea.color, "stations": {}}
                     
                     alias = Alias.objects.filter(station=estacion).first()
-                    print("==============")
-                    print(estacion.line.id)
-                    print(estacion.station)
-                    print(alias)
-                    print("==============")
-
                     # Add the properties of the station to the data dictionary
                     data[linea.id]["stations"][estacion.station] = {"name": alias.alternate, "sites_of_interest": estacion.sites_of_interest, "services": estacion.services}
 

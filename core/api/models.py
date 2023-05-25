@@ -64,7 +64,7 @@ class Alias(models.Model):
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
     
 class Incident(models.Model):
-    id = models.CharField(max_length=20, primary_key=True)
+    id = models.AutoField(primary_key=True)
     status = models.BooleanField()
 
 class AffectedStation(models.Model):
@@ -73,7 +73,8 @@ class AffectedStation(models.Model):
     affected_station = models.ForeignKey(Station, on_delete=models.CASCADE)
 
 class Notification(models.Model):
-    tweet_id = models.CharField(max_length=40, primary_key=True)
+    id = models.AutoField(primary_key=True)
+    tweet_id = models.CharField(max_length=40)
     incident = models.ForeignKey(Incident, on_delete=models.CASCADE)
     date = models.DateTimeField()
     

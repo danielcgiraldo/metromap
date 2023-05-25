@@ -1,6 +1,5 @@
-import datetime
 from api.models import Incident, AffectedStation, Notification, Station
-
+from django.utils import timezone
 
 def create_incident(affected_stations, tweet_id):
     incidents = Incident.objects.filter(status=1)
@@ -14,7 +13,7 @@ def create_incident(affected_stations, tweet_id):
                 if AffectedStation.objects.filter(incident=incident, affected_station=station):
                     if incident.id not in inc_updated:
                         obj = Notification(tweet_id=tweet_id,
-                                           incident=incident, date=datetime.now())
+                                           incident=incident, date=timezone.now())
                         obj.save()
                         inc_updated.append(incident.id)
                     affected_stations.remove(station)
@@ -35,7 +34,7 @@ def create_incident(affected_stations, tweet_id):
 
         # Create notification
         noti = Notification(tweet_id=tweet_id,
-                            incident=incident, date=datetime.now())
+                            incident=incident, date=timezone.now())
         noti.save()
 
         # Add affected stations to incident
@@ -68,9 +67,9 @@ def full_incident(line, tweet, type="O"):
                     incident.status = 0
                 if station_count > 0:
                     notif = Notification(tweet_id=tweet,
-                                         incident=incident, date=datetime.now())
+                                         incident=incident, date=timezone.now())
                     notif.save()
-                incident.updated_at = datetime.now()
+                incident.updated_at = timezone.now()
                 incident.save()
     else:
         for station in stations_of_line:
@@ -83,5 +82,5 @@ def full_incident(line, tweet, type="O"):
                 incident=incident, affected_station=station)
             affected_station.save()
         notif = Notification(tweet_id=tweet,
-                             incident=incident, date=datetime.now())
+                             incident=incident, date=timezone.now())
         notif.save()
