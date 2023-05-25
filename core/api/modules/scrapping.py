@@ -27,6 +27,9 @@ def get_tweets(min_ago):
 
     # Iterate over all the tweets in the profile.
     for tweet in scraper.get_items():
+        if type(tweet) == sntwitter.Tombstone:
+            continue
+
         content = tweet.rawContent
 
         # If the tweet is older than the search interval, stop searching.
