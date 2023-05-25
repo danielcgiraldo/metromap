@@ -19,7 +19,7 @@ def update_status():
     now = datetime.datetime.now()
     
     # Get tweets that were posted within the last 3 minutes
-    tweets = get_tweets(timedelta(minutes=1100))
+    tweets = get_tweets(timedelta(minutes=3))
     
     if len(tweets) == 0:
         return False
