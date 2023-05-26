@@ -43,11 +43,10 @@ class Incidents:
 
             # Filter affected stations based on station or all affected stations
             if self.station:
-                line = Line.objects.get(pk=self.line)
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident,
                     affected_station=Station.objects.get(station=self.station,
-                                                            line=line))
+                                                         line=self.line))
             else:
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident)
@@ -58,8 +57,10 @@ class Incidents:
 
                 if self.station:
                     # If station is specified in request, only include data for that station
-                    if self.station == station.station:
-                        data[station.line][station.station] = {
+                    if self.station == station:
+                        if station.line.id not in data:
+                            data[station.line.id] = {}
+                        data[station.line.id][station.station] = {
                             "status": station.status, "tweet_id": tweet_id}
                 elif self.line:
                     # If line is specified in request, only include data for that line
