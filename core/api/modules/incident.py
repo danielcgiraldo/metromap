@@ -1,6 +1,7 @@
 from api.models import Incident, AffectedStation, Notification, Station
 from django.utils import timezone
 
+
 def create_incident(affected_stations, tweet_id):
     incidents = Incident.objects.filter(status=1)
     if incidents:
@@ -12,11 +13,12 @@ def create_incident(affected_stations, tweet_id):
             for incident in incidents:
                 if AffectedStation.objects.filter(incident=incident, affected_station=station):
                     if incident.id not in inc_updated:
+                        
                         obj = Notification(tweet_id=tweet_id,
                                            incident=incident, date=timezone.now())
                         obj.save()
                         inc_updated.append(incident.id)
-                    affected_stations.remove(station)
+                    affected_stations = affected_stations.exclude(pk=station.pk)
         # If there are stations not related to active incidents
         # Create new incident
         if len(affected_stations) > 0:
@@ -26,6 +28,10 @@ def create_incident(affected_stations, tweet_id):
                 obj = AffectedStation(
                     incident=incidents[0], affected_station=station)
                 obj.save()
+            
+            noti = Notification(tweet_id=tweet_id,
+                                incident=incident, date=timezone.now())
+            noti.save()
     else:
         # If there is no active incidents
         # Create incident
@@ -33,6 +39,7 @@ def create_incident(affected_stations, tweet_id):
         incident.save()
 
         # Create notification
+        
         noti = Notification(tweet_id=tweet_id,
                             incident=incident, date=timezone.now())
         noti.save()
@@ -66,6 +73,7 @@ def full_incident(line, tweet, type="O"):
                     # If the incident stations are all related to the line
                     incident.status = 0
                 if station_count > 0:
+                    
                     notif = Notification(tweet_id=tweet,
                                          incident=incident, date=timezone.now())
                     notif.save()
@@ -81,6 +89,7 @@ def full_incident(line, tweet, type="O"):
             affected_station = AffectedStation(
                 incident=incident, affected_station=station)
             affected_station.save()
+        
         notif = Notification(tweet_id=tweet,
                              incident=incident, date=timezone.now())
         notif.save()

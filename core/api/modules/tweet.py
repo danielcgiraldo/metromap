@@ -127,7 +127,7 @@ class Tweet:
                 for element in match1:
                     # Query the database to find any aliases for the current word and line
                     alias = Alias.objects.filter(alternate=element).first()
-                    if alias and alias.station.line.id == line:
+                    if alias and alias.station.line == line:
                         # If the line is not already in the results dictionary, add it
                         if line.id not in data:
                             data[line.id] = []
@@ -146,7 +146,7 @@ class Tweet:
                 for element in match1:
                     # Query the database to find any aliases for the current word pair and line
                     alias = Alias.objects.filter(alternate=element).first()
-                    if alias and alias.station.line.id == line:
+                    if alias and alias.station.line == line:
                         # If the line is not already in the results dictionary, add it
                         if line.id not in data:
                             data[line.id] = []

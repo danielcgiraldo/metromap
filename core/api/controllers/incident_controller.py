@@ -1,5 +1,5 @@
 import datetime
-from api.models import Incident, AffectedStation, Notification
+from api.models import Incident, AffectedStation, Line, Notification, Station
 
 
 class Incidents:
@@ -43,8 +43,9 @@ class Incidents:
 
             # Filter affected stations based on station or all affected stations
             if self.station:
+                line = Line.obejcts.filter(pk=self.line)
                 affected_stations = AffectedStation.objects.filter(
-                    incident=incident, affected_station=self.station)
+                    incident=incident, affected_station=Station.object.filter(station=self.station, line=line))
             else:
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident)
