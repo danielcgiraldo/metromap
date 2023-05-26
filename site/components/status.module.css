@@ -1,45 +1,54 @@
 div.status_table {
+    /* Styles for status table container */
     width: 100%;
     border: 1px solid lightgray;
     margin-top: 2rem;
-}
-
-div.status_component {
+    }
+    
+    div.status_component {
+    /* Styles for each status component */
     width: 100%;
     border-bottom: 1px solid lightgray;
     padding-bottom: 15px;
-}
-
-div.status_component:last-child {
+    }
+    
+    div.status_component:last-child {
+    /* Remove bottom border for last status component */
     border-bottom: 0;
-}
-
-div.status_component h3 {
+    }
+    
+    div.status_component h3 {
+    /* Styles for status component heading */
     font-size: 1rem;
     font-weight: 600;
-}
-
-div.status_component a.status_row {
+    }
+    
+    div.status_component a.status_row {
+    /* Styles for status component rows with links */
     padding: 15px 50px;
     display: flex;
     justify-content: space-between;
-}
-
-div.status_component div.status_row {
+    }
+    
+    div.status_component div.status_row {
+    /* Styles for status component rows without links */
     padding: 25px 30px 10px 30px;
-}
-
-p.status_title {
+    }
+    
+    p.status_title {
+    /* Styles for status titles */
     display: flex;
     align-items: center;
     gap: 8px;
-}
-
-div.tooltip {
+    }
+    
+    div.tooltip {
+    /* Styles for tooltips */
     position: relative;
-}
-
-div.tooltip span {
+    }
+    
+    div.tooltip span {
+    /* Styles for tooltip text */
     display: none;
     position: absolute;
     top: -37px;
@@ -51,9 +60,10 @@ div.tooltip span {
     white-space: nowrap;
     font-size: 11px;
     transform: translateX(calc(-50% + 10px));
-}
-
-div.tooltip span::after {
+    }
+    
+    div.tooltip span::after {
+    /* Styles for tooltip arrow */
     position: absolute;
     height: 6px;
     width: 11px;
@@ -62,25 +72,30 @@ div.tooltip span::after {
     bottom: -6px;
     right: calc(50% - 5px);
     clip-path: polygon(100% 0%, 50% 100%, 0% 0%);
-}
-
-div.tooltip:hover span {
+    }
+    
+    div.tooltip:hover span {
+    /* Display tooltip text on hover */
     display: block;
-}
-
-p.status_title svg p.O,
-p.O {
+    }
+    
+    p.status_title svg p.O,
+    p.O {
+    /* Styles for status "O" */
     color: #2fcc66;
-}
-
-p.U {
+    }
+    
+    p.U {
+    /* Styles for status "U" */
     color: #3498db;
-}
-
-p.M {
+    }
+    
+    p.M {
+    /* Styles for status "M" */
     color: #e74c3c;
-}
-
-p.P {
+    }
+    
+    p.P {
+    /* Styles for status "P" */
     color: #f1c40f;
-}
+    }
