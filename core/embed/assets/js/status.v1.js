@@ -47,8 +47,8 @@ function segment_status(line, station1, station2, status) {
 
 setInterval(() => {
     const fechaActual = new Date();
-    fechaActual.setMinutes(fechaActual.getMinutes() - 6);
-    const fechaMenos6Min = fechaActual.toISOString();
+    fechaActual.setMinutes(fechaActual.getMinutes() - 3);
+    const fechaMenos6Min = fechaActual.toISOString().slice(0, -1);
 
     fetch(`https://embed.metromap.online/request?uri=https://api.metromap.online/v1/incident?dt=${fechaMenos6Min}`)
         .then(response => response.json())
@@ -68,6 +68,6 @@ setInterval(() => {
             }
         })
         .catch(error => console.error(error));
-}, 60000);
+}, 30000);
 
 setup_status();

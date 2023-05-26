@@ -46,8 +46,10 @@
         try {
             // Define a function to extract the domain from a URL
             function getDomainFromURL(url) {
-                var domain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+\.[^:\/\n]+)/im);
-                return domain && domain[1];
+                // remove http:// and https://
+                var dom = url.replace(/(^\w+:|^)\/\//, '');
+                importScripts("https://cdnjs.cloudflare.com/ajax/libs/psl/1.8.0/psl.min.js");
+                return psl.get(dom) ?? "[Invalid domain name]";
             }
 
             // Get the host of the current document
