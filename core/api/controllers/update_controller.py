@@ -37,7 +37,8 @@ def update_status():
                 for line in lines:
                     try:
                         # Update the status of the line
-                        Line.objects.filter(pk=line).update(status=status_type)
+                        line.status = status_type
+                        line.save()
 
                         # Get all stations of the line
                         stations = Station.objects.filter(line=line)
