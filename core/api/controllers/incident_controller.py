@@ -43,12 +43,11 @@ class Incidents:
 
             # Filter affected stations based on station or all affected stations
             if self.station:
-                line = Line.objects.filter(pk=self.line)
+                line = Line.objects.get(pk=self.line)
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident,
-                    affected_station=Station.objects.get(
-                        station=self.station, line=line)
-                )
+                    affected_station=Station.objects.get(station=self.station,
+                                                            line=line).first())
             else:
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident)
