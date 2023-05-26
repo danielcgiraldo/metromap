@@ -25,19 +25,19 @@ def update_status():
         return False
     # Loop through the tweets and update the status of the affected lines in the database
     for tweet in tweets:
-        # Get the type of the tweet ("O" for outage, "M" for maintenance, or None for other types)
-        type = tweet.get_type()
+        # Get the status_type of the tweet ("O" for outage, "M" for maintenance, or None for other status_types)
+        status_type = tweet.get_status_type()
 
-        # If the tweet type is outage or maintenance, update the status of the affected lines
-        if type:
+        # If the tweet status_type is outage or maintenance, update the status of the affected lines
+        if status_type:
 
-            if type in ["M", "O"]:
+            if status_type in ["M", "O"]:
                 # Update all line station statuses to "O" (Operational) or "M" (Major outage)
                 lines = tweet.get_lines()
                 for line in lines:
                     try:
                         # Update the status of the line
-                        Line.objects.filter(pk=line).update(status=type)
+                        Line.objects.filter(pk=line).update(status=status_type)
 
                         # Get all stations of the line
                         stations = Station.objects.filter(line=line)
@@ -45,9 +45,9 @@ def update_status():
                         for station in stations:
                             # Update the status of the station
                             Station.objects.filter(
-                                pk=station.id).update(status=type)
+                                pk=station.id).update(status=status_type)
                             
-                        full_incident(line, tweet.id, type)
+                        full_incident(line, tweet.id, status_type)
 
                     except Line.DoesNotExist or Station.DoesNotExist:
                         pass
@@ -59,14 +59,14 @@ def update_status():
                 for line, stations in affected.items():
                     try:
                         # Update the status of the line
-                        Line.objects.filter(pk=line).update(status=type)
+                        Line.objects.filter(pk=line).update(status=status_type)
 
                         stations_len = len(stations)
                         if stations_len == 1:
                             # Very unlikely case
                             # Suppose that the affected station is closed but trains are still passing by
                             Station.objects.filter(
-                                pk=stations[0]).update(status=type)
+                                pk=stations[0]).update(status=status_type)
                             # Check if there is an incident active related to the station, if so update it
                             create_incident(stations, tweet.id)
                         elif stations_len == 2:
