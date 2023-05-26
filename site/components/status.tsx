@@ -51,7 +51,7 @@ const SERVICE_LIST = [
             {
                 title: "Updates",
                 url: "https://twitter.com/metrodemedellin",
-                status: "P",
+                status: "O",
                 info: "Actualizar sistemas desde @metrodemedellin",
             },
         ],
@@ -112,7 +112,7 @@ const SERVICE_LIST = [
             {
                 title: "Embed",
                 url: "https://embed.metromap.online/v1/map",
-                status: "P",
+                status: "O",
             },
         ],
     },
