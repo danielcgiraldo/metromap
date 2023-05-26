@@ -150,7 +150,7 @@ async function focus_station(ev) {
                     if (data.status == "ok") {
                         if (data.data[idLine] && data.data[idLine][idStation]) {
                             if (data.data[idLine][idStation].status == "P") {
-                                modal.querySelector(".info").insertAdjacentHTML("afterbegin", `<a class="alert ${stationStatus}" href="https://twitter.com/metrodemedellin/status/${data.data[idLine][idStation].tweet_id}" target="_blank">
+                                modal.querySelector(".info").insertAdjacentHTML("afterbegin", `<a class="alert ${data.data[idLine][idStation].status}" href="https://twitter.com/metrodemedellin/status/${data.data[idLine][idStation].tweet_id}" target="_blank">
                             <svg width="649" height="573" viewBox="0 0 649 573" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M375.04 29.0626C364.587 11.1453 345.409 0.130615 324.665 0.130615C303.921 0.130615 284.744 11.1462 274.291 29.0626L8.54397 484.596C-1.98203 502.659 -2.04976 524.94 8.35648 543.049C18.7627 561.153 38.0391 572.331 58.9445 572.331H590.385C611.291 572.331 630.567 561.154 640.972 543.049C651.379 524.94 651.311 502.659 640.785 484.596L375.04 29.0626ZM324.665 420.663C340.764 420.663 353.832 433.73 353.832 449.829C353.832 465.928 340.764 478.996 324.665 478.996C308.566 478.996 295.499 465.928 295.499 449.829C295.499 433.73 308.566 420.663 324.665 420.663ZM301.332 198.996V362.329C301.332 375.21 311.785 385.663 324.665 385.663C337.546 385.663 347.999 375.21 347.999 362.329V198.996C347.999 186.116 337.546 175.663 324.665 175.663C311.785 175.663 301.332 186.116 301.332 198.996Z"
@@ -159,7 +159,7 @@ async function focus_station(ev) {
                             Parcialmente Operativa
                         </a>`)
                             } else if (data.data[idLine][idStation].status == "M") {
-                                modal.querySelector(".info").insertAdjacentHTML("afterbegin", `<a class="alert ${stationStatus}" href="https://twitter.com/metrodemedellin/status/${data.data[idLine][idStation].tweet_id}" target="_blank">
+                                modal.querySelector(".info").insertAdjacentHTML("afterbegin", `<a class="alert ${data.data[idLine][idStation].status}" href="https://twitter.com/metrodemedellin/status/${data.data[idLine][idStation].tweet_id}" target="_blank">
                             <svg width="649" height="573" viewBox="0 0 649 573" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M375.04 29.0626C364.587 11.1453 345.409 0.130615 324.665 0.130615C303.921 0.130615 284.744 11.1462 274.291 29.0626L8.54397 484.596C-1.98203 502.659 -2.04976 524.94 8.35648 543.049C18.7627 561.153 38.0391 572.331 58.9445 572.331H590.385C611.291 572.331 630.567 561.154 640.972 543.049C651.379 524.94 651.311 502.659 640.785 484.596L375.04 29.0626ZM324.665 420.663C340.764 420.663 353.832 433.73 353.832 449.829C353.832 465.928 340.764 478.996 324.665 478.996C308.566 478.996 295.499 465.928 295.499 449.829C295.499 433.73 308.566 420.663 324.665 420.663ZM301.332 198.996V362.329C301.332 375.21 311.785 385.663 324.665 385.663C337.546 385.663 347.999 375.21 347.999 362.329V198.996C347.999 186.116 337.546 175.663 324.665 175.663C311.785 175.663 301.332 186.116 301.332 198.996Z"
