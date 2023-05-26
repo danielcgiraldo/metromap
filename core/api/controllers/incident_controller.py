@@ -31,8 +31,14 @@ class Incidents:
             # Format the datetime object as a MySQL date string
             mysql_date_string = date_object.strftime('%Y-%m-%d %H:%M:%S')
 
-            incidents = Incident.objects.filter(
-                date__gte=mysql_date_string, status=1)
+            notifications = Notification.objects.filter(
+                date__gte=mysql_date_string)
+
+            incidents = set()
+            for notification in notifications:
+                incidents.append(notification.incident)
+            incidents = list(incidents)
+
         else:
             incidents = Incident.objects.filter(status=1)
 

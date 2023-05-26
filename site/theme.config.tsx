@@ -83,10 +83,10 @@ const config: DocsThemeConfig = {
                 </a>
                 .
                 <div>
-                <a href="/Legal/terminos">Términos y Condiciones</a>
+                <a href="/legal/terminos">Términos y Condiciones</a>
                 </div>
                 <div>  
-                <a href="/Legal/privacidad">Política de Privacidad</a>
+                <a href="/legal/privacidad">Política de Privacidad</a>
                 </div>
             </span>
         ),
