@@ -45,8 +45,7 @@ class Incidents:
             if self.station:
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident,
-                    affected_station=Station.objects.get(station=self.station,
-                                                         line=self.line))
+                    affected_station=self.station)
             else:
                 affected_stations = AffectedStation.objects.filter(
                     incident=incident)
