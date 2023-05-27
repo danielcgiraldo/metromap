@@ -38,6 +38,7 @@
         <div class="line"></div>
     </footer>
     <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/psl/1.8.0/psl.min.js'></script>
     <script src='https://metromapmed.s3.amazonaws.com/assets/js/animations.v2.min.js'></script>
     <script src='https://metromapmed.s3.amazonaws.com/assets/js/stations.v1.min.js'></script>
     <script src='https://metromapmed.s3.amazonaws.com/assets/js/status.v1.min.js'></script>
@@ -48,14 +49,11 @@
             function getDomainFromURL(url) {
                 // remove http:// and https://
                 var dom = url.replace(/(^\w+:|^)\/\//, '');
-                importScripts("https://cdnjs.cloudflare.com/ajax/libs/psl/1.8.0/psl.min.js");
-                return psl.get(dom) ?? "[Invalid domain name]";
+                return psl.get(dom);
             }
 
             // Get the host of the current document
             var host = document.location.ancestorOrigins[0]
-            // Log the host to the console
-            console.log("Host: " + host)
             // Extract the domain from the host
             var domain = getDomainFromURL(host);
             // Log the domain to the console
